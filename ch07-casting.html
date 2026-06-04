@@ -987,6 +987,7 @@
 </div><!-- .reveal -->
 
 <script src="lib/reveal.js"></script>
+<script src="lib/notes/notes.js"></script>
 <script src="lib/katex.min.js"></script>
 <script src="lib/auto-render.min.js"></script>
 <script>
@@ -1002,14 +1003,9 @@ Reveal.initialize({
   margin: 0.06,
   minScale: 0.2,
   maxScale: 1.5,
-  keyboard: {
-    37: 'prev',   // ←
-    39: 'next',   // →
-    38: 'prev',   // ↑
-    40: 'next',   // ↓
-    32: 'next',   // space
-  },
-  plugins: []
+  // 键盘快捷键使用默认配置（← → ↑ ↓ Space B . S 等均可用）
+  // B = 黑屏  . = 白屏  S = 演讲者视图  Esc = 概览模式  F = 全屏
+  plugins: [ RevealNotes ]
 });
 
 // Apply slide background classes based on data-state
