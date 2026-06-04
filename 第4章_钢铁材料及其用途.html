@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>第2章·材料的组织结构</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;600;700;900&family=Archivo:wght@700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" defer></script>
+<style>
+html,body{width:100%;height:100%;margin:0;overflow:hidden;background:#e8e8e8}.vp{position:fixed;inset:0;overflow:hidden;background:#e8e8e8}
+.stage{position:absolute;left:0;top:0;width:1920px;height:1080px;overflow:hidden;transform-origin:0 0}
+.slide{position:absolute;left:0;top:0;width:1920px;height:1080px;overflow:hidden;opacity:0;pointer-events:none;background:#fff}
+.slide.a{opacity:1;pointer-events:auto;z-index:1}
+.ts{display:flex}.ts .bar{width:12px;height:1080px;background:#e03020;flex-shrink:0}.ts .l{padding:100px 80px;flex:1}
+.ts .tag{font-family:Archivo,sans-serif;font-size:15px;font-weight:700;color:#e03020;letter-spacing:4px;margin-top:200px}
+.ts h1{font-size:72px;font-weight:900;color:#1a1a1a;margin:16px 0}.ts .sub{font-size:24px;color:#666}.ts .r{width:45%;background:#f5f5f5}
+.ss{display:flex;flex-direction:column;align-items:center;justify-content:center;background:#f5f5f5}
+.ss .sn{font-family:Archivo,sans-serif;font-size:100px;font-weight:800;color:#e03020;opacity:.12}
+.ss h2{font-size:56px;color:#1a1a1a;margin:8px 0}.ss .sub{font-size:20px;color:#888}
+.cs{padding:48px 72px 56px}
+.cs h2{font-size:42px;color:#1a1a1a;margin:0 0 16px}
+.cs h3{font-size:30px;color:#1a1a1a;margin:14px 0 8px}
+.cs h4{font-size:26px;color:#1a1a1a;margin:10px 0 6px}
+.cs p{font-size:24px;color:#333;line-height:1.6;margin:0 0 8px}.iw img{max-height:460px}.g2 .iw img{max-height:300px}
+.cs li{font-size:24px;color:#333;line-height:1.5;margin:4px 0}
+.cs .sn{font-family:Archivo,sans-serif;font-size:13px;color:#aaa;margin-bottom:8px}
+.cs .hl{color:#e03020;font-weight:600}
+.cs .sm{font-size:20px;color:#666;line-height:1.5}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:10px}
+.g2 .c{padding:18px 20px;background:#f5f5f5;border-radius:8px}
+.g2 .c h3{font-size:24px;margin:0 0 4px;color:#1a1a1a}
+.g2 .c p{font-size:20px;margin:0;color:#555;line-height:1.4}
+.g3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin-top:10px}
+.g3 .c{padding:14px 16px;background:#f5f5f5;border-radius:8px;text-align:center}
+.g3 .c h3{font-size:22px;margin:0 0 4px}.g3 .c p{font-size:18px;margin:0;color:#555}
+table{width:100%;border-collapse:collapse;margin:10px 0;font-size:21px}
+th{background:#e03020;color:#fff;padding:8px 12px;text-align:left;font-weight:600}
+td{padding:8px 12px;border-bottom:1px solid #ddd}
+.iw{text-align:center;margin:6px 0}.iw img{max-height:460px;border-radius:6px;box-shadow:0 2px 10px rgba(0,0,0,.08)}
+.iw .cap{font-size:18px;color:#888;margin-top:4px}
+.fb{margin:8px 0;padding:12px 18px;background:#f5f5f5;border-radius:6px;text-align:center;font-size:24px}
+.ctrl{position:fixed;left:50%;bottom:22px;transform:translateX(-50%);z-index:1000;display:flex;gap:10px;align-items:center;background:rgba(255,255,255,.92);padding:8px 16px;border-radius:10px;box-shadow:0 2px 12px rgba(0,0,0,.08)}
+.ctrl button{width:40px;height:40px;border:1.5px solid rgba(0,0,0,.12);border-radius:6px;background:#fff;cursor:pointer;font-size:17px;color:#555}
+.ctrl button:hover{background:#e03020;color:#fff;border-color:#e03020}
+.ctrl .pi{font-family:Archivo,sans-serif;font-size:13px;color:#999;min-width:50px;text-align:center}
+.ez{position:fixed;top:0;left:0;width:80px;height:80px;z-index:10000;cursor:pointer}
+.eb{position:fixed;top:12px;left:12px;z-index:10001;padding:6px 14px;border:1.5px solid rgba(0,0,0,.12);border-radius:6px;background:rgba(255,255,255,.95);cursor:pointer;font-size:13px;color:#555;opacity:0;pointer-events:none;transition:opacity .3s;font-family:Noto Sans SC,sans-serif}
+.eb.s,.eb.a{opacity:1;pointer-events:auto}[contenteditable]:hover{outline:2px dashed #e03020;outline-offset:2px;cursor:text}
+@media (prefers-reduced-motion:reduce){*{transition-duration:.2s!important}}
+@media print{html,body{background:#fff}.vp{position:static}.stage{position:static;transform:none!important}.slide{position:relative!important;opacity:1!important;break-after:page;height:auto}.ctrl,.ez,.eb{display:none!important}}
+</style><<title>第4章·钢铁材料及其用途</title></head><body><div class="vp"><div class="stage" id="stg"><section class="slide a ts"><div class="bar"></div><div class="l"><div class="tag">CHAPTER 04</div><h1>钢铁材料及其用途</h1><p class="sub">工程材料与机械制造基础（第3版）</p></div><div class="r"></div></section>
+<section class="slide ss"><div class="sn" style="font-family:Archivo;font-size:100px;font-weight:800;color:#e03020;opacity:.12">01</div><h2 style="font-size:56px;color:#1a1a1a;margin:8px 0">碳钢的分类</h2><p class="sub" style="font-size:20px;color:#888">Classification of Carbon Steel</p></section>
+<section class="slide cs"><p class="sn">01/碳钢的分类</p><h2>碳钢概述</h2><p>钢按化学成分分为碳素钢（碳钢）和合金钢两大类。碳钢冶炼简便、价格低廉。</p><p>铸铁含碳2.5%~4.0%，铸造性能好、耐磨、减振。</p></section>
+<section class="slide cs"><p class="sn">01/碳钢的分类</p><h2>按冶炼方法分类</h2><p>按冶炼炉：平炉钢、转炉钢、电炉钢</p><p>按脱氧方法：沸腾钢（F）、镇静钢（Z）、特殊镇静钢（TZ）</p></section>
+<section class="slide cs"><p class="sn">01/碳钢的分类</p><h2>按含碳量分类</h2><p><span class="hl">低碳钢</span>：C &lt; 0.25% — 塑性好、易焊接</p><p><span class="hl">中碳钢</span>：C = 0.25%~0.60% — 综合力学性能好</p><p><span class="hl">高碳钢</span>：C &gt; 0.60% — 硬度高、耐磨</p></section>
+<section class="slide cs"><p class="sn">01/碳钢的分类</p><h2>按质量分类（S、P含量）</h2><p>普通钢：S≤0.050%，P≤0.045%</p><p>优质钢：S≤0.035%，P≤0.035%</p><p>高级优质钢：S≤0.020%，P≤0.030%</p><p>特级优质钢：S≤0.015%，P≤0.025%</p></section>
+<section class="slide cs"><p class="sn">01/碳钢的分类</p><h2>按用途分类</h2><p>碳素结构钢：建筑结构用钢（低碳、焊接好）+ 机械结构用钢（C<0.60%，需热处理）</p><p>碳素工具钢：含碳量高，热处理后强度、硬度、耐磨性高</p></section>
+<section class="slide ss"><div class="sn" style="font-family:Archivo;font-size:100px;font-weight:800;color:#e03020;opacity:.12">02</div><h2 style="font-size:56px;color:#1a1a1a;margin:8px 0">碳钢的牌号</h2><p class="sub" style="font-size:20px;color:#888">Steel Designation</p></section>
+<section class="slide cs"><p class="sn">02/牌号</p><h2>碳素结构钢牌号</h2><p>牌号组成：Q + 屈服强度 + 质量等级 + 脱氧方法</p><p><span class="hl">Q235AF</span> → Q=屈服强度，235MPa，A级，F=沸腾钢</p></section>
+<section class="slide cs"><p class="sn">02/牌号</p><h2>优质碳素结构钢</h2><p>两位数字表示平均碳质量分数的百分数</p><p><span class="hl">45</span> 钢 → 含碳0.45%</p><p><span class="hl">08</span> 钢 → 含碳0.08%（冲压件）</p><p><span class="hl">65</span> 钢 → 含碳0.65%（弹簧）</p></section>
+<section class="slide cs"><p class="sn">02/牌号</p><h2>碳素工具钢</h2><p>T + 数字（平均碳质量分数的千分数）</p><p><span class="hl">T10</span> → 含碳1.0%</p><p><span class="hl">T10A</span> → A表示高级优质</p></section>
+<section class="slide ss"><div class="sn" style="font-family:Archivo;font-size:100px;font-weight:800;color:#e03020;opacity:.12">03</div><h2 style="font-size:56px;color:#1a1a1a;margin:8px 0">合金钢</h2><p class="sub" style="font-size:20px;color:#888">Alloy Steel</p></section>
+<section class="slide cs"><p class="sn">03/合金钢</p><h2>合金钢分类</h2><p>按化学成分：低合金钢（<5%）、中合金钢（5%~10%）、高合金钢（>10%）</p><p>按用途：合金结构钢、合金工具钢、特殊性能钢</p></section>
+<section class="slide cs"><p class="sn">03/合金钢</p><h2>合金元素的作用</h2><p>① 固溶强化铁素体 — Mn、Cr、Ni</p><p>② 第二相强化 — 形成碳化物（TiC、VC），硬度达71~75HRC</p><p>③ 细晶强化 — Nb、Ti、V阻碍晶粒长大</p></section>
+<section class="slide cs"><p class="sn">03/合金钢</p><h2>合金元素对热处理的影响</h2><p>④ 提高淬透性 — 使C曲线右移，降低临界冷却速度，减少变形开裂</p><p>⑤ 提高回火稳定性 — 马氏体不易分解，高温保持硬度</p></section>
+<section class="slide cs"><p class="sn">03/合金钢</p><h2>合金结构钢牌号</h2><p>两位数字（C万分比）+ 元素符号 + 数字（元素百分比，<1.5%不标）</p><p>例：<span class="hl">40Cr</span> → C=0.40%，Cr<1.5%</p><p><span class="hl">18Cr2Ni4WA</span> → C=0.18%，Cr=2%，Ni=4%，W<1.5%</p></section>
+<section class="slide cs"><p class="sn">03/合金钢</p><h2>合金结构钢类型</h2><p>合金调质钢：C=0.3%~0.6%，淬火+高温回火，40Cr、35CrMo</p><p>合金渗碳钢：C=0.15%~0.25%，渗碳+淬火+低温回火，20CrMnTi</p><p>合金弹簧钢：C=0.5%~0.85%，淬火+中温回火，65Mn、50CrV</p></section>
+<section class="slide ss"><div class="sn" style="font-family:Archivo;font-size:100px;font-weight:800;color:#e03020;opacity:.12">04</div><h2 style="font-size:56px;color:#1a1a1a;margin:8px 0">合金工具钢与特殊性能钢</h2><p class="sub" style="font-size:20px;color:#888">Tool Steel & Special Steel</p></section>
+<section class="slide cs"><p class="sn">04/工具钢</p><h2>合金工具钢</h2><p>低合金工具钢：合金<5%，C=0.9%~1.5%，工作温度≤300°C。如9SiCr、CrWMn</p><p>高合金工具钢：</p><p>• 高速钢 W18Cr4V — 600°C保持60HRC，用于高速切削</p><p>• 高铬模具钢 Cr12 — 硬度均匀、耐磨、尺寸稳定</p></section>
+<section class="slide cs"><p class="sn">04/特殊钢</p><h2>不锈钢与耐热钢</h2><p>不锈钢：抵抗大气或弱腐蚀介质。12Cr18Ni9（奥氏体不锈钢）</p><p>耐热钢：高温下化学稳定、强度高。加入Cr、Si、Al形成致密氧化膜</p></section>
+<section class="slide cs"><p class="sn">04/特殊钢</p><h2>耐磨钢（高锰钢）</h2><p>C=1.0%~1.3%，Mn=11%~14%</p><p>冲击载荷下发生冲击硬化，获得高耐磨性</p><p>典型牌号：ZGMn13 — 铲斗、坦克履带，高寒地区不冷脆</p></section>
+<section class="slide ss"><div class="sn" style="font-family:Archivo;font-size:100px;font-weight:800;color:#e03020;opacity:.12">05</div><h2 style="font-size:56px;color:#1a1a1a;margin:8px 0">铸铁</h2><p class="sub" style="font-size:20px;color:#888">Cast Iron</p></section>
+<section class="slide cs"><p class="sn">05/铸铁</p><h2>铸铁概述</h2><p>铸铁C>2.11%，工业常用C=2.5%~4.0%</p><p>抗拉强度、塑性、韧性不如钢，但铸造性好、耐磨、减振、价廉</p><p>铸铁件在汽车拖拉机中占50%~70%，机床中占60%~90%</p></section>
+<section class="slide cs"><p class="sn">05/铸铁</p><h2>铸铁分类</h2><p>按断口：白口铸铁（渗碳体）、灰口铸铁（石墨）、麻口铸铁</p><p>按石墨形态：灰铸铁（片状）、可锻铸铁（团絮状）、球墨铸铁（球状）、蠕墨铸铁（蠕虫状）</p></section>
+<section class="slide cs"><p class="sn">05/铸铁</p><h2>石墨化过程</h2><p>石墨化：碳原子析出和石墨形成的过程</p><p>Fe₃C → 3Fe + G（石墨）</p><p>影响因素：</p><p>• C、Si、P促进石墨化，Mn、S阻碍石墨化</p><p>• 冷却越慢越有利于石墨化</p></section>
+<section class="slide cs"><p class="sn">06/铸铁</p><h2>灰铸铁</h2><p>碳以片状石墨形式存在，断口暗灰色，占铸铁总产量80%以上</p><p>按基体分：珠光体灰铸铁、铁素体灰铸铁、珠光体-铁素体灰铸铁</p><p>片状石墨割裂基体→抗拉强度低、塑性近零，但抗压强度高、减振好</p><div class="iw"><img src="images/44_灰铸铁显微组织图.jpg"><div class="cap">图4-6 灰铸铁显微组织 — 片状石墨</div></div></section>
+<section class="slide cs"><p class="sn">06/铸铁</p><h2>球墨铸铁</h2><p>石墨呈球状，对基体割裂作用小，强度高、塑性好</p><p>铁水中加球化剂（稀土镁合金）制得</p><p>可代替铸钢和锻钢制造曲轴、连杆、齿轮等</p><div class="iw"><img src="images/46_球墨铸铁显微组织图.jpg"><div class="cap">图4-7 球墨铸铁显微组织 — 球状石墨</div></div></section>
+<section class="slide cs"><p class="sn">06/铸铁</p><h2>可锻铸铁</h2><p>白口铸铁经长时间退火得到，石墨呈团絮状</p><p>韧性比灰铸铁好，用于管件、薄壁件</p><div class="iw"><img src="images/45_可锻铸铁显微组织图.jpg"><div class="cap">图4-8 可锻铸铁显微组织 — 团絮状石墨</div></div></section>
+<section class="slide cs"><p class="sn">06/铸铁</p><h2>蠕墨铸铁</h2><p>石墨呈蠕虫状，介于片状和球状之间</p><p>综合性能好，用于发动机缸盖、排气管等热疲劳件</p><div class="iw"><img src="images/47_蠕墨铸铁显微组织times_200.jpg"><div class="cap">图4-9 蠕墨铸铁显微组织 — 蠕虫状石墨</div></div></section>
+<section class="slide ss"><div class="sn" style="font-family:Archivo;font-size:100px;font-weight:800;color:#e03020;opacity:.12">本章小结</div><h2 style="font-size:56px;color:#1a1a1a;margin:8px 0">核心要点回顾</h2></section>
+<section class="slide cs"><p class="sn">小结</p><h2>重点总结</h2><p>① 碳钢分类：按冶炼方法、含碳量、质量、用途四种方式</p><p>② 牌号：Q235（结构钢）、45（优质碳素）、T10（工具钢）</p><p>③ 合金元素：固溶强化、第二相强化、细晶强化，提高淬透性和回火稳定性</p><p>④ 合金钢：调质钢、渗碳钢、弹簧钢、工具钢、高速钢、不锈钢、耐磨钢</p><p>⑤ 铸铁：灰铸铁（片状）、球墨铸铁（球状）、可锻铸铁（团絮状）、蠕墨铸铁（蠕虫状）</p></section></div></div><nav class="ctrl"><button id="prev">&#8592;</button><span class="pi" id="pi">1/32</span><button id="next">&#8594;</button></nav>
+<div class="ez" id="ez"></div><button class="eb" id="eb">编辑文字</button>
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script>
+(function(){
+var sl=document.querySelectorAll('.slide'),cur=0,pi=document.getElementById('pi'),sg=document.getElementById('stg'),vp=document.querySelector('.vp');
+function go(i){
+  cur=Math.max(0,Math.min(i,sl.length-1));
+  for(var j=0;j<sl.length;j++)sl[j].classList.toggle('a',j===cur);
+  pi.textContent=(cur+1)+'/'+sl.length;
+  try{renderMathInElement(document.body)}catch(e){}
+}
+function sz(){var sc=Math.min(vp.clientWidth/1920,vp.clientHeight/1080);sg.style.transform='translate('+(vp.clientWidth-1920*sc)/2+'px,'+(vp.clientHeight-1080*sc)/2+'px) scale('+sc+')'}
+document.getElementById('next').onclick=function(){go(cur+1)};
+document.getElementById('prev').onclick=function(){go(cur-1)};
+document.addEventListener('keydown',function(e){
+  if(e.key==='ArrowRight'||e.key==='ArrowDown'||e.key===' '){e.preventDefault();go(cur+1)}
+  if(e.key==='ArrowLeft'||e.key==='ArrowUp'){e.preventDefault();go(cur-1)}
+});
+document.addEventListener('wheel',function(e){if(e.deltaY>0)go(cur+1);else go(cur-1)},{passive:true});
+window.addEventListener('resize',sz);sz();go(0);
+(function(){var eb=document.getElementById('eb'),ez=document.getElementById('ez'),ac=false,timer=null;
+function tog(){ac=!ac;eb.classList.toggle('a',ac);eb.textContent=ac?'退出编辑':'编辑文字';document.querySelector('.slide.a').querySelectorAll('h1,h2,h3,h4,p,li,td,th,span.hl,div.c h3,.sn,.tag,.sm,.sub,.cap').forEach(function(el){el.contentEditable=ac?'true':'false'})}
+eb.onclick=tog;ez.onmouseenter=function(){clearTimeout(timer);eb.classList.add('s')};
+ez.onmouseleave=function(){timer=setTimeout(function(){if(!ac)eb.classList.remove('s')},400)};
+eb.onmouseenter=function(){clearTimeout(timer)};eb.onmouseleave=function(){timer=setTimeout(function(){if(!ac)eb.classList.remove('s')},400)};ez.onclick=tog;
+document.addEventListener('keydown',function(e){if((e.key==='e'||e.key==='E')&&!e.target.closest('[contenteditable]')){e.preventDefault();tog()};if(e.ctrlKey&&e.key==='s'){e.preventDefault();alert('已保存')}});
+})();
+})();
+</script></body></html>

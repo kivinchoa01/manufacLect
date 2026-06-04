@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>第2章·材料的组织结构</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;600;700;900&family=Archivo:wght@700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" defer></script>
+<style>
+html,body{width:100%;height:100%;margin:0;overflow:hidden;background:#e8e8e8}.vp{position:fixed;inset:0;overflow:hidden;background:#e8e8e8}
+.stage{position:absolute;left:0;top:0;width:1920px;height:1080px;overflow:hidden;transform-origin:0 0}
+.slide{position:absolute;left:0;top:0;width:1920px;height:1080px;overflow:hidden;opacity:0;pointer-events:none;background:#fff}
+.slide.a{opacity:1;pointer-events:auto;z-index:1}
+.ts{display:flex}.ts .bar{width:12px;height:1080px;background:#e03020;flex-shrink:0}.ts .l{padding:100px 80px;flex:1}
+.ts .tag{font-family:Archivo,sans-serif;font-size:15px;font-weight:700;color:#e03020;letter-spacing:4px;margin-top:200px}
+.ts h1{font-size:72px;font-weight:900;color:#1a1a1a;margin:16px 0}.ts .sub{font-size:24px;color:#666}.ts .r{width:45%;background:#f5f5f5}
+.ss{display:flex;flex-direction:column;align-items:center;justify-content:center;background:#f5f5f5}
+.ss .sn{font-family:Archivo,sans-serif;font-size:100px;font-weight:800;color:#e03020;opacity:.12}
+.ss h2{font-size:56px;color:#1a1a1a;margin:8px 0}.ss .sub{font-size:20px;color:#888}
+.cs{padding:48px 72px 56px}
+.cs h2{font-size:42px;color:#1a1a1a;margin:0 0 16px}
+.cs h3{font-size:30px;color:#1a1a1a;margin:14px 0 8px}
+.cs h4{font-size:26px;color:#1a1a1a;margin:10px 0 6px}
+.cs p{font-size:24px;color:#333;line-height:1.6;margin:0 0 8px}.iw img{max-height:460px}.g2 .iw img{max-height:300px}
+.cs li{font-size:24px;color:#333;line-height:1.5;margin:4px 0}
+.cs .sn{font-family:Archivo,sans-serif;font-size:13px;color:#aaa;margin-bottom:8px}
+.cs .hl{color:#e03020;font-weight:600}
+.cs .sm{font-size:20px;color:#666;line-height:1.5}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:10px}
+.g2 .c{padding:18px 20px;background:#f5f5f5;border-radius:8px}
+.g2 .c h3{font-size:24px;margin:0 0 4px;color:#1a1a1a}
+.g2 .c p{font-size:20px;margin:0;color:#555;line-height:1.4}
+.g3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin-top:10px}
+.g3 .c{padding:14px 16px;background:#f5f5f5;border-radius:8px;text-align:center}
+.g3 .c h3{font-size:22px;margin:0 0 4px}.g3 .c p{font-size:18px;margin:0;color:#555}
+table{width:100%;border-collapse:collapse;margin:10px 0;font-size:21px}
+th{background:#e03020;color:#fff;padding:8px 12px;text-align:left;font-weight:600}
+td{padding:8px 12px;border-bottom:1px solid #ddd}
+.iw{text-align:center;margin:6px 0}.iw img{max-height:460px;border-radius:6px;box-shadow:0 2px 10px rgba(0,0,0,.08)}
+.iw .cap{font-size:18px;color:#888;margin-top:4px}
+.fb{margin:8px 0;padding:12px 18px;background:#f5f5f5;border-radius:6px;text-align:center;font-size:24px}
+.ctrl{position:fixed;left:50%;bottom:22px;transform:translateX(-50%);z-index:1000;display:flex;gap:10px;align-items:center;background:rgba(255,255,255,.92);padding:8px 16px;border-radius:10px;box-shadow:0 2px 12px rgba(0,0,0,.08)}
+.ctrl button{width:40px;height:40px;border:1.5px solid rgba(0,0,0,.12);border-radius:6px;background:#fff;cursor:pointer;font-size:17px;color:#555}
+.ctrl button:hover{background:#e03020;color:#fff;border-color:#e03020}
+.ctrl .pi{font-family:Archivo,sans-serif;font-size:13px;color:#999;min-width:50px;text-align:center}
+.ez{position:fixed;top:0;left:0;width:80px;height:80px;z-index:10000;cursor:pointer}
+.eb{position:fixed;top:12px;left:12px;z-index:10001;padding:6px 14px;border:1.5px solid rgba(0,0,0,.12);border-radius:6px;background:rgba(255,255,255,.95);cursor:pointer;font-size:13px;color:#555;opacity:0;pointer-events:none;transition:opacity .3s;font-family:Noto Sans SC,sans-serif}
+.eb.s,.eb.a{opacity:1;pointer-events:auto}[contenteditable]:hover{outline:2px dashed #e03020;outline-offset:2px;cursor:text}
+@media (prefers-reduced-motion:reduce){*{transition-duration:.2s!important}}
+@media print{html,body{background:#fff}.vp{position:static}.stage{position:static;transform:none!important}.slide{position:relative!important;opacity:1!important;break-after:page;height:auto}.ctrl,.ez,.eb{display:none!important}}
+</style><<title>第5章·非铁材料</title></head><body><div class="vp"><div class="stage" id="stg"><section class="slide a ts"><div class="bar"></div><div class="l"><div class="tag">CHAPTER 05</div><h1>非铁材料</h1><p class="sub">工程材料与机械制造基础（第3版）</p></div><div class="r"></div></section>
+<section class="slide ss"><div class="sn" style="font-family:Archivo;font-size:100px;font-weight:800;color:#e03020;opacity:.12">01</div><h2 style="font-size:56px;color:#1a1a1a;margin:8px 0">铝及铝合金</h2><p class="sub" style="font-size:20px;color:#888">Aluminum & Alloys</p></section>
+<section class="slide cs"><p class="sn">01/铝合金</p><h2>纯铝</h2><p>熔点660°C，面心立方晶格，无同素异构转变</p><p>密度2.7 g/cm³，导电导热性好，塑性好但强度不高</p><p>工业纯铝牌号：1×××系列。例：1A99（铝含量99.99%）</p></section>
+<section class="slide cs"><p class="sn">01/铝合金</p><h2>铝合金分类</h2><p>铝合金按加工方法分<span class="hl">变形铝合金</span>和<span class="hl">铸造铝合金</span>两大类。</p><div class="iw"><img src="images/48_铝合金的分类示意图.jpg"><div class="cap">图5-1 铝合金的分类示意图</div></div></section>
+<section class="slide cs"><p class="sn">01/铝合金</p><h2>变形铝合金</h2><p>经变形加工成板、棒、管、线、型材及锻件等。</p><p>① <span class="hl">防锈铝合金</span>（Al-Mg、Al-Mn）：耐蚀好，不能热处理强化。如5A05</p><p>② <span class="hl">硬铝合金</span>（Al-Cu-Mg）：时效硬化能力强，强度高。如2A12(LY12)</p><p>③ <span class="hl">超硬铝合金</span>（Al-Cu-Mg-Zn）：强度高于硬铝。如7A04(LC4)</p><p>④ <span class="hl">锻铝合金</span>（Al-Mg-Si-Cu）：热塑性好。如2A50(LD5)</p></section>
+<section class="slide cs"><p class="sn">01/铝合金</p><h2>铸造铝合金</h2><p>流动性好，适于铸造。按成分分五类：</p><p>① <span class="hl">Al-Si系</span>（硅铝明）：铸造性能优良。如ZL101</p><p>② <span class="hl">Al-Cu系</span>：强度高、耐热，铸造性差</p><p>③ <span class="hl">Al-Mg系</span>：高强度、高耐腐蚀</p><p>④ <span class="hl">Al-Zn系</span>：自淬火效应，强度高</p><p>⑤ <span class="hl">Al-Re系</span>（稀土）：铸造和耐热性能好</p></section>
+<section class="slide cs"><p class="sn">01/铝合金</p><h2>铸造铝合金牌号</h2><p>牌号：ZAl + 元素符号 + 含量。如ZAlSi5Cu1MgA</p><p>代号：ZL + 三位数字。第一位数字：1=Al-Si, 2=Al-Cu, 3=Al-Mg, 4=Al-Zn</p><p>例：<span class="hl">ZL101</span> → 铸造Al-Si合金</p></section>
+<section class="slide ss"><div class="sn" style="font-family:Archivo;font-size:100px;font-weight:800;color:#e03020;opacity:.12">02</div><h2 style="font-size:56px;color:#1a1a1a;margin:8px 0">铜及铜合金</h2><p class="sub" style="font-size:20px;color:#888">Copper & Alloys</p></section>
+<section class="slide cs"><p class="sn">02/铜合金</p><h2>纯铜（紫铜）</h2><p>密度8.94 g/cm³，熔点1083°C，面心立方晶格，无同素异构、无磁性</p><p>导电导热性（仅次于银），塑性好、耐腐蚀</p><p>牌号：T1、T1.5、T2、T3（数字越大纯度越低）</p><p>用途：电线、电缆、铜管等</p></section>
+<section class="slide cs"><p class="sn">02/铜合金</p><h2>黄铜（Cu-Zn合金）</h2><p>以Zn为唯一或主要合金元素的铜合金</p><p><span class="hl">普通黄铜</span>：H + 数字（Cu含量）。如H80、H68、H62</p><p><span class="hl">特殊黄铜</span>：H + 主加元素 + Cu含量 + 元素含量</p><p>如HPb59-1（Cu=59%, Pb=1%, 余Zn），用于销、螺钉等</p></section>
+<section class="slide cs"><p class="sn">02/铜合金</p><h2>青铜</h2><p>除Zn、Ni为主加元素外的铜合金统称青铜。牌号：Q + 主加元素 + 含量</p><p><span class="hl">锡青铜</span>（Cu-Sn）：减摩、抗磁、低温韧性好。如QSn4-3</p><p><span class="hl">铝青铜</span>（Cu-Al）：耐蚀耐磨。如QAl9-4</p><p><span class="hl">铍青铜</span>（Cu-Be）：高强、耐磨、抗磁、不产生火花。如QBe2</p><p><span class="hl">硅青铜</span>（Cu-Si）：力学性能好，可压力加工</p></section>
+<section class="slide cs"><p class="sn">02/铜合金</p><h2>白铜（Cu-Ni合金）</h2><p>以Ni为主加元素的铜合金，耐腐蚀性能好</p><p>用于精密仪器、热电偶、医疗器械等</p></section>
+<section class="slide ss"><div class="sn" style="font-family:Archivo;font-size:100px;font-weight:800;color:#e03020;opacity:.12">03</div><h2 style="font-size:56px;color:#1a1a1a;margin:8px 0">钛及钛合金</h2><p class="sub" style="font-size:20px;color:#888">Titanium & Alloys</p></section>
+<section class="slide cs"><p class="sn">03/钛合金</p><h2>钛及钛合金</h2><p>储量居金属元素第四位（仅次于Al、Fe、Mg）</p><p>熔点1667°C，密度4.5 g/cm³</p><p>882.5°C以下为α-Ti（密排六方），以上为β-Ti（体心立方）</p><p><span class="hl">优点</span>：比强度最高、热强度高(>500°C)、断裂韧性高、耐蚀优于不锈钢</p><p><span class="hl">缺点</span>：切削性差、弹性模量小、回弹大、成本高</p></section>
+<section class="slide cs"><p class="sn">03/钛合金</p><h2>钛合金分类</h2><p>按退火组织分三类：</p><p><span class="hl">α型</span>（TA）：单相α固溶体，不能热处理强化。如TA6</p><p><span class="hl">β型</span>（TB）：室温全部为β相，可热处理强化。如TB2</p><p><span class="hl">α+β型</span>（TC）：兼有两类优点，应用最广。如TC4(Ti-6Al-4V)</p><p>TC4(Ti-6Al-4V) 是航空航天应用最广泛的钛合金</p></section>
+<section class="slide ss"><div class="sn" style="font-family:Archivo;font-size:100px;font-weight:800;color:#e03020;opacity:.12">04</div><h2 style="font-size:56px;color:#1a1a1a;margin:8px 0">高分子材料</h2><p class="sub" style="font-size:20px;color:#888">Polymer Materials</p></section>
+<section class="slide cs"><p class="sn">04/高分子</p><h2>工程塑料</h2><p>以有机合成树脂为主要成分，加热加压可塑造成形</p><p><span class="hl">热塑性塑料</span>：加热软化→可塑形→冷却变硬，可反复。如PE、PP、PVC、PA</p><p><span class="hl">热固性塑料</span>：初加热可塑形，固化后不再软化。如酚醛(PF)、环氧(EP)</p></section>
+<section class="slide cs"><p class="sn">04/高分子</p><h2>常用工程塑料</h2><p><span class="hl">聚酰胺（尼龙PA）</span>：坚韧耐磨耐疲劳，用于减摩传动件</p><p><span class="hl">聚甲醛POM</span>：综合力学性能好，强度刚度高，用于减摩传动件</p><p><span class="hl">聚四氟乙烯F-4</span>：耐所有化学药品腐蚀、摩擦因数低，不黏</p><p><span class="hl">ABS塑料</span>：综合性能好，用于壳体、管道、仪表盘、轿车车身</p><p><span class="hl">酚醛塑料PF</span>：耐热绝缘，用于一般机械零件、绝缘件</p></section>
+<section class="slide cs"><p class="sn">04/高分子</p><h2>橡胶</h2><p>优良的高弹性材料，同时具有耐磨、隔声、绝缘性能</p><p><span class="hl">天然橡胶</span>：弹性好、强度高，用于轮胎、密封件</p><p><span class="hl">合成橡胶</span>：丁苯橡胶（轮胎）、氯丁橡胶（耐油）、硅橡胶（耐高低温）</p><p>橡胶广泛应用于轮胎、密封件、减振件、绝缘材料</p></section>
+<section class="slide ss"><div class="sn" style="font-family:Archivo;font-size:100px;font-weight:800;color:#e03020;opacity:.12">本章小结</div><h2 style="font-size:56px;color:#1a1a1a;margin:8px 0">核心要点回顾</h2></section>
+<section class="slide cs"><p class="sn">小结</p><h2>重点总结</h2><p>① <span class="hl">铝合金</span>：变形（防锈/硬铝/超硬/锻铝）+ 铸造（Al-Si/Cu/Mg/Zn/Re）</p><p>② <span class="hl">铜合金</span>：黄铜(Cu-Zn)、青铜(Cu-Sn/Al/Be/Si)、白铜(Cu-Ni)</p><p>③ <span class="hl">钛合金</span>：α型(TA)、β型(TB)、α+β型(TC)，比强度最高、耐蚀好</p><p>④ <span class="hl">高分子材料</span>：热塑性塑料（可反复）、热固性塑料（不可反复），橡胶</p></section></div></div><nav class="ctrl"><button id="prev">&#8592;</button><span class="pi" id="pi">1/22</span><button id="next">&#8594;</button></nav>
+<div class="ez" id="ez"></div><button class="eb" id="eb">编辑文字</button>
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script>
+(function(){
+var sl=document.querySelectorAll('.slide'),cur=0,pi=document.getElementById('pi'),sg=document.getElementById('stg'),vp=document.querySelector('.vp');
+function go(i){
+  cur=Math.max(0,Math.min(i,sl.length-1));
+  for(var j=0;j<sl.length;j++)sl[j].classList.toggle('a',j===cur);
+  pi.textContent=(cur+1)+'/'+sl.length;
+  try{renderMathInElement(document.body)}catch(e){}
+}
+function sz(){var sc=Math.min(vp.clientWidth/1920,vp.clientHeight/1080);sg.style.transform='translate('+(vp.clientWidth-1920*sc)/2+'px,'+(vp.clientHeight-1080*sc)/2+'px) scale('+sc+')'}
+document.getElementById('next').onclick=function(){go(cur+1)};
+document.getElementById('prev').onclick=function(){go(cur-1)};
+document.addEventListener('keydown',function(e){
+  if(e.key==='ArrowRight'||e.key==='ArrowDown'||e.key===' '){e.preventDefault();go(cur+1)}
+  if(e.key==='ArrowLeft'||e.key==='ArrowUp'){e.preventDefault();go(cur-1)}
+});
+document.addEventListener('wheel',function(e){if(e.deltaY>0)go(cur+1);else go(cur-1)},{passive:true});
+window.addEventListener('resize',sz);sz();go(0);
+(function(){var eb=document.getElementById('eb'),ez=document.getElementById('ez'),ac=false,timer=null;
+function tog(){ac=!ac;eb.classList.toggle('a',ac);eb.textContent=ac?'退出编辑':'编辑文字';document.querySelector('.slide.a').querySelectorAll('h1,h2,h3,h4,p,li,td,th,span.hl,div.c h3,.sn,.tag,.sm,.sub,.cap').forEach(function(el){el.contentEditable=ac?'true':'false'})}
+eb.onclick=tog;ez.onmouseenter=function(){clearTimeout(timer);eb.classList.add('s')};
+ez.onmouseleave=function(){timer=setTimeout(function(){if(!ac)eb.classList.remove('s')},400)};
+eb.onmouseenter=function(){clearTimeout(timer)};eb.onmouseleave=function(){timer=setTimeout(function(){if(!ac)eb.classList.remove('s')},400)};ez.onclick=tog;
+document.addEventListener('keydown',function(e){if((e.key==='e'||e.key==='E')&&!e.target.closest('[contenteditable]')){e.preventDefault();tog()};if(e.ctrlKey&&e.key==='s'){e.preventDefault();alert('已保存')}});
+})();
+})();
+</script></body></html>

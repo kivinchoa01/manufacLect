@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>第2章·材料的组织结构</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;600;700;900&family=Archivo:wght@700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" defer></script>
+<style>
+html,body{width:100%;height:100%;margin:0;overflow:hidden;background:#e8e8e8}.vp{position:fixed;inset:0;overflow:hidden;background:#e8e8e8}
+.stage{position:absolute;left:0;top:0;width:1920px;height:1080px;overflow:hidden;transform-origin:0 0}
+.slide{position:absolute;left:0;top:0;width:1920px;height:1080px;overflow:hidden;opacity:0;pointer-events:none;background:#fff}
+.slide.a{opacity:1;pointer-events:auto;z-index:1}
+.ts{display:flex}.ts .bar{width:12px;height:1080px;background:#e03020;flex-shrink:0}.ts .l{padding:100px 80px;flex:1}
+.ts .tag{font-family:Archivo,sans-serif;font-size:15px;font-weight:700;color:#e03020;letter-spacing:4px;margin-top:200px}
+.ts h1{font-size:72px;font-weight:900;color:#1a1a1a;margin:16px 0}.ts .sub{font-size:24px;color:#666}.ts .r{width:45%;background:#f5f5f5}
+.ss{display:flex;flex-direction:column;align-items:center;justify-content:center;background:#f5f5f5}
+.ss .sn{font-family:Archivo,sans-serif;font-size:100px;font-weight:800;color:#e03020;opacity:.12}
+.ss h2{font-size:56px;color:#1a1a1a;margin:8px 0}.ss .sub{font-size:20px;color:#888}
+.cs{padding:48px 72px 56px}
+.cs h2{font-size:42px;color:#1a1a1a;margin:0 0 16px}
+.cs h3{font-size:30px;color:#1a1a1a;margin:14px 0 8px}
+.cs h4{font-size:26px;color:#1a1a1a;margin:10px 0 6px}
+.cs p{font-size:24px;color:#333;line-height:1.6;margin:0 0 8px}.iw img{max-height:460px}.g2 .iw img{max-height:300px}
+.cs li{font-size:24px;color:#333;line-height:1.5;margin:4px 0}
+.cs .sn{font-family:Archivo,sans-serif;font-size:13px;color:#aaa;margin-bottom:8px}
+.cs .hl{color:#e03020;font-weight:600}
+.cs .sm{font-size:20px;color:#666;line-height:1.5}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:10px}
+.g2 .c{padding:18px 20px;background:#f5f5f5;border-radius:8px}
+.g2 .c h3{font-size:24px;margin:0 0 4px;color:#1a1a1a}
+.g2 .c p{font-size:20px;margin:0;color:#555;line-height:1.4}
+.g3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin-top:10px}
+.g3 .c{padding:14px 16px;background:#f5f5f5;border-radius:8px;text-align:center}
+.g3 .c h3{font-size:22px;margin:0 0 4px}.g3 .c p{font-size:18px;margin:0;color:#555}
+table{width:100%;border-collapse:collapse;margin:10px 0;font-size:21px}
+th{background:#e03020;color:#fff;padding:8px 12px;text-align:left;font-weight:600}
+td{padding:8px 12px;border-bottom:1px solid #ddd}
+.iw{text-align:center;margin:6px 0}.iw img{max-height:460px;border-radius:6px;box-shadow:0 2px 10px rgba(0,0,0,.08)}
+.iw .cap{font-size:18px;color:#888;margin-top:4px}
+.fb{margin:8px 0;padding:12px 18px;background:#f5f5f5;border-radius:6px;text-align:center;font-size:24px}
+.ctrl{position:fixed;left:50%;bottom:22px;transform:translateX(-50%);z-index:1000;display:flex;gap:10px;align-items:center;background:rgba(255,255,255,.92);padding:8px 16px;border-radius:10px;box-shadow:0 2px 12px rgba(0,0,0,.08)}
+.ctrl button{width:40px;height:40px;border:1.5px solid rgba(0,0,0,.12);border-radius:6px;background:#fff;cursor:pointer;font-size:17px;color:#555}
+.ctrl button:hover{background:#e03020;color:#fff;border-color:#e03020}
+.ctrl .pi{font-family:Archivo,sans-serif;font-size:13px;color:#999;min-width:50px;text-align:center}
+.ez{position:fixed;top:0;left:0;width:80px;height:80px;z-index:10000;cursor:pointer}
+.eb{position:fixed;top:12px;left:12px;z-index:10001;padding:6px 14px;border:1.5px solid rgba(0,0,0,.12);border-radius:6px;background:rgba(255,255,255,.95);cursor:pointer;font-size:13px;color:#555;opacity:0;pointer-events:none;transition:opacity .3s;font-family:Noto Sans SC,sans-serif}
+.eb.s,.eb.a{opacity:1;pointer-events:auto}[contenteditable]:hover{outline:2px dashed #e03020;outline-offset:2px;cursor:text}
+@media (prefers-reduced-motion:reduce){*{transition-duration:.2s!important}}
+@media print{html,body{background:#fff}.vp{position:static}.stage{position:static;transform:none!important}.slide{position:relative!important;opacity:1!important;break-after:page;height:auto}.ctrl,.ez,.eb{display:none!important}}
+</style><<title>第9章·焊接</title></head><body><div class="vp"><div class="stage" id="stg"><section class="slide a ts"><div class="bar"></div><div class="l"><div class="tag">CHAPTER 09</div><h1>焊接</h1><p class="sub">工程材料与机械制造基础（第3版）</p></div><div class="r"></div></section>
+<section class="slide ss"><div class="sn" style="font-family:Archivo;font-size:100px;font-weight:800;color:#e03020;opacity:.12">01</div><h2 style="font-size:56px;color:#1a1a1a;margin:8px 0">焊接概述</h2><p class="sub" style="font-size:20px;color:#888">Overview of Welding</p></section>
+<section class="slide cs"><p class="sn">01/概述</p><h2>焊接的定义与分类</h2><p>焊接：利用局部加热或（和）加压，使分离金属通过原子结合与扩散形成永久性连接的工艺方法。</p><p><span class="hl">熔焊</span>（熔化焊）：局部熔化→冷却结晶。加热温度高、易变形，但操作方便、应用最广。</p><p><span class="hl">压焊</span>（压力焊）：加热（或不加热）+施压→塑性变形+再结晶→原子间结合。适用于塑性好的金属。</p><p><span class="hl">钎焊</span>：低熔点钎料熔化→填充间隙→毛细作用+扩散。适用于同种/异种金属、金属与非金属。</p></section>
+<section class="slide cs"><p class="sn">01/概述</p><h2>焊接的特点与应用</h2><p><span class="hl">优点</span>：成形方便、适应性强、成本低（与铆接比）；可化大为小、化复杂为简单；可生产微型到大型构件、气密性好的高温高压设备；可按使用要求在不同部位选用不同材料。</p><p>应用：车辆、建筑、舰船、海洋钻探、航空航天、核电站、石油化工、电气、微电子等。</p></section>
+<section class="slide ss"><div class="sn" style="font-family:Archivo;font-size:100px;font-weight:800;color:#e03020;opacity:.12">02</div><h2 style="font-size:56px;color:#1a1a1a;margin:8px 0">焊接电弧与焊接电源</h2><p class="sub" style="font-size:20px;color:#888">Welding Arc & Power Supply</p></section>
+<section class="slide cs"><p class="sn">02/电弧</p><h2>焊接电弧</h2><p>电弧：电极与工件间气体介质中强烈持久的气体放电现象。阳极区~43%热量，阴极区~36%，弧柱~21%。</p><p>钢焊条焊接钢：阳极~2600K，阴极~2400K，弧心6000~8000K。</p><div class="iw"><img src="images/161_焊接电弧.jpg"><div class="cap">图9-1 焊接电弧</div></div></section>
+<section class="slide cs"><p class="sn">02/电弧</p><h2>直流正接与反接</h2><p><span class="hl">正接</span>：工件接正极、焊条接负极→工件温度高。</p><p><span class="hl">反接</span>：工件接负极、焊条接正极。交流弧焊机无正反接问题。</p><div class="iw"><img src="images/162_直流电源焊接的正接与反接.jpg"><div class="cap">图9-2 正接与反接</div></div></section>
+<section class="slide cs"><p class="sn">02/电弧</p><h2>焊接电源要求与设备</h2><p><span class="hl">电源要求</span>：① 陡降外特性（电压随负载增大而迅速降低）；② 空载电压50~90V；③ 短路电流≤1.25~2倍工作电流；④ 电弧电压16~36V。</p><p><span class="hl">设备类型</span>：交流弧焊机（降压变压器→价廉、噪声小、应用广）；直流弧焊机（电弧稳定、适应各种焊条→重要结构件）；交直流两用弧焊机。</p><p>选用：酸性焊条+低碳钢→交流；碱性焊条+重要件/合金钢/非铁金属→直流。逆变式弧焊机→高效轻便，发展趋势。</p></section>
+<section class="slide ss"><div class="sn" style="font-family:Archivo;font-size:100px;font-weight:800;color:#e03020;opacity:.12">03</div><h2 style="font-size:56px;color:#1a1a1a;margin:8px 0">焊接冶金与焊条</h2><p class="sub" style="font-size:20px;color:#888">Welding Metallurgy & Electrodes</p></section>
+<section class="slide cs"><p class="sn">03/冶金</p><h2>焊接冶金特点</h2><p><span class="hl">① 温度高</span>：熔滴~2300°C，熔池~1600°C→合金元素易烧损蒸发。</p><p><span class="hl">② 过程短</span>：熔池体积小(2~3cm³)，冷却快，液态~10s→反应不充分，偏析。</p><p><span class="hl">③ 条件差</span>：暴露空气中→O₂、N₂、H₂等与金属反应→氧化物/氮化物降低性能，H₂→气孔/氢脆，CO气孔。</p><p>对策：保护焊接区、补充合金元素、脱氧/脱硫/脱磷。</p></section>
+<section class="slide cs"><p class="sn">03/冶金</p><h2>焊条的组成与作用</h2><p><span class="hl">焊芯</span>：作电极+填充金属。低碳低硫低磷专用钢丝（H08、H08A、H08E等），直径1.6~8mm，常用3.2~5mm。</p><p><span class="hl">药皮</span>：① 稳弧（钾钠元素→易引弧）；② 保护（产生熔渣+隔离气体）；③ 脱氧（锰铁/硅铁）；④ 渗合金。</p></section>
+<section class="slide cs"><p class="sn">03/冶金</p><h2>焊条的分类与型号</h2><p>国标按化学成分分7大类：碳钢、低合金钢、不锈钢、堆焊、铸铁、铜及铜合金、铝及铝合金焊条。</p><p><span class="hl">型号</span>：E5515-N5P → E=焊条，55=抗拉强度550MPa，15=碱性/全位置/直流反接。</p><p><span class="hl">牌号</span>：J422 → J=结构钢焊条，42=抗拉≥420MPa，2=氧化钛钙型/交直流。</p><p>J422(酸性)、J507(碱性)分别对应国标E4303、E5015。</p></section>
+<section class="slide cs"><p class="sn">03/冶金</p><h2>酸性焊条 vs 碱性焊条</h2><p><span class="hl">酸性焊条</span>：酸性氧化物(SiO₂/TiO₂/Fe₂O₃)→氧化性强；电弧稳定、对油污不敏感、工艺性好；脱S/P差、塑性韧性差。适合一般钢结构。</p><p><span class="hl">碱性焊条</span>：碱性氧化物(CaO/MgO/Na₂O等)+铁合金→脱S/P强、抗裂性好；对油污敏感→易气孔；工艺性较差，需直流反接。适合压力容器等重要结构。</p></section>
+<section class="slide cs"><p class="sn">03/冶金</p><h2>焊条的选用原则</h2><p><span class="hl">① 等强度原则</span>：低碳钢/低合金钢→焊缝金属与母材等强度。</p><p><span class="hl">② 同成分原则</span>：耐热钢/不锈钢→焊缝与母材同成分。</p><p><span class="hl">③ 抗裂纹原则</span>：刚度大/形状复杂/动载荷→选碱性焊条。</p><p><span class="hl">④ 抗气孔原则</span>：难清理油污铁锈→选酸性焊条。</p><p><span class="hl">⑤ 低成本原则</span>：满足要求下选工艺好、成本低、效率高的焊条。</p></section>
+<section class="slide ss"><div class="sn" style="font-family:Archivo;font-size:100px;font-weight:800;color:#e03020;opacity:.12">04</div><h2 style="font-size:56px;color:#1a1a1a;margin:8px 0">焊接接头组织与性能</h2><p class="sub" style="font-size:20px;color:#888">Weld Joint Structure & Properties</p></section>
+<section class="slide cs"><p class="sn">04/接头</p><h2>焊缝组织</h2><p>从熔池壁向中心方向结晶→柱状晶组织。焊缝金属强度一般不低于母材。</p><div class="iw"><img src="images/163_焊缝的组织示意图.jpg"><div class="cap">图9-3 焊缝组织</div></div></section>
+<section class="slide cs"><p class="sn">04/接头</p><h2>低碳钢焊接热影响区</h2><p><span class="hl">熔合区</span>（半熔化区，1490~1530°C）：组织极不均匀，强度↓塑性↓→裂纹发源地。</p><p><span class="hl">过热区</span>（1100~1490°C）：奥氏体晶粒急剧长大，塑性大降，冲击韧度↓25%~75%。</p><p><span class="hl">正火区</span>（850~1100°C）：均匀细小F+P，力学性能优于母材。</p><p><span class="hl">部分相变区</span>（727~850°C）：部分转变，组织不均匀，性能较差。</p><div class="iw"><img src="images/164_低碳钢焊接接头组织与性能变化示意图.jpg"><div class="cap">图9-4 焊接热影响区</div></div></section>
+<section class="slide cs"><p class="sn">04/接头</p><h2>热影响区的影响因素</h2><p>热影响区越窄越好。温度高、热量集中→热影响区小。</p><p>手工电弧焊总宽6.0mm，埋弧焊2.5mm，等离子弧焊1.4~2.5mm，电子束焊0.05~0.75mm。</p><p>过大焊接参数（电流↑/焊速↓）→热影响区变宽。重要焊件焊后正火处理。</p></section>
+<section class="slide ss"><div class="sn" style="font-family:Archivo;font-size:100px;font-weight:800;color:#e03020;opacity:.12">05</div><h2 style="font-size:56px;color:#1a1a1a;margin:8px 0">焊接应力与变形</h2><p class="sub" style="font-size:20px;color:#888">Welding Stress & Deformation</p></section>
+<section class="slide cs"><p class="sn">05/应力变形</p><h2>焊接变形的基本形式</h2><p>① 收缩变形 ② 角变形（截面上、下收缩不均） ③ 弯曲变形（焊缝不对称） ④ 扭曲变形（焊接顺序不合理） ⑤ 波浪变形（薄板失稳）。</p><div class="iw"><img src="images/165_焊接变形的基本形式.jpg"><div class="cap">图9-5 五种焊接变形</div></div></section>
+<section class="slide cs"><p class="sn">05/应力变形</p><h2>减少应力与变形的措施（一）</h2><p><span class="hl">① 预留收缩变形量</span>：预先考虑收缩余量。</p><p><span class="hl">② 反变形法</span>：预加方向相反、大小相等的变形抵消焊后变形。</p><p><span class="hl">③ 刚性固定法</span>：焊时固定→焊后冷却再去除。适用塑性好的低碳钢，不适用铸铁。</p><p><span class="hl">④ 合理的焊接顺序</span>：尽量使焊缝自由收缩，先焊短缝再焊长缝。</p></section>
+<section class="slide cs"><p class="sn">05/应力变形</p><h2>反变形法</h2><div class="iw"><img src="images/166_防止变形的反变形法.jpg"><div class="cap">图9-6 反变形法</div></div></section>
+<section class="slide cs"><p class="sn">05/应力变形</p><h2>合理焊接顺序</h2><p>先焊错开的短焊缝，再焊直通长焊缝。</p><div class="iw"><img src="images/167_拼接钢板的合理焊接顺序.jpg"><div class="cap">图9-7 钢板拼接顺序</div></div></section>
+<section class="slide cs"><p class="sn">05/应力变形</p><h2>减少应力与变形的措施（二）</h2><p><span class="hl">⑤ 锤击焊缝法</span>：冷却时用小锤锤击→金属塑性伸长→抵消收缩。</p><p><span class="hl">⑥ 加热"减应区"法</span>：焊前加热适当部位→焊后与焊缝一起收缩。</p><p><span class="hl">⑦ 焊前预热+焊后缓冷</span>：减小温差→减少应力。预热100~600°C。适用塑性差、易裂材料。</p><p><span class="hl">⑧ 焊后去应力退火</span>：500~650°C保温缓冷。</p></section>
+<section class="slide cs"><p class="sn">05/应力变形</p><h2>焊接变形的矫正</h2><p><span class="hl">机械矫正</span>：压力机/矫直机/辗压/锤击→适用于刚性小、塑性好的薄件。</p><p><span class="hl">火焰加热矫正</span>：氧-乙炔火焰局部加热(600~800°C)→点状/三角/条状加热→抵消伸长变形。不需专用设备，但需经验和力学知识。</p></section>
+<section class="slide cs"><p class="sn">05/应力变形</p><h2>机械矫正与火焰矫正</h2><div class="iw"><img src="images/169_机械矫正法.jpg"><div class="cap">图9-9/9-10 矫正方法</div></div></section>
+<section class="slide ss"><div class="sn" style="font-family:Archivo;font-size:100px;font-weight:800;color:#e03020;opacity:.12">06</div><h2 style="font-size:56px;color:#1a1a1a;margin:8px 0">常用焊接方法</h2><p class="sub" style="font-size:20px;color:#888">Common Welding Methods</p></section>
+<section class="slide cs"><p class="sn">06/焊接方法</p><h2>手工电弧焊</h2><p>焊条与工件间产生电弧→局部熔化→形成共同熔池→冷却凝固成焊缝。</p><p>特点：设备简单、灵活方便、适用面广，可焊各种位置和曲线焊缝。生产率低、劳动强度大。</p><div class="iw"><img src="images/171_手工电弧焊焊接过程.jpg"><div class="cap">图9-11 手工电弧焊</div></div></section>
+<section class="slide cs"><p class="sn">06/焊接方法</p><h2>焊接位置</h2><p>平焊、立焊、横焊、仰焊。</p><div class="iw"><img src="images/172_手工电弧焊的焊接位置.jpg"><div class="cap">图9-12 各种焊接位置</div></div></section>
+<section class="slide cs"><p class="sn">06/焊接方法</p><h2>埋弧自动焊</h2><p>连续送进焊丝+颗粒状焊剂代替焊条。电弧在40~60mm厚焊剂下燃烧。</p><p>特点：生产率高5~10倍（大电流~1000A、连续送丝、不开坡口一次焊成<25mm板）；质量高且稳定；无弧光、少烟尘。</p><p>适用：大批量中厚板(6~60mm)直缝/大直径环缝。</p><div class="iw"><img src="images/173_埋弧自动焊焊接过程.jpg"><div class="cap">图9-13 埋弧自动焊</div></div></section>
+<section class="slide cs"><p class="sn">06/焊接方法</p><h2>氩弧焊</h2><p>钨极氩弧焊（不熔化极，<6mm薄板）；熔化极氩弧焊（<25mm板，直流反接）。</p><p>保护效果好、电弧稳定、热影响区小、变形小、焊缝光洁。氩气成本高→主要用于Al/Mg/Ti合金及不锈钢。</p><div class="iw"><img src="images/175_氩弧焊示意图.jpg"><div class="cap">图9-15 氩弧焊</div></div></section>
+<section class="slide cs"><p class="sn">06/焊接方法</p><h2>CO₂气体保护焊</h2><p>CO₂为保护气体+连续送丝。成本低、穿透力强、生产率高1~4倍、抗锈抗裂好。</p><p>缺点：CO₂氧化性→合金元素烧损、飞溅→需配含Mn/Si焊丝脱氧。用于低碳钢/低合金钢/耐热钢/不锈钢。</p><div class="iw"><img src="images/176_二氧化碳气体保护焊示意图.jpg"><div class="cap">图9-16 CO₂气体保护焊</div></div></section>
+<section class="slide cs"><p class="sn">06/焊接方法</p><h2>电阻焊</h2><p>电流通过接触面→电阻热→塑性状态/局部熔化→加压形成接头。电流大、时间短(百分之一秒到几秒)。</p><p><span class="hl">点焊</span>：柱状电极→搭接面焊点。薄板壳体。</p><p><span class="hl">缝焊</span>：圆盘状滚动电极→连续重叠焊点。密封薄壁容器。</p><p><span class="hl">对焊</span>：电阻对焊/闪光对焊。杆状零件(刀具/钢筋)。</p><div class="iw"><img src="images/177_电阻焊的基本形式.jpg"><div class="cap">图9-17 电阻焊</div></div></section>
+<section class="slide cs"><p class="sn">06/焊接方法</p><h2>钎焊、电渣焊与摩擦焊</h2><p><span class="hl">钎焊</span>：钎料(<450°C软钎焊/ >450°C硬钎焊)填满间隙→扩散连接。钎剂去除氧化膜。电子工业波峰焊/再流焊。</p><p><span class="hl">电渣焊</span>：电流通过液态熔渣电阻热→熔焊。一次焊>40mm板，最厚2m。晶粒粗大→焊后正火。铸-焊/锻-焊组合。</p><p><span class="hl">摩擦焊</span>：表面摩擦热→热塑性→顶锻。尤其适合异种材料（铝-铜过渡接头、铜-不锈钢）。</p></section>
+<section class="slide cs"><p class="sn">06/焊接方法</p><h2>电渣焊过程</h2><p>焊丝插入渣池→电弧熄灭转为电渣→电阻热熔化焊丝→熔池沉积→冷却滑块上移→凝固成焊缝。</p><div class="iw"><img src="images/178_电渣焊过程示意图.jpg"><div class="cap">图9-18 电渣焊</div></div></section>
+<section class="slide cs"><p class="sn">06/焊接方法</p><h2>高能束焊接方法</h2><p><span class="hl">电子束焊</span>：真空+高压静电场加速电子→高能量密度→瞬间熔化。焊速快、HZ窄、变形小。特种/难熔金属及异种金属。</p><p><span class="hl">等离子弧焊</span>：压缩电弧（等离子弧）→高温高能量。穿透力强、HZ小、变形小。可焊0.025mm极薄板。</p><p><span class="hl">激光焊</span>：聚焦激光束→焊缝窄、HZ和变形小。不需真空室，可远距离传射。金属/非金属均可。</p></section>
+<section class="slide cs"><p class="sn">06/焊接方法</p><h2>其他特种焊接方法</h2><p><span class="hl">爆炸焊</span>：炸药爆炸冲击力+热量→金属高速碰撞连接。铝-钢、钛-不锈钢等异种材料。</p><p><span class="hl">扩散焊</span>：一定温度+压力→微观塑性变形→原子扩散连接。可焊陶瓷+金属、多层复合材料。</p><p><span class="hl">超声波焊</span>：高频振荡→局部加热+表面清理→加压连接。无热影响区，<0.5mm薄件。</p></section>
+<section class="slide cs"><p class="sn">06/焊接方法</p><h2>焊接技术发展趋势</h2><p>① <span class="hl">焊接机器人</span>：自动路径规划、自动校正轨迹、自动控制熔深的智能机器人。</p><p>② <span class="hl">计算机模拟与控制</span>：温度场/应力场/应变场仿真，神经网络+模糊控制→数字化/集成化/智能化。</p><p>③ <span class="hl">无损探伤与可靠性评估</span>：断裂失效准则、微观机理、延寿技术（喷丸/锤击/表面处理）。</p><p>④ <span class="hl">恶劣条件焊接</span>：太空/水下/放射性环境。⑤ <span class="hl">装备大型化/组体化</span>：焊接生产线/焊接中心。</p></section>
+<section class="slide ss"><div class="sn" style="font-family:Archivo;font-size:100px;font-weight:800;color:#e03020;opacity:.12">07</div><h2 style="font-size:56px;color:#1a1a1a;margin:8px 0">常用金属材料的焊接</h2><p class="sub" style="font-size:20px;color:#888">Welding of Common Metals</p></section>
+<section class="slide cs"><p class="sn">07/材料焊接</p><h2>焊接性及碳当量</h2><p><span class="hl">焊接性</span>：金属对焊接工艺的适应性→获得优质接头的难易程度。包括结合性能（缺陷敏感性）和使用性能（可靠性）。</p><p><span class="hl">碳当量</span> C_E = C + Mn/6 + (Ni+Cu)/15 + (Cr+Mo+V)/5</p><p>C_E < 0.4%：焊接性良好，不需特殊措施。0.4%~0.6%：较差，需预热/缓冷。> 0.6%：不好，须严格措施。</p></section>
+<section class="slide cs"><p class="sn">07/材料焊接</p><h2>碳钢与低合金钢的焊接</h2><p><span class="hl">低碳钢</span>（C_E<0.4%）：焊接性良好，几乎适用所有焊接方法。常用J422/J427/J507。厚度>50mm焊后去应力退火；电渣焊后正火。</p><p><span class="hl">中碳钢</span>（C_E≈0.4%）：焊接性较差→选低氢型焊条+预热150~400°C+细焊条小电流开坡口多层焊+缓冷。</p><p><span class="hl">低合金钢</span>：16Mn焊接性接近低碳钢，厚度>16mm或低温时预热150~250°C。高强低合金钢需预热>150°C+去应力退火。</p></section>
+<section class="slide cs"><p class="sn">07/材料焊接</p><h2>铸铁的焊补</h2><p>铸铁焊接性很差：C/Si烧损→白口组织；脆性大→易裂；碳硅氧化→CO/SiO₂→气孔/夹渣。</p><p><span class="hl">热焊法</span>：预热600~700°C，焊时≥400°C，焊后缓冷→质量好、可机加工。用于重要铸件（机床导轨、气缸体）。</p><p><span class="hl">冷焊法</span>：不预热或仅<400°C低温预热。镍基/铜基焊条效果好。细焊条+小电流+短弧+窄缝+分段焊+锤击。</p></section>
+<section class="slide cs"><p class="sn">07/材料焊接</p><h2>非铁金属的焊接</h2><p><span class="hl">铜及铜合金</span>：导热快→易焊不透（需预热+大热量）；Cu₂O→热裂纹；溶氢→气孔；合金元素易氧化。氩弧焊质量最好，其次气焊。</p><p><span class="hl">铝及铝合金</span>：极易氧化(Al₂O₃高熔点致密膜→阻碍熔合)；溶氢→气孔；高温强度低+线膨胀大→应力变形裂纹。氩弧焊最好（直流反接）。</p><p><span class="hl">难熔金属</span>(Ti/Zr/Mo/Nb)：化学活性极强→须氩弧焊/等离子弧焊/电子束焊，需高纯氩气保护。</p></section>
+<section class="slide ss"><div class="sn" style="font-family:Archivo;font-size:100px;font-weight:800;color:#e03020;opacity:.12">08</div><h2 style="font-size:56px;color:#1a1a1a;margin:8px 0">非金属材料的焊接</h2><p class="sub" style="font-size:20px;color:#888">Welding of Non-metallic Materials</p></section>
+<section class="slide cs"><p class="sn">08/非金属</p><h2>陶瓷与高分子材料焊接</h2><p><span class="hl">陶瓷焊接</span>：钎焊最常用。两步钎焊法（预金属化后钎焊）+直接钎焊法（活性钎料含Ti/Zr/Hf）。也可用扩散焊、超声波压焊。</p><p><span class="hl">高分子材料焊接</span>：</p><p>• 热固性：固化后不熔不溶→只能黏接和机械连接。</p><p>• 热塑性：可熔化焊接（热气焊/热板焊/摩擦焊/超声波焊/激光焊）。热气焊和热板焊最广泛。</p></section>
+<section class="slide cs"><p class="sn">08/非金属</p><h2>复合材料焊接</h2><p><span class="hl">树脂基复合材料</span>：同基体高分子焊接方法相同。与金属焊接→内藏加热元件电阻焊。</p><p><span class="hl">金属基复合材料</span>：非连续纤维增强→TIG/扩散连接/摩擦焊/电子束焊/钎焊。连续纤维→更困难，用激光焊/扩散连接/钎焊。</p><p><span class="hl">C/C复合材料</span>：扩散连接（石墨/硼/钛作中间层）、钎焊（Si/Al/Mg₂Si/玻璃）。</p></section>
+<section class="slide ss"><div class="sn" style="font-family:Archivo;font-size:100px;font-weight:800;color:#e03020;opacity:.12">09</div><h2 style="font-size:56px;color:#1a1a1a;margin:8px 0">焊接结构设计</h2><p class="sub" style="font-size:20px;color:#888">Welded Structure Design</p></section>
+<section class="slide cs"><p class="sn">09/结构设计</p><h2>焊接材料与方法的选择</h2><p><span class="hl">材料选择</span>：优先选C<0.2%低碳钢/C_E<0.4%低合金钢。优先选低强度等级低合金结构钢。异种材料尽量不用。多选用型材。</p><p><span class="hl">方法选择</span>：低碳钢中厚板→手工电弧焊/埋弧焊/CO₂焊；薄板轻型→点焊(无密封)/缝焊(需密封)；厚板重要件→电渣焊；铝合金→氩弧焊。</p></section>
+<section class="slide cs"><p class="sn">09/结构设计</p><h2>接头基本形式</h2><p>对接接头（受力均匀、质量易保证、最优）、角接接头、T形接头、搭接接头（应力集中+附加弯矩→避免选用）。</p><div class="iw"><img src="images/179_手工电弧焊焊接接头的基本形式.jpg"><div class="cap">图9-19 接头基本形式</div></div></section>
+<section class="slide cs"><p class="sn">09/结构设计</p><h2>坡口形式</h2><p>I形、V形、U形、X形。目的：保证焊透。厚板需开坡口。</p><div class="iw"><img src="images/180_手工电弧焊坡口的基本形式.jpg"><div class="cap">图9-20 坡口形式</div></div></section>
+<section class="slide cs"><p class="sn">09/结构设计</p><h2>焊缝设计原则</h2><p>① 焊缝应<span class="hl">对称</span>布置→减少变形。② 尽量减少焊缝数量和长度。</p><p>③ 焊缝应避免<span class="hl">密集、交叉或重叠</span>。④ 焊缝应<span class="hl">避开最大应力区</span>和应力集中部位。</p><p>⑤ 焊缝应<span class="hl">避开或远离机械加工面</span>。⑥ 不同厚度焊件对接→采用过渡形式。</p></section>
+<section class="slide cs"><p class="sn">09/结构设计</p><h2>焊缝对称设计</h2><p>对称布置减少焊接变形。</p><div class="iw"><img src="images/185_焊缝的对称设计.jpg"><div class="cap">图9-21 焊缝对称设计</div></div></section>
+<section class="slide ss"><div class="sn" style="font-family:Archivo;font-size:100px;font-weight:800;color:#e03020;opacity:.12">本章总结</div><h2 style="font-size:56px;color:#1a1a1a;margin:8px 0">核心要点对比</h2></section>
+<section class="slide cs"><p class="sn">总结</p><h2>三大类焊接方法对比</h2><p><span class="hl">熔焊</span>：手工电弧焊（最灵活）、埋弧自动焊（最高效大批量）、氩弧焊（最优质量非铁金属）、CO₂焊（最经济低碳钢）、电渣焊（特厚板）、电子束/激光/等离子（最高能束）。</p><p><span class="hl">压焊</span>：电阻焊（点焊/缝焊/对焊→高生产率大批量）、摩擦焊（异种材料回转体）、扩散焊（陶瓷+金属）、超声波焊（薄件）。</p><p><span class="hl">钎焊</span>：软钎焊(<450°C，电子工业)、硬钎焊(>450°C，结构件)。适用同种/异种金属+非金属。</p></section>
+<section class="slide cs"><p class="sn">总结</p><h2>焊条与碳当量速查</h2><p>J422(E4303)：酸性，交直流，抗拉≥420MPa → 一般钢结构。J507(E5015)：碱性，直流反接，抗拉≥500MPa → 重要结构。</p><p>C_E < 0.4% → 焊接性良好。C_E 0.4%~0.6% → 需预热+缓冷。C_E > 0.6% → 须严格措施。</p><p>低碳钢 → 最好焊；中高碳钢 → 预热+低氢焊条；铸铁 → 热焊/冷焊+镍基焊条；铝合金 → 氩弧焊；铜合金 → 氩弧焊最好。</p></section>
+<section class="slide cs"><p class="sn">总结</p><h2>重点总结</h2><p>① <span class="hl">焊接本质</span>：原子结合与扩散。三大类：熔焊（热源熔化）、压焊（力+热）、钎焊（钎料填充）。</p><p>② <span class="hl">电弧</span>：阳极43%热量、阴极36%。正接→工件热；反接→焊条热。交流无正反。</p><p>③ <span class="hl">焊条</span>：焊芯+药皮（稳弧/保护/脱氧/渗合金）。酸性工艺好、碱性抗裂好。等强度/同成分/抗裂/抗气孔/低成本五原则。</p><p>④ <span class="hl">热影响区</span>：熔合区+过热区最危险。焊接参数大→热影响区宽。重要件焊后正火。</p><p>⑤ <span class="hl">焊接变形</span>：5种形式。反变形法/合理顺序/预热缓冷/去应力退火。机械矫正+火焰矫正。</p><p>⑥ <span class="hl">焊接性</span>：碳当量评定。铜/铝焊接性差→氩弧焊。铸铁焊补（热焊+冷焊）。陶瓷→钎焊/扩散焊。</p></section></div></div><nav class="ctrl"><button id="prev">&#8592;</button><span class="pi" id="pi">1/57</span><button id="next">&#8594;</button></nav>
+<div class="ez" id="ez"></div><button class="eb" id="eb">编辑文字</button>
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script>
+(function(){
+var sl=document.querySelectorAll('.slide'),cur=0,pi=document.getElementById('pi'),sg=document.getElementById('stg'),vp=document.querySelector('.vp');
+function go(i){
+  cur=Math.max(0,Math.min(i,sl.length-1));
+  for(var j=0;j<sl.length;j++)sl[j].classList.toggle('a',j===cur);
+  pi.textContent=(cur+1)+'/'+sl.length;
+  try{renderMathInElement(document.body)}catch(e){}
+}
+function sz(){var sc=Math.min(vp.clientWidth/1920,vp.clientHeight/1080);sg.style.transform='translate('+(vp.clientWidth-1920*sc)/2+'px,'+(vp.clientHeight-1080*sc)/2+'px) scale('+sc+')'}
+document.getElementById('next').onclick=function(){go(cur+1)};
+document.getElementById('prev').onclick=function(){go(cur-1)};
+document.addEventListener('keydown',function(e){
+  if(e.key==='ArrowRight'||e.key==='ArrowDown'||e.key===' '){e.preventDefault();go(cur+1)}
+  if(e.key==='ArrowLeft'||e.key==='ArrowUp'){e.preventDefault();go(cur-1)}
+});
+document.addEventListener('wheel',function(e){if(e.deltaY>0)go(cur+1);else go(cur-1)},{passive:true});
+window.addEventListener('resize',sz);sz();go(0);
+(function(){var eb=document.getElementById('eb'),ez=document.getElementById('ez'),ac=false,timer=null;
+function tog(){ac=!ac;eb.classList.toggle('a',ac);eb.textContent=ac?'退出编辑':'编辑文字';document.querySelector('.slide.a').querySelectorAll('h1,h2,h3,h4,p,li,td,th,span.hl,div.c h3,.sn,.tag,.sm,.sub,.cap').forEach(function(el){el.contentEditable=ac?'true':'false'})}
+eb.onclick=tog;ez.onmouseenter=function(){clearTimeout(timer);eb.classList.add('s')};
+ez.onmouseleave=function(){timer=setTimeout(function(){if(!ac)eb.classList.remove('s')},400)};
+eb.onmouseenter=function(){clearTimeout(timer)};eb.onmouseleave=function(){timer=setTimeout(function(){if(!ac)eb.classList.remove('s')},400)};ez.onclick=tog;
+document.addEventListener('keydown',function(e){if((e.key==='e'||e.key==='E')&&!e.target.closest('[contenteditable]')){e.preventDefault();tog()};if(e.ctrlKey&&e.key==='s'){e.preventDefault();alert('已保存')}});
+})();
+})();
+</script></body></html>

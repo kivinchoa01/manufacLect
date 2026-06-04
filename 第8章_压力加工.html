@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>第2章·材料的组织结构</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;600;700;900&family=Archivo:wght@700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" defer></script>
+<style>
+html,body{width:100%;height:100%;margin:0;overflow:hidden;background:#e8e8e8}.vp{position:fixed;inset:0;overflow:hidden;background:#e8e8e8}
+.stage{position:absolute;left:0;top:0;width:1920px;height:1080px;overflow:hidden;transform-origin:0 0}
+.slide{position:absolute;left:0;top:0;width:1920px;height:1080px;overflow:hidden;opacity:0;pointer-events:none;background:#fff}
+.slide.a{opacity:1;pointer-events:auto;z-index:1}
+.ts{display:flex}.ts .bar{width:12px;height:1080px;background:#e03020;flex-shrink:0}.ts .l{padding:100px 80px;flex:1}
+.ts .tag{font-family:Archivo,sans-serif;font-size:15px;font-weight:700;color:#e03020;letter-spacing:4px;margin-top:200px}
+.ts h1{font-size:72px;font-weight:900;color:#1a1a1a;margin:16px 0}.ts .sub{font-size:24px;color:#666}.ts .r{width:45%;background:#f5f5f5}
+.ss{display:flex;flex-direction:column;align-items:center;justify-content:center;background:#f5f5f5}
+.ss .sn{font-family:Archivo,sans-serif;font-size:100px;font-weight:800;color:#e03020;opacity:.12}
+.ss h2{font-size:56px;color:#1a1a1a;margin:8px 0}.ss .sub{font-size:20px;color:#888}
+.cs{padding:48px 72px 56px}
+.cs h2{font-size:42px;color:#1a1a1a;margin:0 0 16px}
+.cs h3{font-size:30px;color:#1a1a1a;margin:14px 0 8px}
+.cs h4{font-size:26px;color:#1a1a1a;margin:10px 0 6px}
+.cs p{font-size:24px;color:#333;line-height:1.6;margin:0 0 8px}.iw img{max-height:460px}.g2 .iw img{max-height:300px}
+.cs li{font-size:24px;color:#333;line-height:1.5;margin:4px 0}
+.cs .sn{font-family:Archivo,sans-serif;font-size:13px;color:#aaa;margin-bottom:8px}
+.cs .hl{color:#e03020;font-weight:600}
+.cs .sm{font-size:20px;color:#666;line-height:1.5}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:10px}
+.g2 .c{padding:18px 20px;background:#f5f5f5;border-radius:8px}
+.g2 .c h3{font-size:24px;margin:0 0 4px;color:#1a1a1a}
+.g2 .c p{font-size:20px;margin:0;color:#555;line-height:1.4}
+.g3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin-top:10px}
+.g3 .c{padding:14px 16px;background:#f5f5f5;border-radius:8px;text-align:center}
+.g3 .c h3{font-size:22px;margin:0 0 4px}.g3 .c p{font-size:18px;margin:0;color:#555}
+table{width:100%;border-collapse:collapse;margin:10px 0;font-size:21px}
+th{background:#e03020;color:#fff;padding:8px 12px;text-align:left;font-weight:600}
+td{padding:8px 12px;border-bottom:1px solid #ddd}
+.iw{text-align:center;margin:6px 0}.iw img{max-height:460px;border-radius:6px;box-shadow:0 2px 10px rgba(0,0,0,.08)}
+.iw .cap{font-size:18px;color:#888;margin-top:4px}
+.fb{margin:8px 0;padding:12px 18px;background:#f5f5f5;border-radius:6px;text-align:center;font-size:24px}
+.ctrl{position:fixed;left:50%;bottom:22px;transform:translateX(-50%);z-index:1000;display:flex;gap:10px;align-items:center;background:rgba(255,255,255,.92);padding:8px 16px;border-radius:10px;box-shadow:0 2px 12px rgba(0,0,0,.08)}
+.ctrl button{width:40px;height:40px;border:1.5px solid rgba(0,0,0,.12);border-radius:6px;background:#fff;cursor:pointer;font-size:17px;color:#555}
+.ctrl button:hover{background:#e03020;color:#fff;border-color:#e03020}
+.ctrl .pi{font-family:Archivo,sans-serif;font-size:13px;color:#999;min-width:50px;text-align:center}
+.ez{position:fixed;top:0;left:0;width:80px;height:80px;z-index:10000;cursor:pointer}
+.eb{position:fixed;top:12px;left:12px;z-index:10001;padding:6px 14px;border:1.5px solid rgba(0,0,0,.12);border-radius:6px;background:rgba(255,255,255,.95);cursor:pointer;font-size:13px;color:#555;opacity:0;pointer-events:none;transition:opacity .3s;font-family:Noto Sans SC,sans-serif}
+.eb.s,.eb.a{opacity:1;pointer-events:auto}[contenteditable]:hover{outline:2px dashed #e03020;outline-offset:2px;cursor:text}
+@media (prefers-reduced-motion:reduce){*{transition-duration:.2s!important}}
+@media print{html,body{background:#fff}.vp{position:static}.stage{position:static;transform:none!important}.slide{position:relative!important;opacity:1!important;break-after:page;height:auto}.ctrl,.ez,.eb{display:none!important}}
+</style><<title>第8章·压力加工</title></head><body><div class="vp"><div class="stage" id="stg"><section class="slide a ts"><div class="bar"></div><div class="l"><div class="tag">CHAPTER 08</div><h1>压力加工</h1><p class="sub">工程材料与机械制造基础（第3版）</p></div><div class="r"></div></section>
+<section class="slide ss"><div class="sn" style="font-family:Archivo;font-size:100px;font-weight:800;color:#e03020;opacity:.12">01</div><h2 style="font-size:56px;color:#1a1a1a;margin:8px 0">压力加工概述</h2><p class="sub" style="font-size:20px;color:#888">Overview of Metal Forming</p></section>
+<section class="slide cs"><p class="sn">01/概述</p><h2>什么是压力加工</h2><p>压力加工（塑性加工）：利用金属坯料在外力作用下产生塑性变形，从而获得所需形状、尺寸和性能的毛坯或零件的加工方法。</p><p><span class="hl">六大方法</span>：轧制、挤压、拉拔（生产原材料）；自由锻、模锻、板料冲压（生产毛坯）。</p></section>
+<section class="slide cs"><p class="sn">01/概述</p><h2>压力加工的优缺点</h2><p><span class="hl">优点</span>：产品质量高、性能好、缺陷少；细晶粒组织、组织致密、锻造流线→力学性能提高；材料利用率60%~70%（先进方法85%~90%）；易实现机械化和自动化。</p><p><span class="hl">缺点</span>：与铸造比成本较高、成形较困难；固态下成形→无法获得内腔复杂的产品。</p><p>应用：机械、冶金、船舶、航空航天、电子、仪器仪表、国防工业。</p></section>
+<section class="slide ss"><div class="sn" style="font-family:Archivo;font-size:100px;font-weight:800;color:#e03020;opacity:.12">02</div><h2 style="font-size:56px;color:#1a1a1a;margin:8px 0">塑性变形与再结晶</h2><p class="sub" style="font-size:20px;color:#888">Plastic Deformation & Recrystallization</p></section>
+<section class="slide cs"><p class="sn">02/理论</p><h2>单晶体的塑性变形——滑移</h2><p>塑性变形最常见的方式是<span class="hl">滑移</span>：在切应力作用下，晶体的一部分相对于另一部分沿滑移面和滑移方向发生相对位移。</p><p>滑移通过晶体内的<span class="hl">位错运动</span>来实现，只有位错中心的少量原子作微量位移，所需切应力比理论值低很多。</p></section>
+<section class="slide cs"><p class="sn">02/理论</p><h2>单晶体滑移变形</h2><p>a.未受力 b.弹性切向变形 c.切向弹塑性变形 d.塑性变形后</p><div class="iw"><img src="images/102_单晶体滑移变形示意图.jpg"><div class="cap">图8-1 单晶体滑移变形</div></div></section>
+<section class="slide cs"><p class="sn">02/理论</p><h2>位错运动引起滑移</h2><p>通过位错运动实现滑移，少量原子作微量位移→所需切应力远低于理论值。</p><div class="iw"><img src="images/103_位错运动引起滑移变形示意图.jpg"><div class="cap">图8-2 位错引起滑移变形</div></div></section>
+<section class="slide cs"><p class="sn">02/理论</p><h2>孪生变形</h2><p>孪生：晶体一部分沿孪生面相对另一部分转动，形成镜像对称。变形量小，但改变晶格位向有利于滑移继续。</p><div class="iw"><img src="images/104_孪生变形示意图.jpg"><div class="cap">图8-3 孪生变形</div></div></section>
+<section class="slide cs"><p class="sn">02/理论</p><h2>多晶体的塑性变形</h2><p>多晶体由不同位向的晶粒组成，变形包括<span class="hl">晶内变形</span>（各单晶体滑移+孪生）和<span class="hl">晶间变形</span>。</p><p><span class="hl">晶界</span>对变形造成很大障碍→相邻晶粒位向差越大影响越大。晶界越多→变形抗力越大。</p><p><span class="hl">细晶强化</span>：细晶粒多晶体强度高于粗晶粒。除特殊要求外，获得细晶组织是提高性能的重要措施。</p></section>
+<section class="slide cs"><p class="sn">02/理论</p><h2>多晶体拉伸变形</h2><p>远离晶界处变形明显，晶界附近变形很小→晶界变形抗力远高于晶粒本身。</p><div class="iw"><img src="images/105_多晶体试样的拉伸变形.jpg"><div class="cap">图8-4 多晶体拉伸变形</div></div></section>
+<section class="slide cs"><p class="sn">02/理论</p><h2>塑性变形对组织与性能的影响</h2><p>金属在常温下塑性变形后：晶粒沿变形最大方向伸长；晶格畸变、产生内应力；晶粒间产生碎晶。</p><p><span class="hl">冷变形强化（加工硬化）</span>：随冷变形程度增加→强度/硬度增高，塑性/韧性下降。</p><p>原因：晶格畸变越严重、位错交互作用→塑性变形阻力增大→滑移难于进行。</p></section>
+<section class="slide cs"><p class="sn">02/理论</p><h2>冷变形对力学性能的影响</h2><div class="iw"><img src="images/106_冷变形程度对低碳钢力学性能的影响.jpg"><div class="cap">图8-5 冷变形对低碳钢力学性能的影响</div></div></section>
+<section class="slide cs"><p class="sn">02/理论</p><h2>回复与再结晶</h2><p>加工硬化是不稳定状态。加热时原子获得热能→趋于稳定。随温度升高依次发生<span class="hl">回复→再结晶→晶粒长大</span>。</p><p><span class="hl">回复</span>：T回=(0.25~0.3)T熔，原子回复正常排列，晶格畸变基本消除，强度硬度稍降。</p><p><span class="hl">再结晶</span>：T再=0.4T熔，形成新等轴晶粒→强度硬度显著降低，塑性韧性显著提高，内应力完全消除。</p></section>
+<section class="slide cs"><p class="sn">02/理论</p><h2>回复和再结晶</h2><div class="iw"><img src="images/107_冷变形金属的回复和再结晶示意图.jpg"><div class="cap">图8-6 回复和再结晶过程</div></div></section>
+<section class="slide cs"><p class="sn">02/理论</p><h2>热变形与晶粒长大</h2><p>金属在再结晶温度以上受力变形称为<span class="hl">热变形</span>。加工硬化和再结晶同时存在，加工硬化随时被再结晶消除→无加工硬化。</p><p>热变形优点：以较小功完成较大变形，压合气孔/缩松/微裂纹→致密度提高。塑性加工多采用热变形。</p><p><span class="hl">晶粒长大</span>：再结晶后继续升温或延长保温→大晶粒吞并小晶粒→降低力学性能，应避免。</p><p>临界变形度（2%~10%）→再结晶晶粒特别粗大；超过临界变形度→晶粒细化。</p></section>
+<section class="slide cs"><p class="sn">02/理论</p><h2>纤维组织与锻造比</h2><p>热变形使材料内部夹杂物沿变形方向形成流线组织→<span class="hl">纤维组织</span>。纤维组织不因热处理而改变，只能通过锻造改变分布。</p><p><span class="hl">锻造比</span> Y=S₀/S：Y=2~5时开始形成纤维组织，纵向性能升高，横向下降→各向异性。</p><p><span class="hl">设计原则</span>：最大正应力方向∥纤维方向；最大切应力方向⊥纤维方向；纤维沿零件轮廓分布。</p></section>
+<section class="slide cs"><p class="sn">02/理论</p><h2>齿轮纤维组织分布</h2><p>a.轧制切削（最差）b.锻后切削 c.热轧后切削 d.模锻（最合理→寿命最高）</p><div class="iw"><img src="images/108_几种不同加工方法生产齿轮时纤维组织的分布比较.jpg"><div class="cap">图8-7 齿轮纤维组织分布</div></div></section>
+<section class="slide cs"><p class="sn">02/理论</p><h2>金属的可锻性</h2><p>可锻性=塑性高+变形抗力小。影响因素：<span class="hl">金属本质</span>（化学成分+组织结构）和<span class="hl">变形条件</span>（温度+速度+应力状态）。</p><p>纯金属>合金；低碳钢>高碳钢；碳钢>合金钢；固溶体>化合物；单相>多相；细晶>粗晶。</p><p>温度升高→塑性提高、变形抗力减小。热变形抗力仅为冷变形的1/79~1/79。</p></section>
+<section class="slide cs"><p class="sn">02/理论</p><h2>碳钢锻造温度范围</h2><p>始锻温度：固相线以下150~250°C；终锻温度：约800°C。</p><p>过热（晶粒粗大，可正火恢复）vs 过烧（晶界氧化/熔化，不可挽回）</p><div class="iw"><img src="images/109_碳钢的锻造温度范围.jpg"><div class="cap">图8-8 碳钢锻造温度范围</div></div></section>
+<section class="slide cs"><p class="sn">02/理论</p><h2>变形速度与可锻性</h2><p>临界值C以下：速度↑→抗力↑塑性↓（加工硬化积累）；C以上：热效应↑→再结晶加速→塑性↑抗力↓（高速锻造原理）。</p><div class="iw"><img src="images/110_变形速度与可锻性的关系.jpg"><div class="cap">图8-9 变形速度与可锻性</div></div></section>
+<section class="slide cs"><p class="sn">02/理论</p><h2>金属变形时的应力状态</h2><p>挤压（三向受压）→塑性最高。拉拔（两向受压一向受拉）→塑性较低。镦粗（心部三向压，侧表面拉）→侧表面易裂。</p><p>塑性好金属→允许拉应力，减少能耗；塑性差金属→避免拉应力，采用三向压应力。</p><div class="iw"><img src="images/111_金属变形时的应力状态.jpg"><div class="cap">图8-10 应力状态</div></div></section>
+<section class="slide ss"><div class="sn" style="font-family:Archivo;font-size:100px;font-weight:800;color:#e03020;opacity:.12">03</div><h2 style="font-size:56px;color:#1a1a1a;margin:8px 0">自由锻</h2><p class="sub" style="font-size:20px;color:#888">Open-Die Forging</p></section>
+<section class="slide cs"><p class="sn">03/自由锻</p><h2>自由锻概述</h2><p>自由锻：用简单通用工具或在锻造设备上、下砧之间，利用锤头冲击力或上砧静压力直接使坯料变形。</p><p><span class="hl">设备</span>：空气锤（<100kg小件）、蒸汽-空气自由锻锤（中型/较大型件）、水压机（大型件→变形速度慢，改善可锻性）。</p><p>优点：工具设备简单、通用性好、成本低。缺点：精度低、余量大、生产率低。</p><p>应用：单件小批→轧辊、发电机转子、汽轮机叶轮、大型曲轴。</p></section>
+<section class="slide cs"><p class="sn">02/理论</p><h2>水压机结构</h2><p>高压水(20~40MPa)推动工作柱塞→活动横梁+上砧向下→坯料变形。吨位用最大压力表示。</p><div class="iw"><img src="images/112_水压机的结构示意图.jpg"><div class="cap">图8-11 水压机结构</div></div></section>
+<section class="slide cs"><p class="sn">03/自由锻</p><h2>自由锻基本工序</h2><p><span class="hl">镦粗</span>：高度↓，截面积↑。用于盘类件（齿轮坯）和冲孔前准备。</p><p><span class="hl">拔长</span>：截面积↓，长度↑。用于轴类件（轴、连杆、曲轴），芯棒拔长用于空心件。</p><p><span class="hl">冲孔</span>：冲出通孔/不通孔。用于空心锻件（齿轮毛坯、圆环、套筒）。</p><p><span class="hl">弯曲</span>：弯成一定角度/形状。<span class="hl">切割、错移、扭转</span>。</p></section>
+<section class="slide cs"><p class="sn">03/自由锻</p><h2>自由锻工艺规程</h2><p>① <span class="hl">绘制锻件图</span>：零件图+敷料(余块)+加工余量+公差。锻件外形粗实线，零件外形双点画线。</p><p>② <span class="hl">选择锻造工序</span>：饼块类→镦粗；轴杆类→拔长；空心类→镦粗+冲孔+扩孔/芯棒拔长；弯曲类→拔长+弯曲。</p><p>③ <span class="hl">确定坯料</span>：m坯=m锻+m损；S坯≥Y·S锻（碳钢锭Y≥2.5~3），镦粗时高径比1.25~2.5。</p><p>④ <span class="hl">选择设备</span>：根据坯料种类/质量/工序/设备能力综合确定。</p></section>
+<section class="slide cs"><p class="sn">03/自由锻</p><h2>锻件图的表示方法</h2><p>粗实线=锻件外形，双点画线=零件外形。尺寸线上=锻件尺寸，括号内=零件尺寸。</p><div class="iw"><img src="images/113_锻件图的表示方法.jpg"><div class="cap">图8-12 锻件图表示</div></div></section>
+<section class="slide ss"><div class="sn" style="font-family:Archivo;font-size:100px;font-weight:800;color:#e03020;opacity:.12">04</div><h2 style="font-size:56px;color:#1a1a1a;margin:8px 0">模锻</h2><p class="sub" style="font-size:20px;color:#888">Die Forging</p></section>
+<section class="slide cs"><p class="sn">04/模锻</p><h2>模锻概述</h2><p>模锻：金属在外力作用下产生塑性变形并充满模腔而获得锻件。</p><p><span class="hl">设备</span>：模锻锤、热模锻压力机、平锻机、摩擦压力机。</p><p>与自由锻比：精度高、余量小、纤维分布更合理、生产率高、易机械化。</p><p>缺点：设备投资大、锻模成本高、周期长。适用于<150kg的中小型锻件成批大量生产。</p></section>
+<section class="slide cs"><p class="sn">04/模锻</p><h2>典型模锻件</h2><div class="iw"><img src="images/114_典型模锻件.jpg"><div class="cap">图8-13 典型模锻件</div></div></section>
+<section class="slide cs"><p class="sn">04/模锻</p><h2>锻模结构</h2><p>锻模由带燕尾的上模和下模组成。燕尾和紧固楔铁安装在锤头和模座上，键槽与键配合定位。</p><div class="iw"><img src="images/115_锻模结构.jpg"><div class="cap">图8-14 锻模结构</div></div></section>
+<section class="slide cs"><p class="sn">04/模锻</p><h2>锻模模腔分类</h2><p><span class="hl">制坯模腔</span>（改变坯料形状）：拔长模腔、滚压模腔、弯曲模腔、切断模腔。</p><p><span class="hl">模锻模腔</span>（最终成形）：预锻模腔（无飞边槽）+终锻模腔（有飞边槽→增加三向压应力+容纳多余金属）。</p></section>
+<section class="slide cs"><p class="sn">04/模锻</p><h2>弯曲连杆模锻过程</h2><p>拔长→滚压→弯曲→预锻→终锻→切边。</p><div class="iw"><img src="images/116_弯曲连杆的模锻过程.jpg"><div class="cap">图8-15 弯曲连杆模锻过程（多腔锻模）</div></div></section>
+<section class="slide cs"><p class="sn">04/模锻</p><h2>模锻件图的绘制要点</h2><p><span class="hl">① 分模面</span>：选在最大尺寸截面；上下模外形一致（防错模）；模腔浅而宽；敷料最少。</p><p><span class="hl">② 加工余量</span>：一般1~4mm，公差±0.3~3mm。孔<30mm不锻出。</p><p><span class="hl">③ 连皮</span>：模锻不能锻出通孔→留薄层金属，锻后与飞边一同切除。</p><p><span class="hl">④ 模锻斜度</span>：外斜度5°~10°，内斜度7°~15°。圆角：外圆角r=1.5~12mm，内圆角R=(3~4)r。</p></section>
+<section class="slide cs"><p class="sn">04/模锻</p><h2>分模面的选择</h2><p>d-d作分模面最合适：在最大截面、上下模外形一致、模腔浅宽、敷料少。</p><div class="iw"><img src="images/117_分模面的选择.jpg"><div class="cap">图8-16 分模面选择</div></div></section>
+<section class="slide cs"><p class="sn">04/模锻</p><h2>模锻斜度与圆角</h2><p>α=外斜度，β=内斜度，r=外圆角，R=内圆角，δ=连皮厚度。</p><div class="iw"><img src="images/118_模锻斜度、圆角半径和连皮.jpg"><div class="cap">图8-17 模锻斜度和连皮</div></div></section>
+<section class="slide cs"><p class="sn">04/模锻</p><h2>齿轮坯模锻件图</h2><p>双点画线=零件轮廓外形。</p><div class="iw"><img src="images/119_齿轮坯模锻件图.jpg"><div class="cap">图8-18 齿轮坯模锻件图</div></div></section>
+<section class="slide cs"><p class="sn">04/模锻</p><h2>压力机上模锻</h2><p><span class="hl">曲柄压力机上模锻</span>：静压力、变形速度低→适合低塑性材料（耐热合金、镁合金）；一次行程完成→生产率高；有上下顶出装置→易机械化。</p><p><span class="hl">平锻机上模锻</span>（卧式）：三部分锻模+两个分模面→可锻侧面凸台/凹槽件；可锻长杆类件和通孔。</p><p><span class="hl">摩擦压力机上模锻</span>：行程和能量可调、单模腔。中/小批中小型件+低塑性合金。</p></section>
+<section class="slide cs"><p class="sn">04/模锻</p><h2>曲柄压力机结构</h2><p>电动机→带轮齿轮→曲柄连杆→滑块上下往复。锻模分别安装在滑块下端和工作台上。</p><div class="iw"><img src="images/121_曲柄压力机的结构.jpg"><div class="cap">图8-20 曲柄压力机</div></div></section>
+<section class="slide cs"><p class="sn">04/模锻</p><h2>平锻机示意图</h2><p>固定凹模+活动凹模合模夹紧坯料→主滑块带动凸模锻造成形。</p><div class="iw"><img src="images/122_平锻机示意图.jpg"><div class="cap">图8-21 平锻机（卧式曲柄压力机）</div></div></section>
+<section class="slide cs"><p class="sn">04/模锻</p><h2>胎模锻与精密模锻</h2><p><span class="hl">胎模锻</span>：自由锻设备上用胎模生产模锻件。介于自由锻与锤上模锻之间，适用于中/小批小型件。扣模、筒模、合模。</p><p><span class="hl">精密模锻</span>：两套不同精度锻模（普通锻模留0.1~1.2mm余量→切飞边酸洗→高精度锻模精锻）。中温或室温精锻→只适合小型件。</p></section>
+<section class="slide cs"><p class="sn">04/模锻</p><h2>常用胎模结构</h2><p>扣模（非回转体局部/整体成形）、筒模（回转体盘类件）、合模（复杂非回转体件）。</p><div class="iw"><img src="images/125_常用胎模的结构.jpg"><div class="cap">图8-24 常用胎模</div></div></section>
+<section class="slide cs"><p class="sn">04/模锻</p><h2>生产批量对锻件成本</h2><p>单件→自由锻经济；中批→胎模锻；大批→模锻。</p><div class="iw"><img src="images/126_生产批量对锻件成本的影响.jpg"><div class="cap">图8-25 批量对成本的影响</div></div></section>
+<section class="slide ss"><div class="sn" style="font-family:Archivo;font-size:100px;font-weight:800;color:#e03020;opacity:.12">05</div><h2 style="font-size:56px;color:#1a1a1a;margin:8px 0">板料冲压</h2><p class="sub" style="font-size:20px;color:#888">Sheet Metal Stamping</p></section>
+<section class="slide cs"><p class="sn">05/冲压</p><h2>板料冲压概述</h2><p>利用冲模在压力机上对板料施加压力使其变形或分离。通常在常温下进行（冷冲压），板厚>8~10mm用热冲压。</p><p><span class="hl">特点</span>：生产率高、操作简单、精度和表面质量高、可冲形状复杂件、材料利用率高。</p><p>缺点：冲模制造复杂、成本高→只有大批量生产才经济。</p><p>设备：剪床（下料）和冲床（曲柄压力机，冲压成形基本设备）。</p></section>
+<section class="slide cs"><p class="sn">05/冲压</p><h2>小型冲床结构</h2><p>电动机→减速机构→曲柄连杆→滑块+上模上下往复→与下模配合完成冲压。</p><div class="iw"><img src="images/127_常用小型冲床的结构.jpg"><div class="cap">图8-26 常用小型冲床</div></div></section>
+<section class="slide cs"><p class="sn">05/冲压</p><h2>冲压基本工序分类</h2><p><span class="hl">分离工序</span>（使板料沿轮廓分离）：剪切、落料（冲下部分为成品）、冲孔（冲下部分为废料）。</p><p><span class="hl">成形工序</span>（塑性变形不破裂）：弯曲、拉深、翻边、卷边、胀形。</p></section>
+<section class="slide cs"><p class="sn">05/冲压</p><h2>冲裁（落料+冲孔）</h2><p>冲裁变形过程：弹性变形→塑性变形→出现微裂纹→裂纹扩展汇合→板料分离。</p><p>断口区域：塌角、<span class="hl">光亮带</span>（尺寸准确、表面质量好）、剪裂带、毛刺。</p><p>模具间隙z一般为板厚t的5%~10%。凸凹模刃口尺寸：冲孔→凸模=孔尺寸；落料→凹模=外形尺寸。</p></section>
+<section class="slide cs"><p class="sn">05/冲压</p><h2>冲孔与落料</h2><p>落料：冲下为工件；冲孔：冲下为废料，带孔部分为工件。</p><div class="iw"><img src="images/128_冲孔与落料示意图.jpg"><div class="cap">图8-27 冲孔与落料</div></div></section>
+<section class="slide cs"><p class="sn">05/冲压</p><h2>冲裁过程及断面</h2><p>弹性→塑性→微裂纹→分离。断面：塌角+光亮带+剪裂带+毛刺。</p><div class="iw"><img src="images/129_金属板料的冲裁过程及断面特征.jpg"><div class="cap">图8-28 冲裁过程及断面特征</div></div></section>
+<section class="slide cs"><p class="sn">05/冲压</p><h2>材料排样方式</h2><p>有接边排样→质量高、模具寿命长、材料利用率低；少无接边→相反。</p><div class="iw"><img src="images/130_材料排样方式.jpg"><div class="cap">图8-29 排样方式</div></div></section>
+<section class="slide cs"><p class="sn">05/冲压</p><h2>强力压边精冲法</h2><p>V形压边环+极小间隙(1%t)+凹模刃口小圆角+反压力顶杆→精密冲裁件。</p><div class="iw"><img src="images/131_强力压边精冲法示意图.jpg"><div class="cap">图8-30 强力压边精冲</div></div></section>
+<section class="slide cs"><p class="sn">05/冲压</p><h2>弯曲</h2><p>弯曲时内侧受压应力（压缩），外层受拉应力（伸长）。拉应力>抗拉强度→破裂。</p><p>最小弯曲半径r_min≥(0.25~1)t。弯曲曲线应⊥纤维方向（否则易裂）。</p><p><span class="hl">回弹现象</span>：卸载后弯曲角度略增大（回弹角0°~10°）→模具角度应比产品小一个回弹角。</p></section>
+<section class="slide cs"><p class="sn">05/冲压</p><h2>弯曲件与弯曲示意图</h2><p>各种弯曲件示例。</p><div class="iw"><img src="images/132_弯曲件示意图.jpg"><div class="cap">图8-31 弯曲件</div></div></section>
+<section class="slide cs"><p class="sn">05/冲压</p><h2>弯曲方向对质量影响</h2><p>弯曲曲线∥纤维方向→容易破裂；弯曲曲线⊥纤维方向→质量好。</p><div class="iw"><img src="images/134_弯曲方向对弯曲件质量的影响.jpg"><div class="cap">图8-33 弯曲方向</div></div></section>
+<section class="slide cs"><p class="sn">05/冲压</p><h2>拉深</h2><p>拉深：将板料变形为中空形状零件（筒形、锥形、球形、方盒形等）。</p><p>凸缘部分圆周切线方向受压→压应力过大时<span class="hl">起皱</span>→用压边圈防皱。</p><p>凸模圆角部位承受拉应力→变薄严重→<span class="hl">拉裂</span>→圆角r凸≤r凹=(5~10)t，间隙z=(1.1~1.2)t。</p></section>
+<section class="slide cs"><p class="sn">05/冲压</p><h2>拉深件示例</h2><div class="iw"><img src="images/136_拉深件示意图.jpg"><div class="cap">图8-35 拉深件示例</div></div></section>
+<section class="slide cs"><p class="sn">05/冲压</p><h2>拉深废品</h2><div class="iw"><img src="images/138_拉深废品.jpg"><div class="cap">图8-37 拉深废品（起皱和拉裂）</div></div></section>
+<section class="slide cs"><p class="sn">05/冲压</p><h2>用压边圈拉深</h2><p>有压板/压力圈可防止起皱。</p><div class="iw"><img src="images/139_用压边圈拉深.jpg"><div class="cap">图8-38 压边圈拉深</div></div></section>
+<section class="slide cs"><p class="sn">05/冲压</p><h2>冲压模具分类</h2><p><span class="hl">简单模</span>（单工序模）：一次冲程一道工序。结构简单、成本低、生产率低→简单件批量生产。</p><p><span class="hl">连续模</span>（级进模）：一次冲程不同位置完成多道工序。生产率高、易自动化→大批量中/小型件。</p><p><span class="hl">复合模</span>：一次冲程同一位置完成多道工序。有凸凹模（外圆为落料凸模，内孔为拉深凹模）。精度高、生产率高、成本高。</p></section>
+<section class="slide cs"><p class="sn">05/冲压</p><h2>简单模</h2><p>凸模+凹模，导料板+限位销控制送料，导柱+导套保证精度。</p><div class="iw"><img src="images/140_简单模.jpg"><div class="cap">图8-39 简单模</div></div></section>
+<section class="slide cs"><p class="sn">05/冲压</p><h2>连续模</h2><p>左侧落料+右侧冲孔→同一冲程完成。</p><div class="iw"><img src="images/141_连续模.jpg"><div class="cap">图8-40 连续模</div></div></section>
+<section class="slide cs"><p class="sn">05/冲压</p><h2>复合模</h2><p>凸凹模：外圆=落料凸模，内孔=拉深凹模。同一位置完成落料和拉深。</p><div class="iw"><img src="images/142_复合模.jpg"><div class="cap">图8-41 复合模（落料+拉深）</div></div></section>
+<section class="slide ss"><div class="sn" style="font-family:Archivo;font-size:100px;font-weight:800;color:#e03020;opacity:.12">06</div><h2 style="font-size:56px;color:#1a1a1a;margin:8px 0">特种压力加工方法</h2><p class="sub" style="font-size:20px;color:#888">Advanced Metal Forming</p></section>
+<section class="slide cs"><p class="sn">06/特种</p><h2>超塑成形</h2><p>超塑性：低变形速率(10⁻²~10⁻⁴/s)、一定温度(~0.5T熔)、细晶粒(0.2~5μm)→伸长率>100%（钢>500%、锌铝合金>1000%）。</p><p><span class="hl">超塑性模锻</span>：模具与坯料同温加热、极低变形速度(0.025mm/s)→一次完成，加工损耗降低一半。</p><p><span class="hl">超塑性无模拉拔</span>：感应线圈局部加热拉拔→断面收缩率83%，精度±0.013mm。</p><p><span class="hl">超塑性气压胀形</span>：板料+模具加热→通压缩空气→贴模成形。用于Ti/Al合金、双相不锈钢薄板。</p></section>
+<section class="slide cs"><p class="sn">06/特种</p><h2>超塑性无模拉拔</h2><p>感应线圈局部加热→控制拉拔速度与线圈移动→等断面/不等断面制品。</p><div class="iw"><img src="images/143_超塑性无模拉拔示意图.jpg"><div class="cap">图8-42 超塑性无模拉拔</div></div></section>
+<section class="slide cs"><p class="sn">06/特种</p><h2>粉末锻造</h2><p>粉末烧结预成形坯→加热→闭式锻模中锻造成零件。特点：尺寸精度高、组织均匀、无成分偏析。</p><p>高速钢车刀/钻头寿命提高1~2倍；Ti-6Al-4V发动机叶片/燃气轮机导向叶片；汽车齿轮/连杆。</p><p>新工艺：松装锻造、喷雾锻造（氮气喷射→99%相对密度预成形坯→锻造→切边）、粉末轧制等。</p></section>
+<section class="slide cs"><p class="sn">06/特种</p><h2>粉末锻造过程</h2><p>制粉→成形→烧结→精密热锻→热处理→成品。</p><div class="iw"><img src="images/146_粉末锻造示意图.jpg"><div class="cap">图8-45 粉末锻造</div></div></section>
+<section class="slide cs"><p class="sn">06/特种</p><h2>回转成形</h2><p><span class="hl">辊锻</span>：圆弧形模块轧辊旋转→坯料受压变形。用于长杆类件大批量生产（汽轮机叶片）。</p><p><span class="hl">楔横轧</span>：两个同向旋转楔形轧辊→轧辊转一周形成一个锻件。用于轴类件（汽车/摩托车轴）。</p><p><span class="hl">斜轧</span>：两轧辊轴线呈一定角度→旋转+直线运动。钢球、轴承滚子、麻花钻头。</p><p><span class="hl">摆动辗压</span>：有摆角的上模旋转挤压→薄盘形锻件（铣刀片、汽车半轴）。</p><p><span class="hl">旋压</span>：芯模旋转+旋压工具进给→筒形/回转体件（薄壁食品罐）。</p></section>
+<section class="slide cs"><p class="sn">06/特种</p><h2>静液挤压与发展趋势</h2><p><span class="hl">静液挤压</span>：液体静压力(2000~3000MPa)传递压力→等静压力→适合低塑性材料（铍、铬、钼、钨）。挤压力小10%~50%。</p><p><span class="hl">发展趋势</span>：柔性成形（高内压成形、无模液压成形）；精密塑性成形（净成形/近净成形）；数字化技术体系（CAD/CAE/CAM集成）；计算机集成制造(CIMS)。</p></section>
+<section class="slide ss"><div class="sn" style="font-family:Archivo;font-size:100px;font-weight:800;color:#e03020;opacity:.12">07</div><h2 style="font-size:56px;color:#1a1a1a;margin:8px 0">锻件与冲压件结构设计</h2><p class="sub" style="font-size:20px;color:#888">Design of Forgings & Stampings</p></section>
+<section class="slide cs"><p class="sn">07/结构设计</p><h2>自由锻件设计原则</h2><p>自由锻是在平砧上用简单工具锻造→形状应尽量简单。</p><p>① 避免锥面和楔形（锻不出）。② 避免圆柱体与圆柱体相交（难锻）。</p><p>③ 避免加强筋和凸台（锻不出）。④ 复杂件可用锻-焊组合代替整体锻造。</p></section>
+<section class="slide cs"><p class="sn">07/结构设计</p><h2>冲压件设计原则</h2><p>① 落料件外形应简单对称→便于排样、提高材料利用率。</p><p>② 弯曲件应避免孔太靠近弯边→防止孔变形。最小孔边距S≥(1.5~2)t。</p><p>③ 拉深件形状应力求简单对称→利于均匀变形。圆筒形最易拉深。</p><p>④ 冲压件上孔与孔、孔与边的距离应足够→防止材料撕裂。</p></section>
+<section class="slide ss"><div class="sn" style="font-family:Archivo;font-size:100px;font-weight:800;color:#e03020;opacity:.12">本章总结</div><h2 style="font-size:56px;color:#1a1a1a;margin:8px 0">核心要点对比</h2></section>
+<section class="slide cs"><p class="sn">总结</p><h2>六种压力加工方法对比</h2><p>① <span class="hl">轧制</span>：生产钢板/型钢/管材，高速精密化。② <span class="hl">挤压</span>：型材/管材/零件，挤锻结合。</p><p>③ <span class="hl">拉拔</span>：金属丝(φ0.02mm)/薄壁管，高精度。④ <span class="hl">自由锻</span>：大型件唯一方法，单件小批。</p><p>⑤ <span class="hl">模锻</span>：中小型件大批量，精度高、纤维分布合理。⑥ <span class="hl">板料冲压</span>：薄板件大批量，生产率最高。</p></section>
+<section class="slide cs"><p class="sn">总结</p><h2>锻造方法选择原则</h2><p><span class="hl">单件/小批</span>：自由锻（大型件唯一选择）。<span class="hl">中批</span>：胎模锻（工具简单、适应性广）。</p><p><span class="hl">大批/大量</span>：锤上模锻、压力机上模锻（曲柄/平锻/摩擦压力机）、精密模锻。</p><p>关键考量：生产批量（首要因素）、锻件形状复杂程度、材料可锻性、设备能力、经济性。</p></section>
+<section class="slide cs"><p class="sn">总结</p><h2>重点总结</h2><p>① <span class="hl">塑性变形机制</span>：滑移（位错运动）、孪生 → 晶界阻碍 → 细晶强化。</p><p>② <span class="hl">冷变形强化</span>：强度↑塑性↓。回复→再结晶→消除加工硬化。热变形=变形+再结晶同时进行。</p><p>③ <span class="hl">纤维组织</span>：锻造比Y=2~5开始形成，Y>5接近极限。设计原则：正应力∥纤维，切应力⊥纤维。</p><p>④ <span class="hl">可锻性</span>：取决于金属本质（成分+组织）和变形条件（温度+速度+应力状态）。三向受压塑性最好。</p><p>⑤ <span class="hl">模锻工艺</span>：制坯模腔（拔长/滚压/弯曲/切断）+模锻模腔（预锻/终锻）。有飞边槽增加三向压应力。</p><p>⑥ <span class="hl">板料冲压</span>：分离工序（落料/冲孔）+成形工序（弯曲/拉深/翻边/胀形）。模具：简单模/连续模/复合模。</p></section></div></div><nav class="ctrl"><button id="prev">&#8592;</button><span class="pi" id="pi">1/79</span><button id="next">&#8594;</button></nav>
+<div class="ez" id="ez"></div><button class="eb" id="eb">编辑文字</button>
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script>
+(function(){
+var sl=document.querySelectorAll('.slide'),cur=0,pi=document.getElementById('pi'),sg=document.getElementById('stg'),vp=document.querySelector('.vp');
+function go(i){
+  cur=Math.max(0,Math.min(i,sl.length-1));
+  for(var j=0;j<sl.length;j++)sl[j].classList.toggle('a',j===cur);
+  pi.textContent=(cur+1)+'/'+sl.length;
+  try{renderMathInElement(document.body)}catch(e){}
+}
+function sz(){var sc=Math.min(vp.clientWidth/1920,vp.clientHeight/1080);sg.style.transform='translate('+(vp.clientWidth-1920*sc)/2+'px,'+(vp.clientHeight-1080*sc)/2+'px) scale('+sc+')'}
+document.getElementById('next').onclick=function(){go(cur+1)};
+document.getElementById('prev').onclick=function(){go(cur-1)};
+document.addEventListener('keydown',function(e){
+  if(e.key==='ArrowRight'||e.key==='ArrowDown'||e.key===' '){e.preventDefault();go(cur+1)}
+  if(e.key==='ArrowLeft'||e.key==='ArrowUp'){e.preventDefault();go(cur-1)}
+});
+document.addEventListener('wheel',function(e){if(e.deltaY>0)go(cur+1);else go(cur-1)},{passive:true});
+window.addEventListener('resize',sz);sz();go(0);
+(function(){var eb=document.getElementById('eb'),ez=document.getElementById('ez'),ac=false,timer=null;
+function tog(){ac=!ac;eb.classList.toggle('a',ac);eb.textContent=ac?'退出编辑':'编辑文字';document.querySelector('.slide.a').querySelectorAll('h1,h2,h3,h4,p,li,td,th,span.hl,div.c h3,.sn,.tag,.sm,.sub,.cap').forEach(function(el){el.contentEditable=ac?'true':'false'})}
+eb.onclick=tog;ez.onmouseenter=function(){clearTimeout(timer);eb.classList.add('s')};
+ez.onmouseleave=function(){timer=setTimeout(function(){if(!ac)eb.classList.remove('s')},400)};
+eb.onmouseenter=function(){clearTimeout(timer)};eb.onmouseleave=function(){timer=setTimeout(function(){if(!ac)eb.classList.remove('s')},400)};ez.onclick=tog;
+document.addEventListener('keydown',function(e){if((e.key==='e'||e.key==='E')&&!e.target.closest('[contenteditable]')){e.preventDefault();tog()};if(e.ctrlKey&&e.key==='s'){e.preventDefault();alert('已保存')}});
+})();
+})();
+</script></body></html>

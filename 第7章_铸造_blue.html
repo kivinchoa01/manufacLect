@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>第7章 · 铸造</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&family=Noto+Sans+SC:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" defer></script>
+<style>
+:root{--bg:#fdfae7;--primary:#1e2bfa;--text:#111;--text-muted:#555;--text-light:#999;--accent-light:rgba(30,43,250,.08);--border:rgba(30,43,250,.2)}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:100%;height:100%;overflow:hidden;font-family:'Inter','Noto Sans SC',sans-serif;background:var(--bg);color:var(--text)}
+.deck{width:100vw;height:100vh;position:relative;overflow:hidden}
+.slide{position:absolute;top:0;left:0;width:100vw;height:100vh;display:flex;flex-direction:column;padding:3.5vw 4.5vw 9vh 4.5vw;opacity:0;pointer-events:none;transform:translateX(40px);transition:opacity .5s ease,transform .5s ease;overflow-y:auto;overflow-x:hidden}
+.slide.active{opacity:1;pointer-events:all;transform:translateX(0);z-index:10}
+.slide.prev{transform:translateX(-40px)}
+h1{font-family:'Space Grotesk','Noto Sans SC',sans-serif;font-size:clamp(2.2rem,3.8vw,3.4rem);font-weight:700;line-height:1.1;letter-spacing:-.02em}
+h2{font-family:'Space Grotesk','Noto Sans SC',sans-serif;font-size:clamp(1.6rem,2.8vw,2.4rem);font-weight:700;line-height:1.2;letter-spacing:-.01em;margin-bottom:.7rem;color:var(--text)}
+h3{font-family:'Space Grotesk','Noto Sans SC',sans-serif;font-size:clamp(1.1rem,1.5vw,1.3rem);font-weight:600;line-height:1.3;color:var(--text)}
+p{font-size:clamp(1.05rem,1.5vw,1.35rem);line-height:1.7;color:var(--text-muted);margin-bottom:.35rem}
+p:last-child{margin-bottom:0}
+/* Nav */
+.nav-controls{position:fixed;bottom:2.5vh;right:3vw;display:flex;align-items:center;gap:.8rem;z-index:100}
+.nav-btn{width:42px;height:42px;border-radius:50%;border:1.5px solid var(--border);background:var(--bg);color:var(--primary);cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .2s ease;font-size:1rem}
+.nav-btn:hover{background:var(--primary);color:var(--bg);border-color:var(--primary)}
+.nav-btn:disabled{opacity:.3;cursor:not-allowed}
+.slide-counter{font-family:'Space Grotesk',sans-serif;font-size:.85rem;font-weight:500;color:var(--text-light);position:fixed;bottom:2.5vh;left:3vw;z-index:100}
+.progress-bar{position:fixed;bottom:0;left:0;height:3px;background:var(--primary);transition:width .4s ease;z-index:100}
+.keyboard-hint{position:fixed;bottom:2.5vh;left:50%;transform:translateX(-50%);font-size:.75rem;color:var(--text-light);z-index:100;opacity:.6}
+.accent-line{width:50px;height:4px;background:var(--primary);border-radius:2px;margin-bottom:.8rem}
+.hl{color:var(--primary);font-weight:600}
+.sn{font-size:clamp(.75rem,.95vw,.85rem);color:var(--text-light);text-transform:uppercase;letter-spacing:.06em;margin-bottom:.15rem;font-weight:500}
+.tag{font-family:'Space Grotesk',sans-serif;font-size:.75rem;font-weight:500;color:var(--primary);background:var(--accent-light);padding:.25rem .65rem;border-radius:100px}
+/* Cover */
+.layout-cover{justify-content:center;align-items:flex-start;padding-left:8vw}
+.layout-cover h1{max-width:55vw;margin-bottom:1rem}
+.layout-cover .sub{font-size:clamp(.9rem,1.3vw,1.1rem);color:var(--text-muted);max-width:38vw;margin-bottom:2.5rem;font-weight:400;line-height:1.6}
+.layout-cover .meta{font-family:'Space Grotesk',sans-serif;font-size:.75rem;color:var(--text-light)}
+.layout-cover .decoration{position:absolute;top:0;right:0;width:35vw;height:100vh;background:var(--accent-light);clip-path:polygon(30% 0,100% 0,100% 100%,0% 100%)}
+.layout-cover .dots{position:absolute;bottom:12vh;right:8vw;display:grid;grid-template-columns:repeat(3,1fr);gap:12px;opacity:.25}
+.layout-cover .dots .d{width:6px;height:6px;background:var(--primary);border-radius:50%}
+/* Section title */
+.layout-section{justify-content:center;align-items:center;text-align:center}
+.layout-section .bar{width:80px;height:4px;background:var(--primary);border-radius:2px;margin:1.5rem auto}
+.layout-section h2{font-size:clamp(2.2rem,3.8vw,3.2rem);margin-bottom:.3rem}
+.layout-section .en{font-family:'Space Grotesk',sans-serif;font-size:clamp(.85rem,1.2vw,1rem);color:var(--text-muted);font-weight:400;letter-spacing:.04em;text-transform:uppercase}
+/* Content slide: bold title + text */
+.layout-content{padding:3vw 5vw}
+.layout-content .hdr{display:flex;align-items:center;justify-content:space-between;margin-bottom:.4rem}
+.layout-content .hdr .sn{flex:1}
+.layout-content .hdr .tag{flex-shrink:0}
+.layout-content p{margin-bottom:.45rem;padding-left:.5rem}
+.layout-content p .hl{font-size:inherit}
+/* Content + image side by side (split) */
+.layout-split .row{display:grid;grid-template-columns:1.1fr 1fr;gap:2rem;flex:1;min-height:0;margin-top:.3rem}
+.layout-split .col{display:flex;flex-direction:column}
+.layout-split .col p{padding-left:.5rem}
+.layout-split .img-col{display:flex;flex-direction:column;align-items:center;justify-content:center}
+.layout-split .img-col img{max-width:100%;max-height:58vh;object-fit:contain;border-radius:6px;box-shadow:0 2px 12px rgba(0,0,0,.06)}
+.layout-split .img-col .cap{font-size:clamp(.75rem,.95vw,.85rem);color:var(--text-light);margin-top:.4rem;text-align:center}
+/* Image at bottom (for larger images) */
+.layout-imgbot{display:flex;flex-direction:column}
+.layout-imgbot .irow{text-align:center;margin-top:auto;padding-top:.5rem}
+.layout-imgbot .irow img{max-height:44vh;max-width:80vw;object-fit:contain;border-radius:6px;box-shadow:0 1px 10px rgba(0,0,0,.06)}
+.layout-imgbot .irow .cap{font-size:clamp(.75rem,.95vw,.85rem);color:var(--text-light);margin-top:.25rem}
+.katex{font-size:1.08em!important}
+.katex-display{margin:.25rem 0!important}
+@media(max-height:700px){.slide{padding:2.5vh 3vw}.layout-imgbot .irow img{max-height:30vh}}
+</style>
+</head>
+<body>
+<div class="deck">
+<div class="slide layout-cover active"><div class="decoration"></div><div class="dots"><div class="d"></div><div class="d"></div><div class="d"></div><div class="d"></div><div class="d"></div><div class="d"></div><div class="d"></div><div class="d"></div><div class="d"></div></div><div class="accent-line"></div><h1>铸造</h1><p class="sub">将熔融金属浇注、压射或吸入铸型型腔，冷却凝固后获得一定形状和性能的零件或毛坯的金属成形工艺。</p><p class="meta">第7章 · 工程材料与机械制造基础（第3版）</p></div>
+<div class="slide layout-section"><div class="bar"></div><h2>液态金属成形理论基础</h2><p class="en">THEORETICAL BASIS OF LIQUID METAL FORMING</p></div>
+<div class="slide layout-content"><div class="hdr"><span class="sn">01/理论基础</span></div><h2>铸造概述</h2><p><span class="hl">铸造</span>是将熔融金属浇注、压射或吸入铸型型腔，冷却凝固后获得一定形状和性能的零件或毛坯的金属成形工艺。</p><p><span class="hl">优点</span>：一次成形、适应性强、成本低、适合复杂内腔零件、适用材料广泛。</p><p><span class="hl">缺点</span>：晶粒粗大、易有缩孔/缩松/气孔/砂眼等缺陷，力学性能不如锻件。</p></div>
+<div class="slide layout-content"><div class="hdr"><span class="sn">01/理论基础</span></div><h2>合金的流动性</h2><p>合金流动性是指液态合金填充铸型的能力，是衡量合金铸造性能优劣的主要指标之一。</p><p><span class="hl">流动性好</span> → 易获得形状复杂、轮廓清晰的薄壁铸件，有利于气体和夹杂物上浮排出。</p><p><span class="hl">流动性不好</span> → 冷隔、浇不足、气孔、夹渣、缩孔等缺陷。</p><p>测量方法：浇注<span class="hl">螺旋形流动性试样</span>，试样越长，流动性越好。</p></div>
+<div class="slide layout-split"><div class="hdr"><span class="sn">01/理论基础</span></div><h2>合金流动性的测定</h2><div class="row"><div class="col"></div><div class="img-col"><img src="images/49_测定合金流动性的螺旋形试样.jpg"><div class="cap">图7-1 测定合金流动性的螺旋形试样</div></div></div></div>
+<div class="slide layout-content"><div class="hdr"><span class="sn">01/理论基础</span></div><h2>影响合金流动性的因素（一）</h2><p><span class="hl">(1) 合金成分</span>：纯金属和共晶成分合金在恒温凝固，界面光滑→阻力小→流动性好。</p><p>宽凝固温度范围的合金：发达的树枝晶阻碍流动→流动性差。铁碳合金中：共晶成分铸铁流动性最好。</p></div>
+<div class="slide layout-split"><div class="hdr"><span class="sn">01/理论基础</span></div><h2>合金结晶特性与流动性</h2><div class="row"><div class="col"><p>左：恒温凝固（纯金属/共晶）→界面光滑→流动性好。右：宽凝固范围→树枝晶阻碍→流动性差。</p></div><div class="img-col"><img src="images/50_合金结晶特性对流动性的影响示意图.jpg"><div class="cap">图7-2 结晶特性对流动性的影响</div></div></div></div>
+<div class="slide layout-split"><div class="hdr"><span class="sn">01/理论基础</span></div><h2>铁碳合金流动性与含碳量</h2><div class="row"><div class="col"><p>纯铁流动性好，随含碳量增加先下降后上升。共晶成分铸铁流动性最好。</p></div><div class="img-col"><img src="images/51_铁碳合金的流动性与其碳的质量分数的关系.jpg"><div class="cap">图7-3 流动性与碳含量关系</div></div></div></div>
+<div class="slide layout-content"><div class="hdr"><span class="sn">01/理论基础</span></div><h2>影响合金流动性的因素（二）</h2><p><span class="hl">(2) 物理性质</span>：比热容和密度越大、导热系数越小、结晶潜热越多→流动性越好。</p><p><span class="hl">(3) 合金温度</span>：温度升高→流动性上升。但过高→氧化、吸气严重→气孔、缩松。</p><p>浇注温度必须<span class="hl">合理</span>，并非越高越好。</p></div>
+<div class="slide layout-content"><div class="hdr"><span class="sn">01/理论基础</span></div><h2>液态合金的充型能力</h2><p><span class="hl">充型能力</span>：液态合金充满铸型型腔，获得形状完整、轮廓清晰的铸件的能力。</p><p>充型能力不足 → 浇不足、冷隔等缺陷。取决于合金的<span class="hl">流动性</span>和<span class="hl">工艺因素</span>。</p></div>
+<div class="slide layout-content"><div class="hdr"><span class="sn">01/理论基础</span></div><h2>影响充型能力的工艺因素</h2><p><span class="hl">(1) 铸型条件</span>：蓄热能力大→冷却快→充型差；排气差→阻碍充型；温度高→充型好。</p><p><span class="hl">(2) 浇注条件</span>：浇注系统越复杂→阻力越大→充型差；静压力越大→充型越好。</p><p>提高浇注温度能显著提高充型能力。铸铁件常采用<span class="hl">「高温出炉、低温浇注」</span>。</p></div>
+<div class="slide layout-section"><div class="bar"></div><h2>铸造合金的收缩</h2><p class="en">SHRINKAGE OF CASTING ALLOYS</p></div>
+<div class="slide layout-content"><div class="hdr"><span class="sn">02/收缩</span></div><h2>收缩的概念</h2><p>合金从液态冷却至室温的过程中，体积或尺寸缩小的现象称为<span class="hl">收缩</span>。</p><p>收缩是产生缩孔、缩松、热应力、变形及裂纹等铸造缺陷的<span class="hl">基本原因</span>。</p><p>三个收缩阶段：<span class="hl">液态收缩 → 凝固收缩 → 固态收缩</span></p></div>
+<div class="slide layout-content"><div class="hdr"><span class="sn">02/收缩</span></div><h2>三个收缩阶段</h2><p><span class="hl">(1) 液态收缩</span>：浇注温度→液相线温度。型腔内液面降低。</p><p><span class="hl">(2) 凝固收缩</span>：液相线→固相线。温度范围越大，收缩越大。液态+凝固→<span class="hl">缩孔和缩松</span>的形成原因。</p><p><span class="hl">(3) 固态收缩</span>：固相线→室温。外形尺寸减小（线收缩）。→<span class="hl">应力、变形和裂纹</span>的基本原因。</p><p>灰铸铁：体收缩率约7%，线收缩率0.7%~1.0%；铸钢：体收缩率约12%，线收缩率1.5%~2.0%。</p></div>
+<div class="slide layout-content"><div class="hdr"><span class="sn">02/收缩</span></div><h2>铸件中的缩孔和缩松</h2><p>合金的液态收缩和凝固收缩使铸件最后凝固部位出现孔洞：</p><p><span class="hl">缩孔</span>：容积较大而集中的孔洞，外形近于倒锥形，内表面不光滑。</p><p><span class="hl">缩松</span>：细小而分散的孔洞，分布于轴线区域或厚大断面，对力学性能影响很大。</p></div>
+<div class="slide layout-split"><div class="hdr"><span class="sn">02/收缩</span></div><h2>缩孔的形成过程</h2><div class="row"><div class="col"><p>纯金属/共晶合金→逐层凝固→形成集中缩孔。缩孔较易检查和修补。</p></div><div class="img-col"><img src="images/52_铸件缩孔的形成过程.jpg"><div class="cap">图7-4 缩孔形成过程</div></div></div></div>
+<div class="slide layout-split"><div class="hdr"><span class="sn">02/收缩</span></div><h2>缩松的形成过程</h2><div class="row"><div class="col"><p>宽凝固范围合金→同时凝固→树枝晶分隔液体→形成缩松。缩松难于控制。</p></div><div class="img-col"><img src="images/53_(圆柱形铸件)缩松的形成过程.jpg"><div class="cap">图7-5 缩松形成过程</div></div></div></div>
+<div class="slide layout-content"><div class="hdr"><span class="sn">02/收缩</span></div><h2>缩孔与缩松的结论</h2><p>① 纯金属/共晶合金→缩孔；宽凝固范围合金→缩松。应选<span class="hl">近共晶成分</span>合金。</p><p>② 给定成分铸件：缩孔+缩松总容积一定。增大冷却速度可促缩松→缩孔转化。</p><p>③ 浇注温度越高→液态收缩越大→缩孔体积越大。</p><p>④ 缩孔和缩松总存在于铸件最后凝固部位，厚壁处易出现。</p></div>
+<div class="slide layout-split"><div class="hdr"><span class="sn">02/收缩</span></div><h2>冒口补缩</h2><div class="row"><div class="col"><p>设置冒口和冷铁→<span class="hl">顺序凝固</span>：铸件从远离冒口处先凝，逐步向冒口推进，冒口最后凝固。</p></div><div class="img-col"><img src="images/54_冒口补缩示意图.jpg"><div class="cap">图7-6 冒口补缩示意图</div></div></div></div>
+<div class="slide layout-split"><div class="hdr"><span class="sn">02/收缩</span></div><h2>铸件顺序凝固</h2><div class="row"><div class="col"><p>合理选择内浇道位置、开设冒口、放置冷铁。常采用发热保温冒口提高补缩效果。</p></div><div class="img-col"><img src="images/55_铸件顺序凝固示意图.jpg"><div class="cap">图7-7 铸件顺序凝固</div></div></div></div>
+<div class="slide layout-content"><div class="hdr"><span class="sn">02/收缩</span></div><h2>防止缩孔的方法</h2><p><span class="hl">顺序凝固原则</span>：设置冒口和冷铁 → 缩孔转移到冒口中 → 切除冒口可得完好铸件。</p><p>确定缩孔位置的方法：凝固等温线法、内切圆法、<span class="hl">计算机凝固模拟法</span>。</p></div>
+<div class="slide layout-section"><div class="bar"></div><h2>铸造内应力与变形</h2><p class="en">INTERNAL STRESS & DEFORMATION</p></div>
+<div class="slide layout-content"><div class="hdr"><span class="sn">03/内应力</span></div><h2>热应力的形成</h2><p>铸件因壁厚不均、冷却速度不同→各部分收缩量不同→彼此制约产生应力。</p><p><span class="hl">塑性状态</span>（凝固终了→再结晶温度）：小外力可塑性变形，应力自行消除。</p><p><span class="hl">弹性状态</span>（低于再结晶温度）：受力产生弹性变形，应力保留。</p></div>
+<div class="slide layout-split"><div class="hdr"><span class="sn">03/内应力</span></div><h2>铸造热应力与变形</h2><div class="row"><div class="col"><p>结论：<span class="hl">厚壁或心部受拉伸，薄壁或表层受压缩</span>。固态收缩率越大、壁厚差别越大→热应力越大。</p></div><div class="img-col"><img src="images/56_铸造热应力与变形.jpg"><div class="cap">图7-8 框形铸件热应力分析</div></div></div></div>
+<div class="slide layout-split"><div class="hdr"><span class="sn">03/内应力</span></div><h2>车床床身导轨变形</h2><div class="row"><div class="col"><p>导轨（厚）受拉，床壁（薄）受压→导轨向下挠曲变形。</p></div><div class="img-col"><img src="images/57_车床床身导轨的挠曲变形.jpg"><div class="cap">图7-9 车床床身导轨挠曲变形</div></div></div></div>
+<div class="slide layout-content"><div class="hdr"><span class="sn">03/内应力</span></div><h2>机械应力与铸件变形</h2><p><span class="hl">机械应力</span>：铸件收缩受铸型、型芯的机械阻碍而产生。落砂后可自行消除，但与热应力共同作用会增加裂纹可能性。</p><p>铸件存在内应力时：<span class="hl">厚部受拉、薄部受压</span>，通过变形减缓内应力。</p></div>
+<div class="slide layout-content"><div class="hdr"><span class="sn">03/内应力</span></div><h2>防止变形的方法</h2><p><span class="hl">① 同时凝固原则</span>：各部分同时凝固，无温差→内应力小。适用于灰铸铁、壁厚均匀的铸件。</p><p><span class="hl">② 反变形法</span>：将模样制成与变形方向相反的形状。</p><p><span class="hl">③ 去应力退火/自然时效</span>：重要精密铸件须消除残余应力。</p></div>
+<div class="slide layout-content"><div class="hdr"><span class="sn">03/内应力</span></div><h2>铸件的裂纹</h2><p><span class="hl">热裂</span>：凝固后期高温形成，短而曲折、沿晶界。常见于铸钢和铝合金。防止：改善退让性、限制S含量。</p><p><span class="hl">冷裂</span>：低温形成，细小呈直线状。常出现在受拉伸部位和应力集中处。防止：减少内应力、降低脆性、控制P含量。</p></div>
+<div class="slide layout-section"><div class="bar"></div><h2>砂型铸造</h2><p class="en">SAND CASTING</p></div>
+<div class="slide layout-split"><div class="hdr"><span class="sn">04/砂型铸造</span></div><h2>砂型铸造生产过程</h2><div class="row"><div class="col"><p>零件图→铸件图及模样图→制模样→造型→合箱→浇注→落砂→清理→检验→铸件。</p></div><div class="img-col"><img src="images/59_砂型铸造的生产过程.jpg"><div class="cap">图7-11 砂型铸造的生产过程</div></div></div></div>
+<div class="slide layout-split"><div class="hdr"><span class="sn">04/砂型铸造</span></div><h2>铸造生产线</h2><div class="row"><div class="col"><p>大批量生产：型砂处理、造型、制芯、合箱、浇注、落砂全部机械化。</p></div><div class="img-col"><img src="images/60_砂型铸造造型线.jpg"><div class="cap">图7-12 砂型铸造造型线</div></div></div></div>
+<div class="slide layout-content"><div class="hdr"><span class="sn">04/砂型铸造</span></div><h2>砂型铸造工艺——造型方法</h2><p><span class="hl">手工造型</span>：整模、分模、挖砂、活块、三箱、刮板、假箱、地坑造型。灵活、适应性强，但生产率低。</p><p><span class="hl">机器造型</span>：紧砂（振压/抛砂/射砂）；起模（顶箱/漏模/翻转）。精度高、生产率高、适合大批量。</p></div>
+<div class="slide layout-split"><div class="hdr"><span class="sn">04/砂型铸造</span></div><h2>机器辅助起模方法</h2><div class="row"><div class="col"><p>顶箱起模：结构简单、型腔浅；漏模起模：型腔较深；翻转起模：形状复杂、型腔深。</p></div><div class="img-col"><img src="images/61_机器辅助起模方法.jpg"><div class="cap">图7-13 机器辅助起模方法</div></div></div></div>
+<div class="slide layout-content"><div class="hdr"><span class="sn">04/砂型铸造</span></div><h2>熔炼与浇注</h2><p>熔炼：提供化学成分和温度合格的液态金属。</p><p>浇注温度应尽可能低→减少气体溶解及液态收缩。</p><p>出炉温度应尽可能高→利于熔渣上浮。</p><p>落砂应及时：过早→白口组织，过晚→收缩应力致裂。</p></div>
+<div class="slide layout-section"><div class="bar"></div><h2>铸造工艺图</h2><p class="en">CASTING PROCESS DESIGN</p></div>
+<div class="slide layout-content"><div class="hdr"><span class="sn">05/工艺图</span></div><h2>浇注位置的选择原则</h2><p>浇注位置：浇注时铸件在铸型内的空间位置，对铸件质量影响很大。</p><p>① 主要加工面 → 放在<span class="hl">下面</span>。② 需补缩厚壁 → 放在<span class="hl">上部或侧面</span>。</p><p>③ 大面积薄壁 → 放在<span class="hl">下部</span>，立放或倾斜浇注。④ 大平面 → 放在<span class="hl">下面</span>防夹砂。</p></div>
+<div class="slide layout-split"><div class="hdr"><span class="sn">05/工艺图</span></div><h2>锥齿轮浇注位置</h2><div class="row"><div class="col"><p>质量要求较高的轮齿应置于铸型下面。</p></div><div class="img-col"><img src="images/62_锥齿轮的浇注位置.jpg"><div class="cap">图7-14 锥齿轮浇注位置</div></div></div></div>
+<div class="slide layout-split"><div class="hdr"><span class="sn">05/工艺图</span></div><h2>箱盖浇注位置</h2><div class="row"><div class="col"><p>右图合理：大面积薄壁部分在下面，较高压力下充满铸型。</p></div><div class="img-col"><img src="images/64_箱盖的浇注位置.jpg"><div class="cap">图7-16 箱盖浇注位置</div></div></div></div>
+<div class="slide layout-content"><div class="hdr"><span class="sn">05/工艺图</span></div><h2>分型面的选择原则</h2><p>① 在铸件<span class="hl">最大截面上</span>，力求平面→顺利取模。② 尽量减少分型面→<span class="hl">最好一个</span>。</p><p>③ 减少活块和型芯数量→简化制模和造型。④ 铸件大部分放在<span class="hl">一个砂箱内</span>。</p></div>
+<div class="slide layout-split"><div class="hdr"><span class="sn">05/工艺图</span></div><h2>分型面选在最大截面</h2><div class="row"><div class="col"></div><div class="img-col"><img src="images/66_分型面应选在铸件最大截面上.jpg"><div class="cap">图7-18 分型面应选在最大截面上</div></div></div></div>
+<div class="slide layout-split"><div class="hdr"><span class="sn">05/工艺图</span></div><h2>管子堵头分型面选择</h2><div class="row"><div class="col"><p>左图正确：铸件全部放在下型，避免错箱。</p></div><div class="img-col"><img src="images/68_管子堵头铸件分型面的选择.jpg"><div class="cap">图7-20 管子堵头分型面</div></div></div></div>
+<div class="slide layout-content"><div class="hdr"><span class="sn">05/工艺图</span></div><h2>主要工艺参数</h2><p><span class="hl">(1) 铸造收缩率</span>：灰铸铁0.7%~1.0%，铸钢1.6%~2.0%，非铁合金1.0%~1.5%。</p><p><span class="hl">(2) 机械加工余量</span>：铸铁件3~15mm。机器造型余量小、手工造型余量大。</p><p><span class="hl">(3) 起模斜度</span>：15'~3°。<span class="hl">(4) 铸造圆角</span>：内圆角≈壁厚1/4。</p></div>
+<div class="slide layout-split"><div class="hdr"><span class="sn">05/工艺图</span></div><h2>起模斜度与加工余量</h2><div class="row"><div class="col"><p>α、β、γ为不同侧面的起模斜度，a、b、c为机械加工余量。</p></div><div class="img-col"><img src="images/69_起模斜度与机械加工余量.jpg"><div class="cap">图7-21 起模斜度</div></div></div></div>
+<div class="slide layout-split"><div class="hdr"><span class="sn">05/工艺图</span></div><h2>铸造圆角</h2><div class="row"><div class="col"><p>铸件最明显的特征结构就是铸造圆角。</p></div><div class="img-col"><img src="images/70_铸造圆角.jpg"><div class="cap">图7-22 铸造圆角</div></div></div></div>
+<div class="slide layout-content"><div class="hdr"><span class="sn">05/工艺图</span></div><h2>芯头与最小铸出孔</h2><p><span class="hl">芯头</span>：伸出铸件外不与金属接触的型芯部分，用于定位、支承和固定型芯。</p><p>最小铸出孔：大量生产灰铸铁12~15mm，单件小批30~50mm。</p></div>
+<div class="slide layout-split"><div class="hdr"><span class="sn">05/工艺图</span></div><h2>铸造工艺图实例</h2><div class="row"><div class="col"><p>铸造工艺图：指导模样设计、生产准备、铸型制造和铸件检验的基本技术文件。</p></div><div class="img-col"><img src="images/72_支座的铸造工艺图.jpg"><div class="cap">图7-24 支座的铸造工艺图</div></div></div></div>
+<div class="slide layout-section"><div class="bar"></div><h2>特种铸造</h2><p class="en">SPECIAL CASTING METHODS</p></div>
+<div class="slide layout-content"><div class="hdr"><span class="sn">06/特种铸造</span></div><h2>熔模铸造（精密铸造）</h2><p><span class="hl">工艺</span>：蜡模→结壳（反复3~7次，5~10mm）→脱蜡→焙烧（850~950°C）→浇注。</p><p>精度IT14~IT11，Ra 1.6~12.5μm，最小孔径0.5mm，最小壁厚0.3mm。</p><p>适用于形状复杂、精度高的小型件——涡轮叶片、高速钢刀具。</p></div>
+<div class="slide layout-split"><div class="hdr"><span class="sn">06/特种铸造</span></div><h2>熔模铸造工艺过程</h2><div class="row"><div class="col"></div><div class="img-col"><img src="images/73_熔模铸造的工艺过程.jpg"><div class="cap">图7-25 熔模铸造工艺过程</div></div></div></div>
+<div class="slide layout-content"><div class="hdr"><span class="sn">06/特种铸造</span></div><h2>金属型铸造</h2><p>金属液浇入金属铸型——可反复使用（<span class="hl">一型多铸</span>）。</p><p><span class="hl">措施</span>：预热(250~350°C)、加强排气、喷刷涂料、尽早开型、壁厚>15mm防白口。</p></div>
+<div class="slide layout-split"><div class="hdr"><span class="sn">06/特种铸造</span></div><h2>金属型结构</h2><div class="row"><div class="col"><p>竖直分型和复合分型最常用。适用于大批量非铁金属铸件。</p></div><div class="img-col"><img src="images/74_垂直分型式和复合分型式金属型.jpg"><div class="cap">图7-26 金属型分类</div></div></div></div>
+<div class="slide layout-content"><div class="hdr"><span class="sn">06/特种铸造</span></div><h2>压力铸造</h2><p><span class="hl">两大特点</span>：高压 + 高速充型。压铸机分热压室式和冷压室式（常用）。</p></div>
+<div class="slide layout-split"><div class="hdr"><span class="sn">06/特种铸造</span></div><h2>压铸机工作过程</h2><div class="row"><div class="col"><p>合型→注入压室→压射→高压充型凝固→开型→顶出铸件。</p></div><div class="img-col"><img src="images/75_卧式冷压室式压铸机的工作过程.jpg"><div class="cap">图7-27 卧式冷压室式压铸机</div></div></div></div>
+<div class="slide layout-content"><div class="hdr"><span class="sn">06/特种铸造</span></div><h2>压力铸造的优缺点</h2><p><span class="hl">优点</span>：精度IT13~IT11，Ra 0.8~3.2μm；强度比砂型高25%~30%；最小壁厚0.5mm；班产600~700件（效率最高）。</p><p><span class="hl">缺点</span>：设备投资大；高熔点合金模具寿命低；高速充型卷气→不能热处理。</p></div>
+<div class="slide layout-content"><div class="hdr"><span class="sn">06/特种铸造</span></div><h2>离心铸造</h2><p>液态金属浇入高速旋转铸型，在离心力作用下充型凝固。</p><p><span class="hl">优点</span>：省去型芯/浇冒口；组织致密；可铸双金属件。</p><p><span class="hl">缺点</span>：内表面质量差，孔尺寸不易控制。</p></div>
+<div class="slide layout-split"><div class="hdr"><span class="sn">06/特种铸造</span></div><h2>离心铸造过程</h2><div class="row"><div class="col"></div><div class="img-col"><img src="images/76_离心铸造过程示意图.jpg"><div class="cap">图7-28 离心铸造过程</div></div></div></div>
+<div class="slide layout-split"><div class="hdr"><span class="sn">06/特种铸造</span></div><h2>反压铸造工艺原理</h2><div class="row"><div class="col"><p>充型平稳、铸件致密、可铸0.5mm薄壁件。</p></div><div class="img-col"><img src="images/77_反压铸造工艺原理.jpg"><div class="cap">图7-29 反压铸造工艺原理</div></div></div></div>
+<div class="slide layout-content"><div class="hdr"><span class="sn">06/特种铸造</span></div><h2>反压铸造（压差铸造）</h2><p>压差作用下充型、凝固。型腔始终有反压作用。</p><p><span class="hl">增压法</span>：型腔预建p₁→坩埚加压至p₂>p₁→金属液上升充型。</p><p><span class="hl">减压法</span>：型腔减压至p₄<p₃→负压吸入型腔。充型平稳、铸件致密。</p></div>
+<div class="slide layout-split"><div class="hdr"><span class="sn">06/特种铸造</span></div><h2>挤压铸造（液态模锻）</h2><div class="row"><div class="col"><p>对定量液态金属施加机械压力成形。介于铸造与锻造之间，力学性能接近锻件。</p></div><div class="img-col"><img src="images/78_挤压铸造的工艺过程.jpg"><div class="cap">图7-30 挤压铸造工艺过程</div></div></div></div>
+<div class="slide layout-split"><div class="hdr"><span class="sn">06/特种铸造</span></div><h2>实型铸造（消失模铸造）</h2><div class="row"><div class="col"><p>泡沫塑料模样→干砂振实→抽真空→浇注（模样汽化消失）→冷却→铸件。无分型面、不用型芯。</p></div><div class="img-col"><img src="images/79_实型铸造的工艺过程.jpg"><div class="cap">图7-31 实型铸造</div></div></div></div>
+<div class="slide layout-split"><div class="hdr"><span class="sn">06/特种铸造</span></div><h2>磁型铸造</h2><div class="row"><div class="col"><p>磁丸→通电固结成铸型→浇注→断电→磁丸松散→取出铸件。无黏结剂、透气性好、冷却快3倍。</p></div><div class="img-col"><img src="images/80_磁型铸造原理示意图.jpg"><div class="cap">图7-32 磁型铸造原理</div></div></div></div>
+<div class="slide layout-split"><div class="hdr"><span class="sn">06/特种铸造</span></div><h2>气冲造型</h2><div class="row"><div class="col"><p>压缩空气突然释放或燃气爆炸冲击波使型砂紧实。紧实时间<0.1s，一个铸型约0.5s。</p></div><div class="img-col"><img src="images/81_气冲造型的工艺过程.jpg"><div class="cap">图7-33 气冲造型工艺过程</div></div></div></div>
+<div class="slide layout-content"><div class="hdr"><span class="sn">06/特种铸造</span></div><h2>铸造技术的发展趋势</h2><p>① <span class="hl">绿色集约化</span>：低消耗、无废弃物、环境宜人。</p><p>② <span class="hl">专业化生产</span>：规模经营、机械化、自动化、智能化。</p><p>③ <span class="hl">高性能化/精确化/轻质薄壁化</span>：特种铸造、复合材料、精炼技术。</p><p>④ <span class="hl">计算机和机器人应用</span>：CAD/CAE/CAPP/CAM集成、凝固模拟、智能决策。</p></div>
+<div class="slide layout-section"><div class="bar"></div><h2>常用合金铸件生产</h2><p class="en">PRODUCTION OF COMMON ALLOY CASTINGS</p></div>
+<div class="slide layout-content"><div class="hdr"><span class="sn">07/合金铸件</span></div><h2>灰铸铁件</h2><p>大多数灰铸铁用冲天炉熔炼。铸造性能优良→一般不需冒口和冷铁。</p><p><span class="hl">孕育处理</span>：浇注前加硅铁0.25%~0.6%→石墨细化、基体致密。</p></div>
+<div class="slide layout-content"><div class="hdr"><span class="sn">07/合金铸件</span></div><h2>球墨铸铁件</h2><p>化学成分：高碳（3.6%~4.0%）、高硅、低硫（<0.06%）、低磷。</p><p><span class="hl">球化处理</span>：稀土镁合金，加入量1.3%~1.8%，冲入法。</p><p><span class="hl">孕育处理</span>：硅铁0.4%~1.0%，促进球化、防白口。</p><p>常设冒口+冷铁+干型增刚度→防缩孔缩松。</p></div>
+<div class="slide layout-split"><div class="hdr"><span class="sn">07/合金铸件</span></div><h2>冲入法球化处理</h2><div class="row"><div class="col"><p>浇包底部修堤坝→球化剂埋入→盖硅铁粉→冲入1/3~1/2铁液→反应扒渣→加余铁液→孕育→浇注。</p></div><div class="img-col"><img src="images/82_冲入法球化处理示意图.jpg"><div class="cap">图7-34 冲入法球化处理</div></div></div></div>
+<div class="slide layout-content"><div class="hdr"><span class="sn">07/合金铸件</span></div><h2>可锻铸铁与蠕墨铸铁</h2><p><span class="hl">可锻铸铁</span>：白口铸铁坯→900~950°C石墨化退火→团絮状石墨。流动性差→注意冒口冷铁。</p><p><span class="hl">蠕墨铸铁</span>：铸造性能近灰铸铁，流动性更好。铸态使用、不热处理。稀土硅铁蠕化剂。</p></div>
+<div class="slide layout-content"><div class="hdr"><span class="sn">07/合金铸件</span></div><h2>铸钢件生产</h2><p>铸钢综合力学性能优于铸铁——强度高、塑性韧性好、焊接性好。但晶粒粗大→须正火或退火。</p><p>熔炼：三相电弧炉（最普遍）/感应电炉（快）/平炉（重型件）。</p><p><span class="hl">工艺特点</span>：熔点高(~1500°C)、流动性差、收缩率大(~2%)。需配置大冒口冷铁。</p></div>
+<div class="slide layout-section"><div class="bar"></div><h2>铸件结构设计</h2><p class="en">CASTING STRUCTURE DESIGN</p></div>
+<div class="slide layout-content"><div class="hdr"><span class="sn">08/结构设计</span></div><h2>壁厚设计原则</h2><p><span class="hl">① 壁厚应适当</span>：大于最小壁厚（防浇不足），不宜过大（防缩松）。</p><p><span class="hl">② 壁厚应均匀</span>：内壁（冷却慢）薄、外壁（冷却快）厚→防热节、缩孔、应力。</p></div>
+<div class="slide layout-split"><div class="hdr"><span class="sn">08/结构设计</span></div><h2>铸件壁厚均匀</h2><div class="row"><div class="col"><p>左图壁厚不均匀→厚大部位形成缩孔；右图壁厚均匀→避免缺陷。</p></div><div class="img-col"><img src="images/83_铸件的壁厚.jpg"><div class="cap">图7-35 铸件壁厚设计</div></div></div></div>
+<div class="slide layout-content"><div class="hdr"><span class="sn">08/结构设计</span></div><h2>壁连接设计原则</h2><p><span class="hl">③ 结构圆角</span>：避免直角→防金属聚集和应力集中。</p><p><span class="hl">过渡连接</span>：避免锐角和交叉连接。小型件筋交错连接，大型件筋环状连接。</p></div>
+<div class="slide layout-split"><div class="hdr"><span class="sn">08/结构设计</span></div><h2>铸件结构圆角</h2><div class="row"><div class="col"><p>左图直角→内接圆大→金属聚集、应力集中；右图圆角→无聚集。</p></div><div class="img-col"><img src="images/84_铸件的结构圆角.jpg"><div class="cap">图7-36 结构圆角</div></div></div></div>
+<div class="slide layout-split"><div class="hdr"><span class="sn">08/结构设计</span></div><h2>铸件壁连接形式</h2><div class="row"><div class="col"></div><div class="img-col"><img src="images/85_铸件壁的连接形式.jpg"><div class="cap">图7-37 壁连接形式</div></div></div></div>
+<div class="slide layout-split"><div class="hdr"><span class="sn">08/结构设计</span></div><h2>铸件壁间连接</h2><div class="row"><div class="col"><p>a.锐角连接→金属聚集 b/c.大角度连接→改善金属分布。</p></div><div class="img-col"><img src="images/86_铸件壁之间的连接.jpg"><div class="cap">图7-38 壁间连接</div></div></div></div>
+<div class="slide layout-split"><div class="hdr"><span class="sn">08/结构设计</span></div><h2>不等厚壁过渡连接</h2><div class="row"><div class="col"><p>圆角过渡、倾斜过渡、复合过渡→防应力、变形和裂纹。</p></div><div class="img-col"><img src="images/87_铸件不等厚壁之间的连接.jpg"><div class="cap">图7-39 不等厚壁过渡</div></div></div></div>
+<div class="slide layout-split"><div class="hdr"><span class="sn">08/结构设计</span></div><h2>减缓收缩受阻</h2><div class="row"><div class="col"><p>弯曲轮辐或奇数轮辐→冷却时可自由收缩→减小铸造内应力。</p></div><div class="img-col"><img src="images/89_轮辐的设计.jpg"><div class="cap">图7-41 轮辐设计</div></div></div></div>
+<div class="slide layout-content"><div class="hdr"><span class="sn">08/结构设计</span></div><h2>减少变形与减缓收缩受阻</h2><p><span class="hl">④ 减少变形</span>：细长件和大平板→对称结构或增设加强筋。</p><p><span class="hl">⑤ 减缓收缩受阻</span>：弯曲轮辐或奇数轮辐→自由收缩→减小内应力。</p></div>
+<div class="slide layout-split"><div class="hdr"><span class="sn">08/结构设计</span></div><h2>防止变形的结构</h2><div class="row"><div class="col"></div><div class="img-col"><img src="images/88_防止变形的铸件结构.jpg"><div class="cap">图7-40 防变形结构</div></div></div></div>
+<div class="slide layout-section"><div class="bar"></div><h2>铸造工艺对结构的要求</h2><p class="en">PROCESS REQUIREMENTS FOR STRUCTURE</p></div>
+<div class="slide layout-content"><div class="hdr"><span class="sn">09/工艺结构</span></div><h2>外形与内腔设计</h2><p><span class="hl">外形设计</span>：尽量简单，避免侧凹→便于起模。凸台和筋条应便于起模。</p><p><span class="hl">内腔设计</span>：减少型芯数量、简化型芯形状→利于排气和清理。</p></div>
+<div class="slide layout-split"><div class="hdr"><span class="sn">09/工艺结构</span></div><h2>避免侧凹结构</h2><div class="row"><div class="col"></div><div class="img-col"><img src="images/90_避免侧凹结构.jpg"><div class="cap">图7-42 避免侧凹结构</div></div></div></div>
+<div class="slide layout-split"><div class="hdr"><span class="sn">09/工艺结构</span></div><h2>分型面应平直</h2><div class="row"><div class="col"></div><div class="img-col"><img src="images/92_分型面应平直.jpg"><div class="cap">图7-44 分型面应平直</div></div></div></div>
+<div class="slide layout-split"><div class="hdr"><span class="sn">09/工艺结构</span></div><h2>以砂垛代替型芯</h2><div class="row"><div class="col"></div><div class="img-col"><img src="images/93_以砂垛代替型芯.jpg"><div class="cap">图7-45 以砂垛代替型芯</div></div></div></div>
+<div class="slide layout-split"><div class="hdr"><span class="sn">09/工艺结构</span></div><h2>开式结构省去型芯</h2><div class="row"><div class="col"></div><div class="img-col"><img src="images/94_采用开式结构省去型芯.jpg"><div class="cap">图7-46 开式结构省去型芯</div></div></div></div>
+<div class="slide layout-content"><div class="hdr"><span class="sn">09/工艺结构</span></div><h2>结构斜度</h2><p>铸件上垂直于分型面的不加工表面应设计<span class="hl">结构斜度</span>。</p><p>优点：起模方便、零件美观、有斜度的内腔可用砂垛代替型芯。</p></div>
+<div class="slide layout-section"><div class="bar"></div><h2>核 心 要 点</h2><p class="en"></p></div>
+<div class="slide layout-content"><div class="hdr"><span class="sn">总结</span></div><h2>砂型铸造 vs 特种铸造 对比</h2><p><span class="hl">砂型铸造</span>：适应性强、生产准备简单，但精度低、一型只一次。</p><p><span class="hl">熔模铸造</span>：IT14~IT11，精密小型件。<span class="hl">金属型</span>：一型多铸，大批量非铁金属。</p><p><span class="hl">压力铸造</span>：IT13~IT11，效率最高。<span class="hl">离心铸造</span>：中空管类件，组织致密。</p></div>
+<div class="slide layout-content"><div class="hdr"><span class="sn">总结</span></div><h2>三种凝固原则对比</h2><p><span class="hl">顺序凝固</span>：远离冒口处先凝→冒口最后凝→缩孔转移到冒口。适用于收缩大、致密性要求高的铸钢件。</p><p><span class="hl">同时凝固</span>：各部分无温差同时凝→内应力小。适用于灰铸铁、壁厚均匀的铸件。</p></div>
+<div class="slide layout-content"><div class="hdr"><span class="sn">总结</span></div><h2>重点总结</h2><p>① <span class="hl">合金流动性</span>：纯金属/共晶→恒温凝固→流动性好。铸铁选近共晶成分。</p><p>② <span class="hl">收缩三阶段</span>：液态+凝固收缩→缩孔缩松；固态收缩→应力/变形/裂纹。</p><p>③ <span class="hl">防止缩孔</span>：顺序凝固+冒口+冷铁。防止变形：同时凝固+反变形+去应力退火。</p><p>④ <span class="hl">铸造工艺参数</span>：收缩率、加工余量、起模斜度、铸造圆角。</p><p>⑤ <span class="hl">铸铁件</span>：灰铁（冲天炉）、球铁（球化孕育）、可锻（退火）、蠕墨（蠕化）。</p></div>
+</div>
+<div class="slide-counter"><span id="current">1</span> / <span id="total">91</span></div>
+<div class="keyboard-hint">&larr; &rarr; 方向键翻页</div>
+<div class="progress-bar" id="progress"></div>
+<div class="nav-controls">
+<button class="nav-btn" id="prevBtn" onclick="g(-1)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"></polyline></svg></button>
+<button class="nav-btn" id="nextBtn" onclick="g(1)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg></button>
+</div>
+<script>const s=document.querySelectorAll('.slide'),c=document.getElementById('current'),t=document.getElementById('total'),p=document.getElementById('progress'),pb=document.getElementById('prevBtn'),nb=document.getElementById('nextBtn');let i=0;t.textContent=s.length;
+function u(){s.forEach((x,j)=>{x.classList.remove('active','prev');if(j===i)x.classList.add('active');else if(j<i)x.classList.add('prev')});c.textContent=i+1;p.style.width=((i+1)/s.length*100)+'%';pb.disabled=i===0;nb.disabled=i===s.length-1;try{renderMathInElement(document.body)}catch(e){}}
+function g(d){let n=i+d;if(n>=0&&n<s.length){i=n;u()}}
+document.addEventListener('keydown',e=>{if(e.key==='ArrowRight'||e.key===' '||e.key==='PageDown'){e.preventDefault();g(1)}if(e.key==='ArrowLeft'||e.key==='PageUp'){e.preventDefault();g(-1)}if(e.key==='Home'){e.preventDefault();i=0;u()}if(e.key==='End'){e.preventDefault();i=s.length-1;u()}});
+let tx=0;document.addEventListener('touchstart',e=>{tx=e.changedTouches[0].screenX},{passive:true});
+document.addEventListener('touchend',e=>{let d=tx-e.changedTouches[0].screenX;if(Math.abs(d)>50)g(d>0?1:-1)},{passive:true});
+u();</script>
+</body>
+</html>

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>第3章·金属热处理及表面改性</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;600;700;900&family=Archivo:wght@700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" defer></script>
+<style>
+html,body{width:100%;height:100%;margin:0;overflow:hidden;background:#e8e8e8}.vp{position:fixed;inset:0;overflow:hidden;background:#e8e8e8}
+.stage{position:absolute;left:0;top:0;width:1920px;height:1080px;overflow:hidden;transform-origin:0 0}
+.slide{position:absolute;left:0;top:0;width:1920px;height:1080px;overflow:hidden;opacity:0;pointer-events:none;background:#fff}
+.slide.a{opacity:1;pointer-events:auto;z-index:1}
+.ts{display:flex}.ts .bar{width:12px;height:1080px;background:#e03020;flex-shrink:0}.ts .l{padding:100px 80px;flex:1}
+.ts .tag{font-family:Archivo,sans-serif;font-size:15px;font-weight:700;color:#e03020;letter-spacing:4px;margin-top:200px}
+.ts h1{font-size:72px;font-weight:900;margin:16px 0}.ts .sub{font-size:24px;color:#666}.ts .r{width:45%;background:#f5f5f5}
+.ss{display:flex;flex-direction:column;align-items:center;justify-content:center;background:#f5f5f5}
+.ss .sn{font-family:Archivo,sans-serif;font-size:100px;font-weight:800;color:#e03020;opacity:.12}
+.ss h2{font-size:56px;color:#1a1a1a;margin:8px 0}.ss .sub{font-size:20px;color:#888}
+.cs{padding:48px 72px 56px}
+.cs h2{font-size:42px;color:#1a1a1a;margin:0 0 16px}
+.cs h3{font-size:30px;color:#1a1a1a;margin:14px 0 8px}
+.cs p{font-size:24px;color:#333;line-height:1.6;margin:0 0 8px}
+.cs li{font-size:24px;color:#333;line-height:1.5;margin:4px 0}
+.cs .sn{font-family:Archivo,sans-serif;font-size:13px;color:#aaa;margin-bottom:8px}
+.cs .hl{color:#e03020;font-weight:600}.cs .sm{font-size:20px;color:#666}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:10px}
+.g2 .c{padding:18px 20px;background:#f5f5f5;border-radius:8px}
+.g2 .c h3{font-size:24px;margin:0 0 4px}.g2 .c p{font-size:20px;margin:0;color:#555;line-height:1.4}
+.g3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin-top:10px}
+.g3 .c{padding:14px 16px;background:#f5f5f5;border-radius:8px;text-align:center}
+.g3 .c h3{font-size:22px;margin:0 0 4px}.g3 .c p{font-size:18px;margin:0;color:#555}
+table{width:100%;border-collapse:collapse;margin:10px 0;font-size:21px}
+th{background:#e03020;color:#fff;padding:8px 12px;text-align:left;font-weight:600}
+td{padding:8px 12px;border-bottom:1px solid #ddd}
+.iw{text-align:center;margin:6px 0;display:flex;flex-direction:column;justify-content:center;align-items:center}
+.iw img{max-height:500px;border-radius:6px;box-shadow:0 2px 10px rgba(0,0,0,.08)}
+.iw .cap{font-size:20px;color:#888;margin-top:4px}
+.fb{margin:8px 0;padding:12px 18px;background:#f5f5f5;border-radius:6px;text-align:center;font-size:24px}
+.ctrl{position:fixed;left:50%;bottom:22px;transform:translateX(-50%);z-index:1000;display:flex;gap:10px;align-items:center;background:rgba(255,255,255,.92);padding:8px 16px;border-radius:10px;box-shadow:0 2px 12px rgba(0,0,0,.08)}
+.ctrl button{width:40px;height:40px;border:1.5px solid rgba(0,0,0,.12);border-radius:6px;background:#fff;cursor:pointer;font-size:17px;color:#555}
+.ctrl button:hover{background:#e03020;color:#fff;border-color:#e03020}
+.ctrl .pi{font-family:Archivo,sans-serif;font-size:13px;color:#999;min-width:50px;text-align:center}
+.ez{position:fixed;top:0;left:0;width:80px;height:80px;z-index:10000;cursor:pointer}
+.eb{position:fixed;top:12px;left:12px;z-index:10001;padding:6px 14px;border:1.5px solid rgba(0,0,0,.12);border-radius:6px;background:rgba(255,255,255,.95);cursor:pointer;font-size:13px;color:#555;opacity:0;pointer-events:none;transition:opacity .3s;font-family:Noto Sans SC,sans-serif}
+.eb.s,.eb.a{opacity:1;pointer-events:auto}[contenteditable]:hover{outline:2px dashed #e03020;outline-offset:2px;cursor:text}
+@media (prefers-reduced-motion:reduce){*{transition-duration:.2s!important}}@media print{html,body{background:#fff}.vp{position:static}.stage{position:static;transform:none!important}.slide{position:relative!important;opacity:1!important;break-after:page;height:auto}.ctrl,.ez,.eb{display:none!important}}
+</style></head><body>
+<div class="vp"><div class="stage" id="stg">
+
+<section class="slide a ts"><div class="bar"></div><div class="l"><div class="tag">CHAPTER 03</div><h1>金属热处理及表面改性</h1><p class="sub">工程材料与机械制造基础（第3版）</p></div><div class="r"></div></section>
+
+<section class="slide ss"><div class="sn">01</div><h2>钢的热处理原理</h2><p class="sub">Principles of Heat Treatment</p></section>
+
+<section class="slide cs"><p class="sn">01 / 热处理原理</p><h2>热处理概述</h2>
+<p><span class="hl">热处理</span>：通过加热、保温和冷却改变金属内部组织或表面组织，从而获得所需性能的工艺方法。</p>
+<p>常用热处理工艺：退火、正火、淬火、回火、表面热处理。</p>
+<p>热处理在机械制造中占有重要地位：机床设备中 60%~70% 的零部件需要热处理。</p>
+<div class="iw"><img src="images/30_热处理温度-时间坐标图.jpg" alt="图3-1"><div class="cap">图3-1 热处理温度-时间坐标图（热处理工艺曲线）</div></div></section>
+
+<section class="slide cs"><p class="sn">01 / 热处理原理</p><h2>钢的临界温度</h2>
+<p>在 Fe-Fe₃C 相图中，A₁、A₃、A<sub>cm</sub> 线表示平衡临界温度。</p>
+<p>实际加热/冷却存在<span class="hl">过热</span>和<span class="hl">过冷</span>现象：</p>
+<table><tr><th>符号</th><th>含义</th></tr>
+<tr><td>Ac₁、Ac₃、Ac<sub>cm</sub></td><td>实际加热时的临界温度</td></tr>
+<tr><td>Ar₁、Ar₃、Ar<sub>cm</sub></td><td>实际冷却时的临界温度</td></tr></table>
+<div class="iw"><img src="images/31_钢加热（冷却）时Fe-Fe_3C_相图上各临界点的实际位置.jpg" alt="图3-2"><div class="cap">图3-2 钢加热（冷却）时 Fe-Fe₃C 相图上各临界点的实际位置</div></div></section>
+
+<section class="slide cs"><p class="sn">01 / 热处理原理</p><h2>奥氏体化过程</h2>
+<p>把钢加热到 Ac₁ 线以上，使其内部组织转变成均匀的奥氏体 → <span class="hl">奥氏体化</span>。</p>
+<p>共析钢奥氏体的形成分四个阶段：</p>
+<div class="g3"><div class="c"><h3>① 形核</h3><p>在铁素体<br>和渗碳体<br>界面上形核</p></div>
+<div class="c"><h3>② 长大</h3><p>奥氏体<br>晶核长大</p></div>
+<div class="c"><h3>③ 溶解</h3><p>剩余渗碳体<br>溶解</p></div></div>
+<div class="g3"><div class="c"><h3>④ 均匀化</h3><p>成分均匀</p></div></div>
+<div class="iw"><img src="images/32_共析钢奥氏体形成过程示意图.jpg" alt="图3-3"><div class="cap">图3-3 共析钢奥氏体形成过程示意图</div></div></section>
+
+<section class="slide cs"><p class="sn">01 / 热处理原理</p><h2>过冷奥氏体等温转变（C 曲线）</h2>
+<p>共析钢过冷奥氏体等温转变曲线——<span class="hl">C 曲线</span>（TTT 曲线），是制订热处理工艺的重要依据。</p>
+<div class="iw"><img src="images/33_共析钢过冷奥氏体等温转变曲线.jpg" alt="图3-4"><div class="cap">图3-4 共析钢过冷奥氏体等温转变曲线（C 曲线）</div></div></section>
+
+<section class="slide cs"><p class="sn">01 / 热处理原理</p><h2>奥氏体冷却转变产物</h2>
+<table><tr><th>冷却速度</th><th>转变温度</th><th>组织</th><th>性能</th></tr>
+<tr><td>缓慢</td><td>~700 °C</td><td>珠光体（P）</td><td>硬度较低</td></tr>
+<tr><td>中等</td><td>~600 °C</td><td>索氏体（S）</td><td>综合性能好</td></tr>
+<tr><td>较快</td><td>~550 °C</td><td>托氏体（T）</td><td>硬度较高</td></tr>
+<tr><td>很快</td><td>~350~500 °C</td><td>贝氏体（B）</td><td>强韧性好</td></tr>
+<tr><td>极快</td><td>~200~350 °C</td><td><span class="hl">马氏体（M）</span></td><td>硬度最高、脆性大</td></tr>
+</table>
+<div class="iw"><img src="images/34_珠光体、索氏体、托氏体的显微组织图.jpg" alt="显微组织"><div class="cap">图3-5 珠光体、索氏体、托氏体的显微组织</div></div></section>
+
+<!-- 退火正火 -->
+<section class="slide ss"><div class="sn">02</div><h2>钢的普通热处理</h2><p class="sub">Common Heat Treatment Processes</p></section>
+
+<section class="slide cs"><p class="sn">02 / 普通热处理</p><h2>退火与正火</h2>
+<div class="g2"><div class="c"><h3>退火</h3><p>加热→保温→炉冷<br>目的：降低硬度、消除内应力<br>细化组织、改善加工性</p></div>
+<div class="c"><h3>正火</h3><p>加热→保温→空冷<br>冷却速度比退火快<br>得到更细的珠光体组织</p></div></div>
+<div class="iw"><img src="images/38_各种退火和正火的加热温度范围.jpg" alt="退火正火"><div class="cap">图3-9 各种退火和正火的加热温度范围</div></div></section>
+
+<section class="slide cs"><p class="sn">02 / 普通热处理</p><h2>淬火</h2>
+<p><span class="hl">淬火</span>：将钢加热到 Ac₃ 或 Ac₁ 以上，保温后快速冷却，获得马氏体组织的热处理工艺。</p>
+<p>淬火的目的是获得马氏体，提高钢的硬度和耐磨性。</p>
+<p>淬透性与淬硬性：</p>
+<div class="g2"><div class="c"><h3>淬透性</h3><p>钢获得淬硬深度的能力<br>取决于临界冷却速度</p></div>
+<div class="c"><h3>淬硬性</h3><p>钢淬火后能达到的硬度<br>取决于马氏体的碳含量</p></div></div>
+<div class="iw"><img src="images/39_工件截面上不同过冷度及淬硬深度示意图.jpg" alt="淬透性"><div class="cap">图3-10 工件截面上不同过冷度及淬硬深度示意图</div></div></section>
+
+<section class="slide cs"><p class="sn">02 / 普通热处理</p><h2>回火</h2>
+<p><span class="hl">回火</span>：淬火后将钢加热到 Ac₁ 以下某一温度，保温后冷却的热处理工艺。</p>
+<table><tr><th>类型</th><th>温度</th><th>组织</th><th>用途</th></tr>
+<tr><td><span class="hl">低温回火</span></td><td>150~250 °C</td><td>回火马氏体</td><td>刀具、模具、轴承</td></tr>
+<tr><td><span class="hl">中温回火</span></td><td>250~500 °C</td><td>贝氏体</td><td>弹簧、要求高弹性的零件</td></tr>
+<tr><td><span class="hl">高温回火</span></td><td>500~650 °C</td><td>索氏体</td><td>轴、齿轮、连杆（调质处理）</td></tr>
+</table>
+<p class="sm">淬火+高温回火 = <span class="hl">调质处理</span>，广泛应用于重要机械零件。</p></section>
+
+<section class="slide ss"><div class="sn">03</div><h2>表面热处理与表面改性</h2><p class="sub">Surface Heat Treatment & Modification</p></section>
+
+<section class="slide cs"><p class="sn">03 / 表面热处理</p><h2>表面淬火</h2>
+<p>零件表面要求高硬度、高耐磨性，而心部保持塑性和韧性→<span class="hl">表面淬火</span>。</p>
+<div class="g2"><div class="c"><h3>感应加热表面淬火</h3><p>利用感应电流加热表面<br>加热速度快、效率高</p></div>
+<div class="c"><h3>火焰加热表面淬火</h3><p>用高温火焰加热表面<br>设备简单、适用性广</p></div></div></section>
+
+<section class="slide cs"><p class="sn">03 / 表面热处理</p><h2>化学热处理</h2>
+<p><span class="hl">化学热处理</span>：将工件放在活性介质中加热，使元素渗入表面层，改变表面化学成分和组织。</p>
+<div class="g3"><div class="c"><h3>渗碳</h3><p>表面渗入碳原子<br>提高表面硬度<br>心部保持韧性</p></div>
+<div class="c"><h3>渗氮</h3><p>表面渗入氮原子<br>硬度更高、耐磨<br>耐腐蚀性提高</p></div>
+<div class="c"><h3>碳氮共渗</h3><p>同时渗入C和N<br>综合性能好<br>处理温度较低</p></div></div></section>
+
+<section class="slide ss"><div class="sn">04</div><h2>本章小结</h2><p class="sub">Summary</p></section>
+
+<section class="slide cs"><p class="sn">本章小结</p><h2>核心要点回顾</h2>
+<p>① 热处理三要素：<span class="hl">加热、保温、冷却</span>，通过改变组织获得所需性能</p>
+<p>② <span class="hl">奥氏体化</span>四阶段：形核→长大→溶解→均匀化；奥氏体晶粒控温是关键</p>
+<p>③ <span class="hl">C 曲线</span>（TTT 曲线）：冷却速度决定转变产物（P、S、T、B、M）</p>
+<p>④ <span class="hl">退火</span>（炉冷）、<span class="hl">正火</span>（空冷）、<span class="hl">淬火</span>（快冷→马氏体）、<span class="hl">回火</span>（消除应力、调整性能）</p>
+<p>⑤ <span class="hl">调质</span> = 淬火 + 高温回火，得到良好综合力学性能</p>
+<p>⑥ 表面淬火：感应加热/火焰加热；化学热处理：渗碳/渗氮/碳氮共渗</p></section>
+
+</div></div>
+
+<nav class="ctrl"><button id="prev">&#8592;</button><span class="pi" id="pi">1/16</span><button id="next">&#8594;</button></nav>
+<div class="ez" id="ez"></div><button class="eb" id="eb">编辑文字</button>
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script>
+(function(){
+var sl=document.querySelectorAll('.slide'),cur=0,pi=document.getElementById('pi'),sg=document.getElementById('stg'),vp=document.querySelector('.vp');
+function go(i){cur=Math.max(0,Math.min(i,sl.length-1));for(var j=0;j<sl.length;j++)sl[j].classList.toggle('a',j===cur);pi.textContent=(cur+1)+'/'+sl.length;try{renderMathInElement(document.body)}catch(e){}
+}
+function sz(){var sc=Math.min(vp.clientWidth/1920,vp.clientHeight/1080);sg.style.transform='translate('+(vp.clientWidth-1920*sc)/2+'px,'+(vp.clientHeight-1080*sc)/2+'px) scale('+sc+')'}
+document.getElementById('next').onclick=function(){go(cur+1)};document.getElementById('prev').onclick=function(){go(cur-1)};
+document.addEventListener('keydown',function(e){if(e.key==='ArrowRight'||e.key==='ArrowDown'||e.key===' '){e.preventDefault();go(cur+1)}if(e.key==='ArrowLeft'||e.key==='ArrowUp'){e.preventDefault();go(cur-1)}});
+document.addEventListener('wheel',function(e){if(e.deltaY>0)go(cur+1);else go(cur-1)},{passive:true});
+window.addEventListener('resize',sz);sz();go(0);
+(function(){var eb=document.getElementById('eb'),ez=document.getElementById('ez'),ac=false,timer=null;
+function tog(){ac=!ac;eb.classList.toggle('a',ac);eb.textContent=ac?'退出编辑':'编辑文字';document.querySelector('.slide.a').querySelectorAll('h1,h2,h3,p,li,td,th,span.hl,div.c h3,.sn,.tag,.sm,.sub,.cap').forEach(function(el){el.contentEditable=ac?'true':'false'})}
+eb.onclick=tog;ez.onmouseenter=function(){clearTimeout(timer);eb.classList.add('s')};ez.onmouseleave=function(){timer=setTimeout(function(){if(!ac)eb.classList.remove('s')},400)};
+eb.onmouseenter=function(){clearTimeout(timer)};eb.onmouseleave=function(){timer=setTimeout(function(){if(!ac)eb.classList.remove('s')},400)};ez.onclick=tog;
+document.addEventListener('keydown',function(e){if((e.key==='e'||e.key==='E')&&!e.target.closest('[contenteditable]')){e.preventDefault();tog()};if(e.ctrlKey&&e.key==='s'){e.preventDefault();alert('已保存')}});
+})();
+})();
+</script></body></html>

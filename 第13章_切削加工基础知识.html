@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>第2章·材料的组织结构</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;600;700;900&family=Archivo:wght@700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" defer></script>
+<style>
+html,body{width:100%;height:100%;margin:0;overflow:hidden;background:#e8e8e8}.vp{position:fixed;inset:0;overflow:hidden;background:#e8e8e8}
+.stage{position:absolute;left:0;top:0;width:1920px;height:1080px;overflow:hidden;transform-origin:0 0}
+.slide{position:absolute;left:0;top:0;width:1920px;height:1080px;overflow:hidden;opacity:0;pointer-events:none;background:#fff}
+.slide.a{opacity:1;pointer-events:auto;z-index:1}
+.ts{display:flex}.ts .bar{width:12px;height:1080px;background:#e03020;flex-shrink:0}.ts .l{padding:100px 80px;flex:1}
+.ts .tag{font-family:Archivo,sans-serif;font-size:15px;font-weight:700;color:#e03020;letter-spacing:4px;margin-top:200px}
+.ts h1{font-size:72px;font-weight:900;color:#1a1a1a;margin:16px 0}.ts .sub{font-size:24px;color:#666}.ts .r{width:45%;background:#f5f5f5}
+.ss{display:flex;flex-direction:column;align-items:center;justify-content:center;background:#f5f5f5}
+.ss .sn{font-family:Archivo,sans-serif;font-size:100px;font-weight:800;color:#e03020;opacity:.12}
+.ss h2{font-size:56px;color:#1a1a1a;margin:8px 0}.ss .sub{font-size:20px;color:#888}
+.cs{padding:48px 72px 56px}
+.cs h2{font-size:42px;color:#1a1a1a;margin:0 0 16px}
+.cs h3{font-size:30px;color:#1a1a1a;margin:14px 0 8px}
+.cs h4{font-size:26px;color:#1a1a1a;margin:10px 0 6px}
+.cs p{font-size:24px;color:#333;line-height:1.6;margin:0 0 8px}.iw img{max-height:460px}.g2 .iw img{max-height:300px}
+.cs li{font-size:24px;color:#333;line-height:1.5;margin:4px 0}
+.cs .sn{font-family:Archivo,sans-serif;font-size:13px;color:#aaa;margin-bottom:8px}
+.cs .hl{color:#e03020;font-weight:600}
+.cs .sm{font-size:20px;color:#666;line-height:1.5}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:10px}
+.g2 .c{padding:18px 20px;background:#f5f5f5;border-radius:8px}
+.g2 .c h3{font-size:24px;margin:0 0 4px;color:#1a1a1a}
+.g2 .c p{font-size:20px;margin:0;color:#555;line-height:1.4}
+.g3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin-top:10px}
+.g3 .c{padding:14px 16px;background:#f5f5f5;border-radius:8px;text-align:center}
+.g3 .c h3{font-size:22px;margin:0 0 4px}.g3 .c p{font-size:18px;margin:0;color:#555}
+table{width:100%;border-collapse:collapse;margin:10px 0;font-size:21px}
+th{background:#e03020;color:#fff;padding:8px 12px;text-align:left;font-weight:600}
+td{padding:8px 12px;border-bottom:1px solid #ddd}
+.iw{text-align:center;margin:6px 0}.iw img{max-height:460px;border-radius:6px;box-shadow:0 2px 10px rgba(0,0,0,.08)}
+.iw .cap{font-size:18px;color:#888;margin-top:4px}
+.fb{margin:8px 0;padding:12px 18px;background:#f5f5f5;border-radius:6px;text-align:center;font-size:24px}
+.ctrl{position:fixed;left:50%;bottom:22px;transform:translateX(-50%);z-index:1000;display:flex;gap:10px;align-items:center;background:rgba(255,255,255,.92);padding:8px 16px;border-radius:10px;box-shadow:0 2px 12px rgba(0,0,0,.08)}
+.ctrl button{width:40px;height:40px;border:1.5px solid rgba(0,0,0,.12);border-radius:6px;background:#fff;cursor:pointer;font-size:17px;color:#555}
+.ctrl button:hover{background:#e03020;color:#fff;border-color:#e03020}
+.ctrl .pi{font-family:Archivo,sans-serif;font-size:13px;color:#999;min-width:50px;text-align:center}
+.ez{position:fixed;top:0;left:0;width:80px;height:80px;z-index:10000;cursor:pointer}
+.eb{position:fixed;top:12px;left:12px;z-index:10001;padding:6px 14px;border:1.5px solid rgba(0,0,0,.12);border-radius:6px;background:rgba(255,255,255,.95);cursor:pointer;font-size:13px;color:#555;opacity:0;pointer-events:none;transition:opacity .3s;font-family:Noto Sans SC,sans-serif}
+.eb.s,.eb.a{opacity:1;pointer-events:auto}[contenteditable]:hover{outline:2px dashed #e03020;outline-offset:2px;cursor:text}
+@media (prefers-reduced-motion:reduce){*{transition-duration:.2s!important}}
+@media print{html,body{background:#fff}.vp{position:static}.stage{position:static;transform:none!important}.slide{position:relative!important;opacity:1!important;break-after:page;height:auto}.ctrl,.ez,.eb{display:none!important}}
+</style><<title>第13章·切削加工基础知识</title></head><body><div class="vp"><div class="stage" id="stg"><section class="slide a ts"><div class="bar"></div><div class="l"><div class="tag">CHAPTER 13</div><h1>切削加工基础知识</h1><p class="sub">工程材料与机械制造基础（第3版）</p></div><div class="r"></div></section>
+<section class="slide ss"><div class="sn" style="font-family:Archivo;font-size:100px;font-weight:800;color:#e03020;opacity:.12">01</div><h2 style="font-size:56px;color:#1a1a1a;margin:8px 0">切削加工概述</h2><p class="sub" style="font-size:20px;color:#888">Fundamentals of Machining</p></section>
+<section class="slide cs"><p class="sn">01</p><h2>切削加工的定义与分类</h2><p>切削加工：利用切削刀具从工件毛坯上切除多余材料，以获得具有一定形状、尺寸、精度和表面粗糙度的零件的加工方法。</p><p>可分为<span class="hl">机械加工</span>和<span class="hl">钳工</span>两部分。</p><p>机械加工：通过人工操纵机床来实现。主要方法有车削、钻削、镗削、铣削、刨削、磨削等。</p><p>钳工：在钳工工作台上通过手持工具进行。包括划线、錾削、锯割、锉削、刮研、钻孔、铰孔、攻套螺纹、装配和维修等。</p></section>
+<section class="slide cs"><p class="sn">01</p><h2>切削加工的主要特点</h2><p>① 尺寸公差等级可达 IT12~IT3 甚至更高，表面粗糙度 \(Ra = 25 \sim 0.008\ \mu\mathrm{m}\)。</p><p>② 一般不受零件形状和尺寸限制，只要能在机床上装夹，大多可切削加工。可加工外圆、内圆、锥面、平面、螺纹、齿形及空间曲面等。</p><p>③ 常规条件下，切削加工的生产率一般高于其他加工方法。</p><p>④ 刀具和工件须具一定强度和刚度，且<span class="hl">刀具材料的硬度必须大于工件材料的硬度</span>。</p></section>
+<section class="slide ss"><div class="sn" style="font-family:Archivo;font-size:100px;font-weight:800;color:#e03020;opacity:.12">02</div><h2 style="font-size:56px;color:#1a1a1a;margin:8px 0">切削运动与切削要素</h2><p class="sub" style="font-size:20px;color:#888">Cutting Motion & Parameters</p></section>
+<section class="slide cs"><p class="sn">02</p><h2>机床的切削运动</h2><p>刀具与工件之间的相对运动称为<span class="hl">切削运动</span>，包括主运动和进给运动。</p><div class="iw"><img src="images/242_加工不同(零件)表面时的切削运动.jpg"><div class="cap">图13-1 加工不同表面时的切削运动</div></div></section>
+<section class="slide cs"><p class="sn">02</p><h2>主运动与进给运动</h2><p><span class="hl">主运动</span>（图中I）：切下切屑所需的最基本的运动。速度高、消耗功率多。主运动一般只有一个。</p><p>例如：车削时工件的旋转；钻削时钻头的旋转；铣削时铣刀的旋转；磨削时砂轮的旋转；刨削时刀具的直线往复。</p><p><span class="hl">进给运动</span>（图中II）：使多余材料不断被投入切削，从而加工出完整表面所需的运动。进给运动可以有一个或几个。</p><p>例如：车削时车刀的纵向和横向移动；钻削时钻头的轴向移动；铣削时工件的各向移动。</p></section>
+<section class="slide cs"><p class="sn">02</p><h2>车削时的三种表面</h2><p><span class="hl">待加工表面</span>：工件上等待切除的表面。</p><p><span class="hl">过渡表面</span>：工件上正在被切削刃切除的表面。</p><p><span class="hl">已加工表面</span>：工件上经刀具切削后形成的表面。</p><div class="iw"><img src="images/243_车削时在工件上形成的表面.jpg"><div class="cap">图13-2 三种表面</div></div></section>
+<section class="slide cs"><p class="sn">02</p><h2>切削用量三要素</h2><p>切削用量是衡量切削运动大小的参数，包括<span class="hl">切削速度 \(v_c\)</span>、<span class="hl">进给量 \(f\)</span>和<span class="hl">背吃刀量 \(a_p\)</span>。</p></section>
+<section class="slide cs"><p class="sn">02</p><h2>① 切削速度 \(v_c\)（m/s）</h2><p>主运动的线速度称为切削速度。</p><p><span class="hl">主运动为转动时</span>（车削、铣削、钻削、磨削）：\[v_c = \frac{\pi d n}{1000 \times 60}\]</p><p>\(d\)——工件或刀具直径（mm）；\(n\)——工件或刀具转速（r/min）。</p><p><span class="hl">主运动为往复直线运动时</span>（刨削）：\[v_c = \frac{2L n_r}{1000 \times 60}\]</p><p>\(L\)——行程长度（mm）；\(n_r\)——每分钟往复次数（str/min）。</p></section>
+<section class="slide cs"><p class="sn">02</p><h2>② 进给量 \(f\)</h2><p>在单位时间内，刀具在进给方向上相对工件的位移量。</p><p><span class="hl">车削时</span>：指工件每转一周，刀具沿进给方向所移动的距离，单位 mm/r。</p><p><span class="hl">刨削时</span>：指刀具每往复一次，工件移动的距离，单位 mm/str。</p><p><span class="hl">铣削时</span>：还规定每齿进给量 \(f_z\)，即铣刀每转过一个齿工件移动的距离，单位 mm/z。</p></section>
+<section class="slide cs"><p class="sn">02</p><h2>③ 背吃刀量（切削深度）\(a_p\)（mm）</h2><p>垂直于进给运动方向上测量的主切削刃切入工件的深度。</p><p><span class="hl">车外圆时</span>：\[a_p = \frac{d_w - d_m}{2}\]</p><p>\(d_w\)——工件待加工表面直径（mm）；\(d_m\)——工件已加工表面直径（mm）。</p></section>
+<section class="slide cs"><p class="sn">02</p><h2>切削加工阶段的划分</h2><p>加工工艺过程按照加工性质和目的不同，划分为粗加工、半精加工、精加工、精密加工和超精密加工五个阶段。</p></section>
+<section class="slide cs"><p class="sn">02</p><h2>五阶段划分详解</h2><p><span class="hl">粗加工</span>（IT12~IT11, Ra 25~12.5μm）：快速切除多余材料→接近零件形状。方法：粗车、粗铣、粗镗、粗刨、钻孔等。</p><p><span class="hl">半精加工</span>（IT10~IT9, Ra 6.3~3.2μm）：提高精度、降低粗糙度，为精加工做准备。方法：半精车、半精铣、扩孔等。</p><p><span class="hl">精加工</span>（IT8~IT6, Ra 1.6~0.2μm）：使一般零件达到技术要求。方法：精车、精铣、精刨、精镗、粗磨、粗铰等。</p><p><span class="hl">精密加工</span>（IT5~IT3, Ra 0.1~0.008μm）：进一步提高精度。方法：研磨、珩磨、超精加工、抛光等。</p></section>
+<section class="slide ss"><div class="sn" style="font-family:Archivo;font-size:100px;font-weight:800;color:#e03020;opacity:.12">03</div><h2 style="font-size:56px;color:#1a1a1a;margin:8px 0">刀具材料</h2><p class="sub" style="font-size:20px;color:#888">Cutting Tool Materials</p></section>
+<section class="slide cs"><p class="sn">03</p><h2>刀具材料应具备的性能</h2><p>① <span class="hl">高的硬度</span>：必须高于工件材料的硬度，常温下一般应在 60HRC 以上。</p><p>② <span class="hl">足够的强度和韧性</span>：承受切削力和振动，防止脆性断裂和崩刃。</p><p>③ <span class="hl">高的耐磨性</span>：抵抗磨损的能力。一般情况下硬度越高耐磨性越好。</p><p>④ <span class="hl">高的耐热性（红硬性）</span>：在高温下仍能保持硬度、强度、韧性和耐磨等性能。</p><p>⑤ <span class="hl">良好的工艺性和经济性</span>：便于制造，追求高性价比。</p></section>
+<section class="slide cs"><p class="sn">03</p><h2>常用刀具材料（一）</h2><p><span class="hl">碳素工具钢</span>（T8A~T13A）：≥62HRC，红硬性200°C。用于手动工具（锉刀、锯条）。</p><p><span class="hl">合金工具钢</span>（9SiCr、CrWMn）：≥62HRC，红硬性250~300°C。热处理变形小。</p><p>用于低速成形刀具（丝锥、板牙、铰刀）。</p><p><span class="hl">高速钢</span>（W18Cr4V、W6Mo5Cr4V2）：≥63HRC，红硬性550~600°C。</p><p>用于中速及形状复杂刀具（钻头、铣刀、拉刀、齿轮刀具）。</p></section>
+<section class="slide cs"><p class="sn">03</p><h2>常用刀具材料（二）——硬质合金</h2><p><span class="hl">硬质合金</span>：88.5~92.3HRA，红硬性800~1000°C。粉末冶金成形，多镶片使用，性能较脆。</p><p>传统分两大类：<span class="hl">YG类</span>（WC+Co）→韧性较好，适于加工铸铁等脆性材料。</p><p><span class="hl">YT类</span>（WC+TiC+Co）→耐热耐磨好，适于加工钢件。</p><p>现行标准六大类：P（钢）、M（不锈钢）、K（铸铁）、N（非铁）、S（难加工）、H（淬硬）。</p></section>
+<section class="slide cs"><p class="sn">03</p><h2>超硬刀具材料</h2><p><span class="hl">涂层刀具</span>：TiC/TiN涂层，3200HV，红硬性1100°C。切削速度提高约30%，寿命提高2~5倍。</p><p><span class="hl">陶瓷</span>（93~94HRA）：红硬性1200°C。硬度高于硬质合金，精加工可加工淬火钢。</p><p><span class="hl">立方氮化硼CBN</span>（7300~9000HV）：红硬性1300~1500°C，优于陶瓷。</p><p><span class="hl">人造金刚石</span>（约10000HV）：红硬性600°C。用于非铁金属精密加工，不宜切削钢铁。</p></section>
+<section class="slide ss"><div class="sn" style="font-family:Archivo;font-size:100px;font-weight:800;color:#e03020;opacity:.12">04</div><h2 style="font-size:56px;color:#1a1a1a;margin:8px 0">刀具结构</h2><p class="sub" style="font-size:20px;color:#888">Tool Structure</p></section>
+<section class="slide cs"><p class="sn">04</p><h2>车刀的结构形式</h2><p>车刀是最常用、最简单和最基本的切削刀具。结构形式有整体式、焊接式、机夹式和机夹可转位式。</p><div class="iw"><img src="images/244_车刀的结构形式.jpg"><div class="cap">图13-3 车刀结构</div></div></section>
+<section class="slide cs"><p class="sn">04</p><h2>车刀的四种结构</h2><p><span class="hl">整体式</span>：结构简单，对贵重刀具材料消耗较大。</p><p><span class="hl">焊接式</span>：刚性好，灵活性大。但硬质合金刀片经高温焊接和刃磨后，易产生内应力和裂纹。</p><p><span class="hl">机夹式</span>：避免焊接高温缺陷，提高切削性能，刀柄可多次使用。</p><p><span class="hl">机夹可转位式</span>：多切削刃刀片，一个刃用钝后只需转位即可继续使用，经济效益好。</p></section>
+<section class="slide cs"><p class="sn">04</p><h2>车刀的组成——三面</h2><p><span class="hl">前面</span>：切屑流出所经过的表面。</p><p><span class="hl">主后面</span>：与工件过渡表面相对的表面。</p><p><span class="hl">副后面</span>：与工件已加工表面相对的表面。</p></section>
+<section class="slide cs"><p class="sn">04</p><h2>车刀的组成——二刃与一尖</h2><p><span class="hl">主切削刃</span>：前面与主后面的交线，承担主要切削工作。</p><p><span class="hl">副切削刃</span>：前面与副后面的交线，仅承担微量切削。</p><p><span class="hl">刀尖</span>：主、副切削刃的交点。常磨成圆弧形或直线形过渡刃以强化刀尖。</p></section>
+<section class="slide ss"><div class="sn" style="font-family:Archivo;font-size:100px;font-weight:800;color:#e03020;opacity:.12">05</div><h2 style="font-size:56px;color:#1a1a1a;margin:8px 0">刀具的标注角度</h2><p class="sub" style="font-size:20px;color:#888">Tool Reference Angles</p></section>
+<section class="slide cs"><p class="sn">05</p><h2>三个辅助平面</h2><p><span class="hl">切削平面</span>：通过主切削刃上一点并与工件过渡表面相切的平面。</p><p><span class="hl">基面</span>：通过主切削刃上一点并与该点切削速度方向相垂直的平面。</p><p><span class="hl">主剖面</span>：通过主切削刃上一点并与主切削刃在基面上的投影相垂直的平面。</p><div class="iw"><img src="images/245_确定刀具角度的辅助平面.jpg"><div class="cap">图13-4 辅助平面</div></div></section>
+<section class="slide cs"><p class="sn">05</p><h2>车刀的五个标注角度</h2><div class="iw"><img src="images/246_车刀的主要角度.jpg"><div class="cap">图13-5 车刀标注角度</div></div></section>
+<section class="slide cs"><p class="sn">05</p><h2>五个标注角度</h2><p><span class="hl">① 前角 \(\gamma_o\)</span>：在主剖面中测量，前面与基面的夹角。增大→刀具锋利，切削变形和切削力减小。</p><p><span class="hl">② 后角 \(\alpha_o\)</span>：在主剖面中测量，主后面与切削平面的夹角。适当→减小摩擦和刀具磨损。</p><p><span class="hl">③ 主偏角 \(\kappa_r\)</span>：在基面中测量，主切削刃投影与进给方向的夹角。常用45°、60°、75°、90°。</p><p><span class="hl">④ 副偏角 \(\kappa'_r\)</span>：在基面中测量，副切削刃投影与进给反方向的夹角。一般5°~15°。</p><p><span class="hl">⑤ 刃倾角 \(\lambda_s\)</span>：在切削平面中测量，主切削刃与基面的夹角。刀尖最高时为正。</p></section>
+<section class="slide cs"><p class="sn">05</p><h2>车刀的工作角度</h2><p>标注角度是在静止参考系中假定的理想条件。实际切削时这些条件会改变——实际角度称为<span class="hl">工作角度</span>。</p></section>
+<section class="slide cs"><p class="sn">05</p><h2>安装对前后角的影响</h2><p>刀尖高于工件回转轴线→前角增大，后角减小。刀尖低于轴线→相反。</p><div class="iw"><img src="images/247_外圆车刀安装对前角和后角的影响.jpg"><div class="cap">图13-6 安装对前后角的影响</div></div></section>
+<section class="slide cs"><p class="sn">05</p><h2>安装对主副偏角的影响</h2><p>刀柄右偏→主偏角增大，副偏角减小。刀柄左偏→相反。</p><div class="iw"><img src="images/248_车刀安装偏斜对主偏角和副偏角的影响.jpg"><div class="cap">图13-7 安装对主副偏角的影响</div></div></section>
+<section class="slide cs"><p class="sn">05</p><h2>进给运动对工作角度的影响</h2><p>纵向走刀车外圆时，加工表面实际是螺旋面→切削平面和基面均偏转螺旋升角\(\psi\)。</p><p>工作前角 \(\gamma_{oe}\) 加大，工作后角 \(\alpha_{oe}\) 减小。车大螺距螺纹时必须考虑！</p><div class="iw"><img src="images/249_进给运动对_gammaoe_和_alphaoe_的影响.jpg"><div class="cap">图13-8 进给运动的影响</div></div></section>
+<section class="slide ss"><div class="sn" style="font-family:Archivo;font-size:100px;font-weight:800;color:#e03020;opacity:.12">06</div><h2 style="font-size:56px;color:#1a1a1a;margin:8px 0">切削过程及物理现象</h2><p class="sub" style="font-size:20px;color:#888">Cutting Process & Phenomena</p></section>
+<section class="slide cs"><p class="sn">06</p><h2>切屑形成过程</h2><p>塑性金属切削：弹性变形→塑性变形→挤裂→切离四个阶段。</p><div class="iw"><img src="images/250_切屑的形成过程.jpg"><div class="cap">图13-9 切屑形成</div></div></section>
+<section class="slide cs"><p class="sn">06</p><h2>三个变形区</h2><p><span class="hl">第I变形区</span>（基本变形区）：切削层金属产生剪切滑移和大量塑性变形的区域。</p><p><span class="hl">第II变形区</span>（摩擦变形区）：切屑与刀具前面摩擦的区域。对积屑瘤和刀具前面磨损影响大。</p><p><span class="hl">第III变形区</span>（加工表面变形区）：工件已加工表面与刀具后面接触的区域。影响加工硬化和残余应力。</p></section>
+<section class="slide cs"><p class="sn">06</p><h2>三种切屑类型</h2><div class="iw"><img src="images/251_切屑类型.jpg"><div class="cap">图13-10 三种切屑</div></div></section>
+<section class="slide cs"><p class="sn">06</p><h2>三种切屑</h2><p><span class="hl">① 带状切屑</span>：最常见，延绵长带状。条件：塑性金属+高速+小进给+大前角。切削力平稳、Ra小，但易缠绕需断屑。</p><p><span class="hl">② 节状切屑</span>：粗加工中硬材料+大进给+低速+小前角。剪切应力超过抗剪强度→裂纹扩展。振动较大，质量较差。</p><p><span class="hl">③ 崩碎切屑</span>：加工铸铁、黄铜等脆性材料→不经塑性变形直接脆断→不规则碎片。切削力变化大，刀具寿命低。</p></section>
+<section class="slide cs"><p class="sn">06</p><h2>积屑瘤</h2><div class="iw"><img src="images/252_积屑瘤.jpg"><div class="cap">图13-11 积屑瘤</div></div></section>
+<section class="slide cs"><p class="sn">06</p><h2>积屑瘤的形成</h2><p>切削塑性金属+中等切削速度(\(v_c\)=5~60 m/min)→切屑底层金属黏结在刀具前面→形成<span class="hl">积屑瘤</span>。</p><p>积屑瘤硬度很高（一般为工件硬度的2~3倍），是一个反复长大、脱落的动态形成过程。</p><p>低速（<5 m/min）和高速（>60 m/min）时摩擦因数较小，一般不产生积屑瘤。</p></section>
+<section class="slide cs"><p class="sn">06</p><h2>积屑瘤的利弊</h2><p><span class="hl">精加工应避免</span>：积屑瘤不稳定→切削深度/厚度不断变化→影响精度。脱落碎片黏附→表面粗糙。</p><p>避免措施：改变切削速度、选用适当切削液。</p><p><span class="hl">粗加工可利用</span>：积屑瘤硬度高于刀具→代替切削刃保护刀具；增大实际工作前角→切削轻快。</p></section>
+<section class="slide cs"><p class="sn">06</p><h2>切削力的产生</h2><p>切削力来源于：弹塑性变形抗力 + 切屑-刀具摩擦 + 工件-刀具摩擦。</p><div class="iw"><img src="images/253_切削力的产生.jpg"><div class="cap">图13-12 切削力产生</div></div></section>
+<section class="slide cs"><p class="sn">06</p><h2>切削力的分解</h2><div class="iw"><img src="images/254_切削力的分解.jpg"><div class="cap">图13-13 切削力分解</div></div></section>
+<section class="slide cs"><p class="sn">06</p><h2>三个切削分力</h2><p>\[F^2 = F_x^2 + F_y^2 + F_z^2\]</p><p><span class="hl">① 主切削力 \(F_z\)</span>（切向力）：<span class="hl">占总力80%~90%</span>。计算机床功率和刀具强度的主要依据。</p><p><span class="hl">② 进给抗力 \(F_x\)</span>（轴向力）：消耗功率仅1%~5%。设计和验算进给机构的依据。</p><p><span class="hl">③ 背向分力 \(F_y\)</span>（径向力）：方向速度为零故不做功。但作用于工件刚性最弱方向→易使工件弯曲变形。</p></section>
+<section class="slide cs"><p class="sn">06</p><h2>影响切削力的因素</h2><p><span class="hl">工件材料</span>：强度、硬度、韧度及塑性越大→切削力越大。</p><p><span class="hl">切削用量</span>：\(a_p\)加倍→切削力也加倍；\(f\)加倍→切削力约增75%。</p><p><span class="hl">刀具角度</span>：前角\(\gamma_o\)影响最大。加工塑性材料\(\gamma_o\)越大→切削力越小。</p><p><span class="hl">切削液</span>：喷注切削液可减小摩擦→切削力降低。</p></section>
+<section class="slide cs"><p class="sn">06</p><h2>切削功率</h2><p>\(F_y\)方向速度为零故不消耗功率，\(F_x\)消耗很小（1%~5%）可忽略。切削功率简化为：</p><p>\[P_m = 10^{-3}F_z v_c\]</p><p>\(P_m\)——切削功率（kW），\(F_z\)——主切削力（N），\(v_c\)——切削速度（m/s）。</p><p>机床电动机功率：\[P_e \geq P_m / \eta_m\]</p><p>\(\eta_m\)——机床传动效率，一般取0.75~0.85。</p></section>
+<section class="slide cs"><p class="sn">06</p><h2>切削热的来源与传散</h2><div class="iw"><img src="images/255_切削热的来源与传散.jpg"><div class="cap">图13-14 切削热来源与传散</div></div></section>
+<section class="slide cs"><p class="sn">06</p><h2>切削热与切削温度</h2><p>切削热来源于三个变形区：弹塑性变形热（I）+ 切屑-刀具摩擦热（II）+ 工件-刀具摩擦热（III）。</p><p>车削钢件：切屑带走50%~86%，工件带走10%~40%，刀具带走3%~9%。高速切削时刀体温度可达<span class="hl">1000°C以上</span>！</p><p>切削用量对温度影响：\(v_c\)影响最大（加倍→+20%~33%），\(f\)次之（加倍→约+10%），\(a_p\)最小（加倍→约+3%）。</p></section>
+<section class="slide cs"><p class="sn">06</p><h2>降低切削温度的策略</h2><p>从降低温度出发，应优先采用大的\(a_p\)、较小的\(f\)，最后确定合适的\(v_c\)。</p><p>其他措施：合理选择刀具角度、提高材料热导率、充分浇注切削液。</p></section>
+<section class="slide cs"><p class="sn">06</p><h2>刀具磨损过程</h2><div class="iw"><img src="images/256_刀具的磨损过程.jpg"><div class="cap">图13-15 刀具磨损三阶段</div></div></section>
+<section class="slide cs"><p class="sn">06</p><h2>刀具磨损与耐用度</h2><p>刀具磨损分三阶段：初期磨损（I）→正常磨损（II）→急剧磨损（III）。正常磨损后期、急剧磨损之前换刀重磨。</p><p><span class="hl">刀具耐用度 \(T\)</span>：由开始切削至磨钝为止实际进行切削的时间（min）。</p><p><span class="hl">刀具寿命 \(t\)</span>：从开始使用到完全报废的实际切削时间总和。\(t=nT\)（\(n\)为刃磨次数）。</p><p>切削速度对耐用度影响最大。适当加大前角、使用切削液→可提高\(T\)。</p></section>
+<section class="slide ss"><div class="sn" style="font-family:Archivo;font-size:100px;font-weight:800;color:#e03020;opacity:.12">07</div><h2 style="font-size:56px;color:#1a1a1a;margin:8px 0">加工质量与生产率</h2><p class="sub" style="font-size:20px;color:#888">Quality & Productivity</p></section>
+<section class="slide cs"><p class="sn">07</p><h2>加工精度</h2><p><span class="hl">加工精度</span>：零件加工后的实际几何参数与理想几何参数的符合程度。</p><p><span class="hl">尺寸精度</span>：由尺寸公差控制。国标规定20级：IT01~IT18（IT01最高，IT18最低）。</p><p><span class="hl">几何精度</span>：由几何公差控制。国标GB/T 1182—2018规定19项，分形状、方向、位置和跳动公差四大类。</p><p>影响加工精度的因素：加工原理误差、机床/刀具/夹具误差、装夹误差、工艺系统变形误差、工件内应力误差等。</p></section>
+<section class="slide cs"><p class="sn">07</p><h2>表面质量与生产率</h2><p><span class="hl">表面质量</span>：包括表面粗糙度、表面层加工硬化程度及表面残余应力的性质和大小。</p><p><span class="hl">表面粗糙度</span>：加工表面微小峰谷的高低不平度，最常用\(Ra\)（μm）。\(Ra\)值越小→表面越光滑。</p><p>影响\(Ra\)的因素：切削残留面积、积屑瘤、工艺系统振动等。</p><p><span class="hl">生产率</span>：\(R_0=1/t_w\)，\(t_w=t_m+t_c+t_0\)。提高→缩短\(t_m\)（优化切削用量）、缩短\(t_c\)（自动化）、缩短\(t_0\)（改进管理）。</p></section>
+<section class="slide ss"><div class="sn" style="font-family:Archivo;font-size:100px;font-weight:800;color:#e03020;opacity:.12">08</div><h2 style="font-size:56px;color:#1a1a1a;margin:8px 0">切削条件的合理选择</h2><p class="sub" style="font-size:20px;color:#888">Selection of Cutting Conditions</p></section>
+<section class="slide cs"><p class="sn">08</p><h2>前角与后角的选择</h2><p><span class="hl">前角 \(\gamma_o\)</span>：增大→刀具锋利，变形↓、力↓、热↓。但过大→刃口强度↓、导热体积↓→影响寿命。</p><p>选择：材料强度/硬度低→大前角；刀具韧性好（高速钢）→大前角；精加工大、粗加工小。硬质合金车刀\(-5°\sim20°\)。</p><p><span class="hl">后角 \(\alpha_o\)</span>：粗加工和冲击载荷→较小（5°~7°，保证刃口强度）；精加工→较大（8°~12°，保证表面质量）。</p></section>
+<section class="slide cs"><p class="sn">08</p><h2>主偏角的影响</h2><p>减小\(\kappa_r\)→切削刃参加切削长度↑→切屑变薄→单位负荷↓→散热↑→刀具寿命↑。</p><p>但\(\kappa_r\)减小→\(F_y\)增大→加工刚性差的工件时应选较大\(\kappa_r\)以免变形。</p><div class="iw"><img src="images/257_主偏角对切削宽度和厚度的影响.jpg"><div class="cap">图13-16/17 主偏角影响</div></div></section>
+<section class="slide cs"><p class="sn">08</p><h2>副偏角的影响</h2><p>减小\(\kappa'_r\)→残留面积↓→\(Ra\)值↓。精加工取5°~10°，粗加工取10°~15°。</p><div class="iw"><img src="images/259_副偏角对残留面积的影响.jpg"><div class="cap">图13-18 副偏角影响\(Ra\)</div></div></section>
+<section class="slide cs"><p class="sn">08</p><h2>刃倾角的影响</h2><p>+λ_s→切屑流向待加工表面（精加工），刃口强度↓。-λ_s→流向已加工表面（粗加工），刃口强度↑。</p><p>粗车λ_s=-5°~0°；精车λ_s=0°~5°；冲击载荷λ_s=-5°~-15°。</p><div class="iw"><img src="images/260_刃倾角及其对切屑流向的影响.jpg"><div class="cap">图13-19 刃倾角影响</div></div></section>
+<section class="slide cs"><p class="sn">08</p><h2>刀具耐用度的选择</h2><p>刀具寿命方程式：\[v_c T^m = C_0\]</p><p>高速钢刀具 \(v_c\) 升高一倍→\(T\) 降为原来的1/86！</p><p>最高生产率耐用度 \(T_p\) 低于最低成本耐用度 \(T_c\)，一般多用 \(T_c\)。</p><p>参考值：硬质合金车刀T=60~90min；高速钢钻头T=80~120min；齿轮滚刀T=200~300min。</p></section>
+<section class="slide cs"><p class="sn">08</p><h2>切削用量的选择</h2><p>刀具耐用度经验公式：\[T = \frac{C_T}{v_c^5 f^{2.25} a_p^{0.75}}\]</p><p>\(v_c\)对\(T\)影响最大，\(f\)次之，\(a_p\)最小。</p><p><span class="hl">粗加工</span>：先取大\(a_p\)（一次走刀切除）→大\(f\)（据工艺系统刚度）→合适\(v_c\)。</p><p><span class="hl">精加工</span>：先保精度→逐渐减小\(a_p\)→小\(f\)→高\(v_c\)。</p></section>
+<section class="slide cs"><p class="sn">08</p><h2>进给量对残留面积的影响</h2><p>进给量增大→残留面积高度显著增大→表面更粗糙。精加工必选小进给量。</p><div class="iw"><img src="images/262_进给量对残留面积的影响.jpg"><div class="cap">图13-21 \(f\)影响\(Ra\)</div></div></section>
+<section class="slide cs"><p class="sn">08</p><h2>切削液</h2><p>切削液具有<span class="hl">冷却、润滑、洗涤、排屑和防锈</span>作用。</p><p><span class="hl">水溶液</span>：冷却排屑好、润滑差→磨削用。<span class="hl">乳化液</span>：冷却清洗好、一定润滑→粗加工及磨削。</p><p><span class="hl">切削油</span>：润滑防锈好、冷却差→精加工用。</p><p>高速钢刀具耐热差→须用切削液。硬质合金耐热好→一般不用。铸铁/青铜/黄铜等脆性材料→一般不用。</p></section>
+<section class="slide cs"><p class="sn">08</p><h2>工件材料的切削加工性</h2><p><span class="hl">切削加工性</span>：在一定的切削条件下，材料被切削加工的难易程度。</p><p>最常用衡量指标：\(v_T\)（\(T\)时允许的最大切削速度，通常取\(T=60\)min记为\(v_{60}\)）和<span class="hl">相对加工性 \(K_r\)</span>。</p><p>以正火45钢的\(v_{60}\)为基准\((v_{60})_j\)：\[K_r = \frac{v_{60}}{(v_{60})_j}\]</p><p>\(K_r>1\)→加工性比45钢好；\(K_r<1\)→比45钢差。常用材料分八级。</p></section>
+<section class="slide ss"><div class="sn" style="font-family:Archivo;font-size:100px;font-weight:800;color:#e03020;opacity:.12">09</div><h2 style="font-size:56px;color:#1a1a1a;margin:8px 0">机床基础知识</h2><p class="sub" style="font-size:20px;color:#888">Machine Tool Basics</p></section>
+<section class="slide cs"><p class="sn">09</p><h2>机床的分类</h2><p>按加工性质和所用刀具分类是最基本的方法。机床分为11大类：车床(C)、钻床(Z)、镗床(T)、磨床(M)、齿轮加工机床(Y)、螺纹加工机床(S)、刨插床(B)、拉床(L)、铣床(X)、切断机床(G)、其他机床。</p><p>按使用性能：通用、专门化、专用。按精度：普通、精密、高精度。按自动化程度：一般、半自动、自动。</p></section>
+<section class="slide cs"><p class="sn">09</p><h2>机床型号的含义</h2><p>CW6140B：C=车床，W=万能，6=卧式车床组，1=卧式车床系，40=最大车削直径400mm，B=第二次重大改进。</p><p>XK5030：X=铣床，K=数控，5=立式升降台铣床组，0=型别，30=工作台宽度300mm。</p><div class="iw"><img src="images/263_机床型号的含义.jpg"><div class="cap">图13-22 机床型号编制</div></div></section>
+<section class="slide ss"><div class="sn" style="font-family:Archivo;font-size:100px;font-weight:800;color:#e03020;opacity:.12">10</div><h2 style="font-size:56px;color:#1a1a1a;margin:8px 0">机床的机械传动</h2><p class="sub" style="font-size:20px;color:#888">Mechanical Transmission</p></section>
+<section class="slide cs"><p class="sn">10</p><h2>传动方式与常用传动副</h2><p>传动方式分机械、液压、电气和气压等，应用最多的是机械传动和液压传动。</p><p><span class="hl">带传动</span>：\(i = \frac{n_{II}}{n_I} = \frac{d_1}{d_2}\varepsilon\)（\(\varepsilon\approx0.98\)）。平稳、过载保护，但传动比不准确。</p><p><span class="hl">齿轮传动</span>：\(i = \frac{n_{II}}{n_I} = \frac{z_1}{z_2}\)。传动比准确恒定、紧凑可靠、效率高。</p><p><span class="hl">蜗杆蜗轮传动</span>：\(i = \frac{z_1}{z_2}\)。传动比大、平稳，但效率低、发热大。</p></section>
+<section class="slide cs"><p class="sn">10</p><h2>齿轮齿条与丝杠螺母</h2><p><span class="hl">齿轮齿条传动</span>：\(S = n\pi d = n\pi m z\)。效率较高，结构紧凑。</p><p><span class="hl">丝杠螺母传动</span>：\(S = n P_h\)。传动平稳无噪声，可达高精度。</p><p>式中：\(d\)——带轮直径；\(z\)——齿数；\(m\)——模数；\(P_h\)——丝杠导程。</p></section>
+<section class="slide cs"><p class="sn">10</p><h2>传动链及其传动比</h2><p>将若干传动副按传动轴依次组合起来构成<span class="hl">传动链</span>。运动自轴I输入，经带轮→齿轮→蜗杆蜗轮传至轴V：</p><p>\[I \to \frac{D_1}{D_2}\varepsilon \to II \to \frac{z_1}{z_2} \to III \to \frac{z_3}{z_4} \to IV \to \frac{z_5}{z_6} \to V\]</p><p>传动链<span class="hl">总传动比</span>等于所有传动副传动比的乘积：</p><p>\[i_{I-V} = i_1 i_2 i_3 i_4 = \frac{n_V}{n_I} = \frac{D_1}{D_2}\varepsilon \cdot \frac{z_1}{z_2} \cdot \frac{z_3}{z_4} \cdot \frac{z_5}{z_6}\]</p></section>
+<section class="slide ss"><div class="sn" style="font-family:Archivo;font-size:100px;font-weight:800;color:#e03020;opacity:.12">11</div><h2 style="font-size:56px;color:#1a1a1a;margin:8px 0">C6132车床传动系统</h2><p class="sub" style="font-size:20px;color:#888">C6132 Lathe Transmission</p></section>
+<section class="slide cs"><p class="sn">11</p><h2>C6132车床传动系统图</h2><p>卧式车床传动系统由<span class="hl">主运动传动链</span>和<span class="hl">进给运动传动链</span>组成。</p><div class="iw"><img src="images/265_C6132车床的传动系统图.jpg"><div class="cap">图13-24 C6132车床传动系统图</div></div></section>
+<section class="slide cs"><p class="sn">11</p><h2>主运动传动路线</h2><p>电动机（\(n=1440\) r/min, \(P=4\) kW）→变速箱轴I。轴I上双联齿轮使轴II得2种转速；轴III上三联齿轮使输出轴III得6种转速。运动再经带轮φ176/φ200传给主轴箱。</p><p>\[\mathrm{I} \to \begin{Bmatrix}33/22\\19/34\end{Bmatrix} \to \mathrm{II} \to \begin{Bmatrix}34/32\\28/39\\22/45\end{Bmatrix} \to \mathrm{III} \to \frac{\phi176}{\phi200}\varepsilon \to \mathrm{IV} \to \begin{Bmatrix}M_1\leftarrow \\ 27/63\end{Bmatrix} \to \mathrm{V} \to \frac{17}{58} \to \text{主轴VI}\]</p><p>主轴可得 \(2 \times 3 \times 2 = 12\) 级转速。低速路线经27/63和17/58→6种低速；M₁左移直接连接→6种高速。反转靠电动机反转实现。</p></section>
+<section class="slide cs"><p class="sn">11</p><h2>主轴转速计算</h2><p>主轴工作转速：\[n_{\text{主}} = n_{\text{电}} \cdot i_{\text{变}} \cdot i_{\text{带}} \cdot i_{\text{主}}\]</p><p>按图示啮合位置（低速路线）：</p><p>\[n_{\text{主}} = 1440 \times (\frac{33}{22} \times \frac{34}{32}) \times (\frac{176}{200} \times 0.98) \times (\frac{27}{63} \times \frac{17}{58}) \approx 249\ \text{r/min}\]</p><p>其余11种转速：\(n_{\text{最高}} = 1980\) r/min，\(n_{\text{最低}} = 45\) r/min。</p></section>
+<section class="slide cs"><p class="sn">11</p><h2>进给运动传动路线</h2><p>主轴VI→滑移齿轮变向机构→挂轮箱齿轮29/58及挂轮a/b×c/d→进给箱轴XI：</p><p>\[\text{主轴VI} \to \underbrace{\begin{Bmatrix}55/55\\55/35 \times 35/55\end{Bmatrix}}_{\text{变向}} \to \text{VIII} \to \frac{29}{58} \to \text{IX} \to \frac{a}{b}\times\frac{c}{d}_{\text{(挂轮)}} \to \text{XI}\]</p></section>
+<section class="slide cs"><p class="sn">11</p><h2>进给运动的两个分支</h2><p>轴XI→滑动齿轮（5种传动比）→轴XII→增倍机构（4种）→轴XIII。</p><p><span class="hl">车螺纹</span>：39/39→丝杠（\(P_h=6\)）→开合螺母→刀架纵向移动。用丝杠保证螺距精度。</p><p><span class="hl">车外圆</span>：39/39→光杠→溜板箱蜗杆蜗轮→轴XVI。M_左→齿轮齿条→纵向进给。M_右→横向丝杠（\(P_h=4\)）→横向进给。用光杠减少丝杠磨损。</p></section>
+<section class="slide cs"><p class="sn">11</p><h2>进给量计算</h2><p>主轴转一周，刀具纵向或横向移动的距离即为进给量：</p><p>\[f_{\text{纵}} = i_{\text{换}} \cdot i_{\text{挂}} \cdot i_{\text{进}} \cdot i_{\text{溜}} \cdot \pi z m\]</p><p>\[f_{\text{横}} = i_{\text{换}} \cdot i_{\text{挂}} \cdot i_{\text{进}} \cdot i_{\text{溜}} \cdot P_{h\text{横}}\]</p><p>\(z=14\)（小齿轮齿数），\(m=2\)（模数），\(P_{h\text{横}}=4\)（横向丝杠导程）。</p></section>
+<section class="slide cs"><p class="sn">11</p><h2>进给量计算实例</h2><p>挂轮使用60、65、65、45（车公制螺纹），离合器M_左及M_右分别接合时：</p><p>\[f_{\text{纵}} = (\frac{55}{35} \times \frac{35}{55}) \times (\frac{29}{58} \times \frac{60}{65} \times \frac{65}{45}) \times (\frac{26}{52} \times \frac{39}{39} \times \frac{26}{52} \times \frac{39}{39}) \times (\frac{2}{45} \times \frac{24}{60} \times \frac{25}{55}) \times \pi \times 2 \times 14 = 0.118\ \text{mm/r}\]</p><p>\[f_{\text{横}} = (\frac{55}{35} \times \frac{35}{55}) \times (\frac{29}{58} \times \frac{60}{65} \times \frac{65}{45}) \times (\frac{26}{52} \times \frac{39}{39} \times \frac{26}{52} \times \frac{39}{39}) \times (\frac{2}{45} \times \frac{38}{47} \times \frac{47}{13}) \times 4 = 0.087\ \text{mm/r}\]</p></section>
+<section class="slide cs"><p class="sn">11</p><h2>螺纹加工与变速</h2><p>进给箱中滑动齿轮（5种）+增倍机构（4种）→变速级数 \(5 \times 4 = 20\) 种。</p><p>加之有<span class="hl">7组不同传动比的挂轮</span>可任意配换→可车出各种不同螺距的螺纹。</p></section>
+<section class="slide ss"><div class="sn" style="font-family:Archivo;font-size:100px;font-weight:800;color:#e03020;opacity:.12">12</div><h2 style="font-size:56px;color:#1a1a1a;margin:8px 0">机床的自动化</h2><p class="sub" style="font-size:20px;color:#888">Machine Tool Automation</p></section>
+<section class="slide cs"><p class="sn">12</p><h2>自动化概述</h2><p><span class="hl">自动化</span>：以机械动作代替人力操作，自动完成特定作业。提高生产率、减少操作人员、降低成本、稳定产品质量。</p><p>分两大类：<span class="hl">单一品种大批量生产自动化</span>和<span class="hl">多品种小批生产自动化</span>。</p></section>
+<section class="slide cs"><p class="sn">12</p><h2>刚性自动化与数控机床</h2><p>大批量→专用设备、专用流水线和自动线等<span class="hl">刚性自动化</span>。如自动机床、组合机床及自动生产线。缺点：产品改变后设备难适应。</p><p>多品种小批→<span class="hl">数控机床</span>。通用性强、生产准备短、效率高、适应性强。换加工对象只需换数控程序。</p><p>数控技术已从NC发展到CNC，形成柔性单元、柔性系统、自动化工厂，正朝智能化、网络化、敏捷制造、虚拟制造方向发展。</p></section>
+<section class="slide ss"><div class="sn" style="font-family:Archivo;font-size:100px;font-weight:800;color:#e03020;opacity:.12">本章总结</div><h2 style="font-size:56px;color:#1a1a1a;margin:8px 0">核心要点</h2></section>
+<section class="slide cs"><p class="sn">总结</p><h2>公式速查</h2><p>切削速度：\(v_c = \frac{\pi d n}{60000}\)（转动），\(v_c = \frac{2L n_r}{60000}\)（往复）。背吃刀量：\(a_p = \frac{d_w-d_m}{2}\)。</p><p>刀具耐用度：\(v_c T^m = C_0\)；\(T = \frac{C_T}{v_c^5 f^{2.25} a_p^{0.75}}\)。</p><p>传动链总传动比：\(i_{\text{总}} = \prod i_k\)。C6132主轴12级转速（45~1980r/min）。</p><p>进给箱20种变速×7组挂轮。\(f_{\text{纵}} = i_{\text{换}} i_{\text{挂}} i_{\text{进}} i_{\text{溜}} \pi z m\)。</p></section>
+<section class="slide cs"><p class="sn">总结</p><h2>重点总结</h2><p>① <span class="hl">切削加工</span>：机械加工+钳工。五阶段：粗→半精→精→精密→超精密。</p><p>② <span class="hl">刀具材料</span>：红硬性递进——碳素工具钢200°C→高速钢550~600°C→硬质合金800~1000°C→陶瓷1200°C→CBN 1300~1500°C。</p><p>③ <span class="hl">切削力</span>：\(F_z\)（80%~90%）+\(F_x\)+\(F_y\)。\(a_p\)加倍→力加倍，\(f\)加倍→力增75%。</p><p>④ <span class="hl">切削用量</span>：粗加工→大\(a_p\)→大\(f\)→合适\(v_c\)。精加工→先保精度。切削液：水溶液（磨削）、乳化液（粗）、切削油（精）。</p><p>⑤ <span class="hl">机床传动</span>：C6132主轴12级，进给箱20种变速×7组挂轮。车螺纹用丝杠，车外圆用光杠。</p><p>⑥ <span class="hl">自动化</span>：大批量→刚性自动化；多品种小批→数控机床（NC→CNC→柔性系统）。</p></section></div></div><nav class="ctrl"><button id="prev">&#8592;</button><span class="pi" id="pi">1/86</span><button id="next">&#8594;</button></nav>
+<div class="ez" id="ez"></div><button class="eb" id="eb">编辑文字</button>
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script>
+(function(){
+var sl=document.querySelectorAll('.slide'),cur=0,pi=document.getElementById('pi'),sg=document.getElementById('stg'),vp=document.querySelector('.vp');
+function go(i){
+  cur=Math.max(0,Math.min(i,sl.length-1));
+  for(var j=0;j<sl.length;j++)sl[j].classList.toggle('a',j===cur);
+  pi.textContent=(cur+1)+'/'+sl.length;
+  try{renderMathInElement(document.body)}catch(e){}
+}
+function sz(){var sc=Math.min(vp.clientWidth/1920,vp.clientHeight/1080);sg.style.transform='translate('+(vp.clientWidth-1920*sc)/2+'px,'+(vp.clientHeight-1080*sc)/2+'px) scale('+sc+')'}
+document.getElementById('next').onclick=function(){go(cur+1)};
+document.getElementById('prev').onclick=function(){go(cur-1)};
+document.addEventListener('keydown',function(e){
+  if(e.key==='ArrowRight'||e.key==='ArrowDown'||e.key===' '){e.preventDefault();go(cur+1)}
+  if(e.key==='ArrowLeft'||e.key==='ArrowUp'){e.preventDefault();go(cur-1)}
+});
+document.addEventListener('wheel',function(e){if(e.deltaY>0)go(cur+1);else go(cur-1)},{passive:true});
+window.addEventListener('resize',sz);sz();go(0);
+(function(){var eb=document.getElementById('eb'),ez=document.getElementById('ez'),ac=false,timer=null;
+function tog(){ac=!ac;eb.classList.toggle('a',ac);eb.textContent=ac?'退出编辑':'编辑文字';document.querySelector('.slide.a').querySelectorAll('h1,h2,h3,h4,p,li,td,th,span.hl,div.c h3,.sn,.tag,.sm,.sub,.cap').forEach(function(el){el.contentEditable=ac?'true':'false'})}
+eb.onclick=tog;ez.onmouseenter=function(){clearTimeout(timer);eb.classList.add('s')};
+ez.onmouseleave=function(){timer=setTimeout(function(){if(!ac)eb.classList.remove('s')},400)};
+eb.onmouseenter=function(){clearTimeout(timer)};eb.onmouseleave=function(){timer=setTimeout(function(){if(!ac)eb.classList.remove('s')},400)};ez.onclick=tog;
+document.addEventListener('keydown',function(e){if((e.key==='e'||e.key==='E')&&!e.target.closest('[contenteditable]')){e.preventDefault();tog()};if(e.ctrlKey&&e.key==='s'){e.preventDefault();alert('已保存')}});
+})();
+})();
+</script></body></html>

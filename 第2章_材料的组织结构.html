@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>第2章·材料的组织结构</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;600;700;900&family=Archivo:wght@700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" defer></script>
+<style>
+html,body{width:100%;height:100%;margin:0;overflow:hidden;background:#e8e8e8}.vp{position:fixed;inset:0;overflow:hidden;background:#e8e8e8}
+.stage{position:absolute;left:0;top:0;width:1920px;height:1080px;overflow:hidden;transform-origin:0 0}
+.slide{position:absolute;left:0;top:0;width:1920px;height:1080px;overflow:hidden;opacity:0;pointer-events:none;background:#fff}
+.slide.a{opacity:1;pointer-events:auto;z-index:1}
+.ts{display:flex}.ts .bar{width:12px;height:1080px;background:#e03020;flex-shrink:0}.ts .l{padding:100px 80px;flex:1}
+.ts .tag{font-family:Archivo,sans-serif;font-size:15px;font-weight:700;color:#e03020;letter-spacing:4px;margin-top:200px}
+.ts h1{font-size:72px;font-weight:900;color:#1a1a1a;margin:16px 0}.ts .sub{font-size:24px;color:#666}.ts .r{width:45%;background:#f5f5f5}
+.ss{display:flex;flex-direction:column;align-items:center;justify-content:center;background:#f5f5f5}
+.ss .sn{font-family:Archivo,sans-serif;font-size:100px;font-weight:800;color:#e03020;opacity:.12}
+.ss h2{font-size:56px;color:#1a1a1a;margin:8px 0}.ss .sub{font-size:20px;color:#888}
+.cs{padding:48px 72px 56px}
+.cs h2{font-size:42px;color:#1a1a1a;margin:0 0 16px}
+.cs h3{font-size:30px;color:#1a1a1a;margin:14px 0 8px}
+.cs h4{font-size:26px;color:#1a1a1a;margin:10px 0 6px}
+.cs p{font-size:24px;color:#333;line-height:1.6;margin:0 0 8px}.iw img{max-height:460px}.g2 .iw img{max-height:300px}
+.cs li{font-size:24px;color:#333;line-height:1.5;margin:4px 0}
+.cs .sn{font-family:Archivo,sans-serif;font-size:13px;color:#aaa;margin-bottom:8px}
+.cs .hl{color:#e03020;font-weight:600}
+.cs .sm{font-size:20px;color:#666;line-height:1.5}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:10px}
+.g2 .c{padding:18px 20px;background:#f5f5f5;border-radius:8px}
+.g2 .c h3{font-size:24px;margin:0 0 4px;color:#1a1a1a}
+.g2 .c p{font-size:20px;margin:0;color:#555;line-height:1.4}
+.g3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin-top:10px}
+.g3 .c{padding:14px 16px;background:#f5f5f5;border-radius:8px;text-align:center}
+.g3 .c h3{font-size:22px;margin:0 0 4px}.g3 .c p{font-size:18px;margin:0;color:#555}
+table{width:100%;border-collapse:collapse;margin:10px 0;font-size:21px}
+th{background:#e03020;color:#fff;padding:8px 12px;text-align:left;font-weight:600}
+td{padding:8px 12px;border-bottom:1px solid #ddd}
+.iw{text-align:center;margin:6px 0}.iw img{max-height:460px;border-radius:6px;box-shadow:0 2px 10px rgba(0,0,0,.08)}
+.iw .cap{font-size:18px;color:#888;margin-top:4px}
+.fb{margin:8px 0;padding:12px 18px;background:#f5f5f5;border-radius:6px;text-align:center;font-size:24px}
+.ctrl{position:fixed;left:50%;bottom:22px;transform:translateX(-50%);z-index:1000;display:flex;gap:10px;align-items:center;background:rgba(255,255,255,.92);padding:8px 16px;border-radius:10px;box-shadow:0 2px 12px rgba(0,0,0,.08)}
+.ctrl button{width:40px;height:40px;border:1.5px solid rgba(0,0,0,.12);border-radius:6px;background:#fff;cursor:pointer;font-size:17px;color:#555}
+.ctrl button:hover{background:#e03020;color:#fff;border-color:#e03020}
+.ctrl .pi{font-family:Archivo,sans-serif;font-size:13px;color:#999;min-width:50px;text-align:center}
+.ez{position:fixed;top:0;left:0;width:80px;height:80px;z-index:10000;cursor:pointer}
+.eb{position:fixed;top:12px;left:12px;z-index:10001;padding:6px 14px;border:1.5px solid rgba(0,0,0,.12);border-radius:6px;background:rgba(255,255,255,.95);cursor:pointer;font-size:13px;color:#555;opacity:0;pointer-events:none;transition:opacity .3s;font-family:Noto Sans SC,sans-serif}
+.eb.s,.eb.a{opacity:1;pointer-events:auto}[contenteditable]:hover{outline:2px dashed #e03020;outline-offset:2px;cursor:text}
+@media (prefers-reduced-motion:reduce){*{transition-duration:.2s!important}}
+@media print{html,body{background:#fff}.vp{position:static}.stage{position:static;transform:none!important}.slide{position:relative!important;opacity:1!important;break-after:page;height:auto}.ctrl,.ez,.eb{display:none!important}}
+</style></head><body>
+<div class="vp"><div class="stage" id="stg">
+
+<!-- 1: TITLE -->
+<section class="slide a ts"><div class="bar"></div><div class="l"><div class="tag">CHAPTER 02</div><h1>材料的组织结构</h1><p class="sub">工程材料与机械制造基础（第3版）<br>齐乐华 主编</p></div><div class="r"></div></section>
+
+<!-- 2: SECTION -->
+<section class="slide ss"><div class="sn">01</div><h2>金属的晶体结构</h2><p class="sub">Crystal Structure of Metals</p></section>
+
+<!-- 3: 晶体与非晶体 -->
+<section class="slide cs"><p class="sn">01 / 晶体结构</p><h2>晶体与非晶体</h2>
+<p>固体物质按原子（或分子）的聚集状态分为<span class="hl">晶体</span>和<span class="hl">非晶体</span>。</p>
+<p><span class="hl">晶体</span>：原子在三维空间做有规律的周期性重复排列。固态金属与合金都是晶体。</p>
+<p><span class="hl">非晶体</span>：原子无规则堆砌。如普通玻璃、沥青、松香等。</p>
+<table><tr><th>特性</th><th>晶体</th><th>非晶体</th></tr>
+<tr><td>原子排列</td><td>周期性重复排列</td><td>无规则堆砌</td></tr>
+<tr><td>熔点</td><td>固定</td><td>无固定熔点</td></tr>
+<tr><td>几何外形</td><td>规则外形</td><td>无规则</td></tr>
+<tr><td>各向异性</td><td>各向异性（不同方向性能不同）</td><td>各向同性</td></tr></table></section>
+
+<!-- 4: 晶格与晶胞 -->
+<section class="slide cs"><p class="sn">01 / 晶体结构</p><h2>晶格与晶胞</h2>
+<p><span class="hl">晶格</span>：假想连线将原子中心连接起来形成的几何空间格架。</p>
+<p><span class="hl">晶胞</span>：晶格中的最小几何单元，反映晶体结构的特征。</p>
+<p><span class="hl">晶格常数</span>：晶胞各棱边的长度。</p>
+<p><span class="hl">晶面</span>：晶格中由一系列原子组成的平面。</p>
+<p><span class="hl">晶向</span>：晶格中各原子列的位向。</p>
+<p class="sm">图2-1a 原子排列 → 2-1b 晶格 → 2-1c 晶胞（从抽象到具体）</p>
+<div class="iw"><img src="ch2_images/2_晶体结构示意图.jpg" alt="图2-1"><div class="cap">图2-1 晶体结构示意图 — 从原子排列到晶格再到晶胞的抽象过程</div></div></section>
+
+<!-- 5: 三种晶格 -->
+<section class="slide cs"><p class="sn">01 / 晶体结构</p><h2>三种常见金属晶格类型</h2>
+<p>绝大多数金属具有以下三种简单晶体结构：</p>
+<div class="g3">
+<div class="c"><h3>体心立方<br>(bcc)</h3><p>8顶角 + 体心各1原子<br>Cr、W、Mo、V、α-Fe</p></div>
+<div class="c"><h3>面心立方<br>(fcc)</h3><p>8顶角 + 6面心各1原子<br>Al、Cu、Ni、Au、γ-Fe</p></div>
+<div class="c"><h3>密排六方<br>(hcp)</h3><p>六棱柱+面心+中间3原子<br>Mg、Zn、Cd、Be</p></div></div>
+<div class="iw"><img src="ch2_images/3_典型晶格的晶胞示意图.jpg" alt="图2-2"><div class="cap">图2-2 典型晶格的晶胞示意图 — a)体心立方 b)面心立方 c)密排六方</div></div></section>
+
+<!-- 6: 晶体缺陷 SECTION -->
+<section class="slide ss"><div class="sn">02</div><h2>金属的实际晶体结构</h2><p class="sub">Real Crystal Structure & Defects</p></section>
+
+<!-- 7: 单晶vs多晶 -->
+<section class="slide cs"><p class="sn">02 / 实际晶体</p><h2>单晶体与多晶体</h2>
+<p><span class="hl">单晶体</span>：原子排列位向完全一致的理想晶体。</p>
+<p><span class="hl">多晶体</span>：由许多位向不同的小单晶体（<span class="hl">晶粒</span>）组成。实际工程材料绝大多数为多晶体。</p>
+<p><span class="hl">晶体缺陷</span>：实际晶体中偏离理想结构的微观区域，分三类。</p>
+<div class="g3">
+<div class="c"><h3>点缺陷</h3><p>空位、间隙原子<br>晶格畸变</p></div>
+<div class="c"><h3>线缺陷</h3><p>位错（刃型/螺型）<br>对强度影响最大</p></div>
+<div class="c"><h3>面缺陷</h3><p>晶界、亚晶界<br>影响性能显著</p></div></div>
+<div class="iw"><img src="ch2_images/4_多晶体中不同位向晶粒示意图.jpg" alt="图2-3"><div class="cap">图2-3 多晶体中不同位向晶粒示意图</div></div></section>
+
+<!-- 8: 点缺陷 -->
+<section class="slide cs"><p class="sn">02 / 实际晶体</p><h2>点缺陷——空位和间隙原子</h2>
+<p><span class="hl">空位</span>：未被原子占据的晶格节点。</p>
+<p><span class="hl">间隙原子</span>：位于晶格间隙中的原子。</p>
+<p>产生原因：结晶过程中原子堆积不完善、外来原子溶入、高温、冷变形加工、高能粒子轰击等。</p>
+<p>后果：原子间作用力失去平衡，周围原子发生靠拢或撑开 → <span class="hl">晶格畸变</span>。</p>
+<div class="iw"><img src="ch2_images/5_空位和间隙原子.jpg" alt="图2-4"><div class="cap">图2-4 空位和间隙原子（晶格畸变示意图）</div></div></section>
+
+<!-- 9: 线缺陷 -->
+<section class="slide cs"><p class="sn">02 / 实际晶体</p><h2>线缺陷——刃型位错</h2>
+<p>位错：晶体中某处一列或若干列原子发生有规律的错排现象。</p>
+<p><span class="hl">刃型位错</span>：完整晶体的某个晶面上多出了半个原子面，犹如刀刃垂直切入。</p>
+<p>图中 EFGH 为多余的半原子面，EF 为刃型位错线。</p>
+<div class="iw"><img src="ch2_images/6_刃型位错示意图.jpg" alt="图2-5"><div class="cap">图2-5 刃型位错示意图 — a)立体模型 b)原子排列模型</div></div></section>
+
+<!-- 10: 面缺陷 -->
+<section class="slide cs"><p class="sn">02 / 实际晶体</p><h2>面缺陷——晶界</h2>
+<p><span class="hl">晶界</span>：位向不同的相邻晶粒之间的过渡层，由空位、间隙原子及位错堆积而成，也是杂质原子聚集的场所。</p>
+<p>晶体缺陷使晶格产生畸变、晶格能量增加。缺陷可提高金属的强度，但常降低耐腐蚀性能。</p>
+<div class="iw"><img src="ch2_images/7_晶界示意图.jpg" alt="图2-6"><div class="cap">图2-6 晶界示意图</div></div></section>
+
+<!-- 11: 合金结构 -->
+<section class="slide cs"><p class="sn">02 / 实际晶体</p><h2>金属材料的结构特点——合金</h2>
+<p><span class="hl">合金</span>：两种或多种元素组成的具有金属特性的物质。</p>
+<p><span class="hl">组元</span>：组成合金最基本的独立物质（元素或稳定化合物）。</p>
+<p><span class="hl">合金化</span>：加入合金元素来改变金属性能的方法。</p>
+<p><span class="hl">相</span>：合金中具有相同化学成分、晶体结构、物理/化学性能的均匀组成部分。</p>
+<p>合金中的相可分为两大类：</p>
+<div class="g2" style="margin-top:4px"><div class="c"><h3>固溶体</h3><p>溶质原子溶入溶剂晶格<br>保持溶剂晶格结构<br>晶格畸变 → <span class="hl">固溶强化</span></p></div>
+<div class="c"><h3>金属化合物</h3><p>形成新晶格（化学式 AₘBₙ）<br>高熔点、高硬度、脆性大<br>弥散分布 → <span class="hl">弥散强化</span></p></div></div></section>
+
+<!-- 12: 固溶体类型 -->
+<section class="slide cs"><p class="sn">02 / 实际晶体</p><h2>固溶体的类型</h2>
+<p>固溶体保持溶剂的晶格结构，但引起不同程度的<span class="hl">晶格畸变</span>。</p>
+<table><tr><th>分类依据</th><th>类型</th><th>特点</th></tr>
+<tr><td>溶质原子位置</td><td><span class="hl">置换固溶体</span></td><td>溶质原子取代溶剂晶格节点上的原子</td></tr>
+<tr><td></td><td><span class="hl">间隙固溶体</span></td><td>溶质原子嵌入溶剂晶格间隙中</td></tr>
+<tr><td>固溶度大小</td><td>有限固溶体 / 无限固溶体</td><td>取决于组元晶格类型和原子半径</td></tr>
+<tr><td>原子分布特点</td><td>无序固溶体 / 有序固溶体</td><td>有序化可提高强度</td></tr></table>
+<p class="sm">固溶强化：溶质原子溶入引起晶格畸变 → 强度、硬度提高，塑性和韧性下降。</p></section>
+
+<!-- 13: 金属化合物 -->
+<section class="slide cs"><p class="sn">02 / 实际晶体</p><h2>金属化合物</h2>
+<p>两组元 A 和 B 相互作用形成新相，晶格与两组元完全不同。</p>
+<p>特点：<span class="hl">高熔点、高硬度、脆性大</span>。</p>
+<p>强化机制：适量的金属化合物弥散分布在固溶体基体上 → <span class="hl">第二相质点强化（弥散强化）</span>。</p>
+<p class="sm">弥散强化是各类合金钢及非铁金属的重要强化方法！</p></section>
+
+<!-- 14: SECTION -->
+<section class="slide ss"><div class="sn">03</div><h2>非金属材料的结构</h2><p class="sub">Structure of Non-metallic Materials</p></section>
+
+<!-- 15: 陶瓷 -->
+<section class="slide cs"><p class="sn">03 / 非金属</p><h2>陶瓷材料的结构特点</h2>
+<p><span class="hl">结合键</span>：主要为离子键（Al₂O₃、MgO）和共价键（金刚石、SiC），通常为混合键。</p>
+<p>特点：<span class="hl">熔点高、硬度高、耐腐蚀、塑性差</span>。</p>
+<p>陶瓷由三种相组成：</p>
+<table><tr><th>组成相</th><th>特点</th><th>作用</th></tr>
+<tr><td><span class="hl">晶体相</span></td><td>化合物或固溶体，多晶体</td><td>决定陶瓷物理、化学和力学性能</td></tr>
+<tr><td><span class="hl">玻璃相</span></td><td>非晶态，空间网络结构</td><td>粘结晶体相、降低烧结温度、填充空隙</td></tr>
+<tr><td><span class="hl">气相（气孔）</span></td><td>封闭型或开放型</td><td>影响致密度和强度</td></tr></table></section>
+
+<!-- 16: 陶瓷组织图 -->
+<section class="slide cs"><p class="sn">03 / 非金属</p><h2>陶瓷的显微组织</h2>
+<p>陶瓷的晶粒细小 → 强度大；空位和间隙原子加速烧结过程的扩散。</p>
+<p>玻璃相约占 30%，熔点低、热稳定性差；气孔约占 5% 或更高，会造成应力集中。</p>
+<div class="iw"><img src="ch2_images/10_陶瓷显微组织示意图.jpg" alt="图2-9"><div class="cap">图2-9 陶瓷显微组织示意图 — 晶体相 + 玻璃相 + 气相</div></div></section>
+
+<!-- 17: 高聚物结构 -->
+<section class="slide cs"><p class="sn">03 / 非金属</p><h2>高分子材料的结构特点</h2>
+<p><span class="hl">高聚物</span>：由许多小分子通过共价键连接形成的大分子链状有机化合物。</p>
+<p><span class="hl">单体</span>：可以聚合生成大分子链的小分子化合物。</p>
+<p><span class="hl">链节</span>：大分子链的重复结构单元。<span class="hl">聚合度</span>：链节的数量。</p>
+<p>大分子链的形态分为两种：</p>
+<div class="g2" style="margin-top:4px"><div class="c"><h3>线型结构</h3><p>长链状，可带支链<br>热塑性：可溶、可熔、可反复加工<br>如聚乙烯、聚氯乙烯</p></div>
+<div class="c"><h3>体型结构</h3><p>三维网状交联结构<br>热固性：不溶、不熔、不可反复<br>如酚醛树脂、环氧树脂</p></div></div></section>
+
+<!-- 18: 高聚物图 -->
+<section class="slide cs"><p class="sn">03 / 非金属</p><h2>高聚物的结构形态</h2>
+<div class="iw"><img src="ch2_images/11_高聚物结构示意图.jpg" alt="图2-10"><div class="cap">图2-10 高聚物结构示意图 — a)线型 b)支链型 c)体型（网状）</div></div></section>
+
+<!-- 19: 聚集态 -->
+<section class="slide cs"><p class="sn">03 / 非金属</p><h2>高聚物的聚集态结构</h2>
+<div class="g2" style="margin-top:4px"><div class="c"><h3>结晶型</h3><p>分子排列规整有序<br>晶区+非晶区共存<br>结晶度 50%~80%<br>密度大、强度高、耐热好</p></div>
+<div class="c"><h3>无定型</h3><p>分子排列杂乱无序<br>远程无序、近程有序<br>弹性、塑性、韧性较好</p></div></div>
+<div class="iw"><img src="ch2_images/12_高聚物的晶区与非晶区示意图.jpg" alt="图2-11"><div class="cap">图2-11 高聚物的晶区与非晶区示意图</div></div></section>
+
+<!-- 20: 三态 -->
+<section class="slide cs"><p class="sn">03 / 非金属</p><h2>线型无定型高聚物的三态</h2>
+<table><tr><th>状态</th><th>温度范围</th><th>分子状态</th><th>应用</th></tr>
+<tr><td><span class="hl">玻璃态</span></td><td>T < T_g</td><td>分子链热运动停止</td><td>塑料的使用状态</td></tr>
+<tr><td><span class="hl">高弹态</span></td><td>T_g ~ T_f</td><td>链段可内旋转</td><td>橡胶的使用状态</td></tr>
+<tr><td><span class="hl">黏流态</span></td><td>T > T_f</td><td>大分子链可自由运动</td><td>成形加工状态</td></tr></table>
+<p class="sm">T_g：玻璃化温度；T_f：黏流化温度。塑料要求 T_g > 室温，橡胶要求 T_g < 室温。</p></section>
+
+<!-- 21: 老化/降解 -->
+<section class="slide cs"><p class="sn">03 / 非金属</p><h2>高分子材料的老化与降解</h2>
+<p><span class="hl">老化</span>：在热、光、化学、生物和辐射等作用下，高聚物结构和性能发生变化（硬化、脆化、发软、发黏）。</p>
+<p>老化实质：大分子链通过<span class="hl">交联</span>或<span class="hl">降解</span>发生变化。</p>
+<p><span class="hl">降解</span>：聚合度因热、光、氧化、水解、生物等作用而降低的化学反应。</p>
+<p>降解使材料软化、发黏（有害）；但合理利用降解可减少环境污染（有利）。</p></section>
+
+<!-- 22: SECTION -->
+<section class="slide ss"><div class="sn">04</div><h2>金属的结晶与细晶强化</h2><p class="sub">Crystallization & Grain Refinement</p></section>
+
+<!-- 23: 结晶过程 -->
+<section class="slide cs"><p class="sn">04 / 结晶</p><h2>结晶的基本过程</h2>
+<p><span class="hl">结晶</span>：金属从液态变为固态的过程，原子从无序排列变为有序排列。</p>
+<p>结晶的两个基本阶段：</p>
+<div class="g2" style="margin-top:4px"><div class="c"><h3>① 形核</h3><p>自发形核：金属自身原子团形成晶核<br>非自发形核：依附外来固体杂质形成晶核</p></div>
+<div class="c"><h3>② 长大</h3><p>晶核长大，形成树枝状晶体（枝晶）<br>多个晶核同时长大，直至液体消耗完毕</p></div></div>
+<div class="iw"><img src="ch2_images/14_结晶过程示意图.jpg" alt="图2-13"><div class="cap">图2-13 结晶过程示意图 — 形核→长大→形成多晶体</div></div></section>
+
+<!-- 24: 冷却曲线 -->
+<section class="slide cs"><p class="sn">04 / 结晶</p><h2>结晶温度与过冷度</h2>
+<p><span class="hl">平衡结晶温度</span> T_m：液态和晶体处于动平衡状态时的温度。</p>
+<p><span class="hl">实际结晶温度</span> T₁：总是低于 T_m。</p>
+<p><span class="hl">过冷度</span> ΔT = T_m − T₁。冷却速度越快，过冷度越大。</p>
+<p class="sm">结晶潜热的释放使冷却曲线上出现水平线段（温度恒定平台）。</p>
+<div class="iw"><img src="ch2_images/15_金属的冷却曲线.jpg" alt="图2-14"><div class="cap">图2-14 金属的冷却曲线 — 实际结晶温度的测定</div></div></section>
+
+<!-- 25: 细晶强化 -->
+<section class="slide cs"><p class="sn">04 / 结晶</p><h2>细晶强化</h2>
+<p><span class="hl">细晶强化</span>：晶粒越细，金属的强度、硬度、塑性和韧性越高。</p>
+<p>细化晶粒的三种方法：</p>
+<div class="g3"><div class="c"><h3>提高冷却速度</h3><p>增大过冷度<br>形核速度 > 长大速度</p></div>
+<div class="c"><h3>变质处理</h3><p>加入变质剂（孕育剂）<br>作为人工晶核</p></div>
+<div class="c"><h3>振动搅拌</h3><p>机械振动<br>超声振动、电磁振动</p></div></div>
+<p class="sm" style="margin-top:8px">合金结晶易产生枝晶偏析——可通过"扩散退火"消除。</p></section>
+
+<!-- 26: SECTION -->
+<section class="slide ss"><div class="sn">05</div><h2>同素异构转变</h2><p class="sub">Allotropic Transformation</p></section>
+
+<!-- 27: 铁的同素异构 -->
+<section class="slide cs"><p class="sn">05 / 同素异构</p><h2>铁的同素异构转变</h2>
+<p><span class="hl">同素异构</span>：同一元素在固态下因温度改变而发生晶格改变的现象。</p>
+<p>铁在固态下随温度变化有三种晶格形式：</p>
+<table><tr><th>温度区间</th><th>晶格形式</th><th>名称</th></tr>
+<tr><td>1538 ~ 1394 °C</td><td>体心立方 (bcc)</td><td>δ-Fe</td></tr>
+<tr><td>1394 ~ 912 °C</td><td>面心立方 (fcc)</td><td>γ-Fe</td></tr>
+<tr><td>912 °C 以下</td><td>体心立方 (bcc)</td><td>α-Fe</td></tr></table>
+<p class="hl" style="font-size:26px;margin-top:8px">铁的同素异构转变是钢铁材料能够进行热处理的根本原因！</p></section>
+
+<!-- 28: 铁的同素异构图 -->
+<section class="slide cs"><p class="sn">05 / 同素异构</p><h2>铁的同素异构转变冷却曲线</h2>
+<div class="iw"><img src="ch2_images/16_铁的同素异构转变冷却曲线.jpg" alt="图2-15"><div class="cap">图2-15 铁的同素异构转变冷却曲线</div></div>
+<p class="sm" style="margin-top:8px">石英等无机非金属也存在同质多晶转变（α-石英 ↔ β-石英等）。同分异构是有机物中成分相同而分子结构不同的现象。</p></section>
+
+<!-- 29: SECTION 相图 -->
+<section class="slide ss"><div class="sn">06</div><h2>铁碳合金相图</h2><p class="sub">Fe-Fe₃C Phase Diagram</p></section>
+
+<!-- 30: 二元相图基础 -->
+<section class="slide cs"><p class="sn">06 / 相图</p><h2>二元合金相图基础</h2>
+<p><span class="hl">相图</span>（状态图/平衡图）：描述合金系中合金状态与温度、成分之间的关系。</p>
+<p>用热分析法建立相图的步骤：配制不同成分合金 → 测冷却曲线 → 标临界点 → 连接成曲线。</p>
+<p>四种常见二元相图：</p>
+<div class="g2" style="margin-top:4px"><div class="c"><h3>匀晶相图</h3><p>液态/固态均无限互溶<br>Cu-Ni 合金</p></div>
+<div class="c"><h3>共晶相图</h3><p>液态互溶、固态有限互溶<br>有共晶反应，Pb-Sn 合金</p></div>
+<div class="c"><h3>共析相图</h3><p>固相→两种新固相<br>类似共晶反应</p></div>
+<div class="c"><h3>稳定化合物</h3><p>形成稳定化合物<br>可作为独立组元</p></div></div></section>
+
+<!-- 31: 共晶共析 -->
+<section class="slide cs"><p class="sn">06 / 相图</p><h2>共晶反应与共析反应</h2>
+<div class="g2" style="margin-top:4px"><div class="c"><h3>共晶反应</h3><p>液态 → 两种固相</p><div class="fb">L_E → (α_C+β_D)</div><p>恒温下进行<br>如 Pb-Sn 共晶<br>得到莱氏体组织</p></div>
+<div class="c"><h3>共析反应</h3><p>一种固相 → 两种新固相</p><div class="fb">γ_E → (α_C+β_D)</div><p>类似共晶，但反应物为固相<br>得到珠光体组织</p></div></div></section>
+
+<!-- 32: Fe-Fe3C 相图 -->
+<section class="slide cs"><p class="sn">06 / 相图</p><h2>Fe-Fe₃C 相图</h2>
+<p>铁碳合金由铁和碳两基本组元组成。碳质量分数 &gt; 6.69% 时合金太脆无法应用。</p>
+<p><span class="hl">碳钢</span>：C% = 0.02% ~ 2.11% &nbsp;|&nbsp; <span class="hl">铸铁</span>：C% &gt; 2.11%</p>
+<p class="sm">铁碳合金相图是研究钢铁材料成分-组织-性能关系的重要工具，对制订热加工工艺有重要指导意义。</p>
+<div class="iw"><img src="ch2_images/21_简化后的_Fe-Fe3_C_相图.jpg" alt="图2-20"><div class="cap">图2-20 简化后的 Fe-Fe₃C 相图</div></div></section>
+
+<!-- 33: 基本组织 -->
+<section class="slide cs"><p class="sn">06 / 相图</p><h2>铁碳合金的五种基本组织</h2>
+<table><tr><th>组织名称</th><th>符号</th><th>本质</th><th>碳含量</th><th>性能特点</th></tr>
+<tr><td><span class="hl">铁素体</span></td><td>F 或 α</td><td>C 在 α-Fe 中的固溶体</td><td>≤ 0.0218%</td><td>强度低、塑性好</td></tr>
+<tr><td><span class="hl">奥氏体</span></td><td>A 或 γ</td><td>C 在 γ-Fe 中的固溶体</td><td>≤ 2.11%</td><td>硬度低、塑性高（高温组织）</td></tr>
+<tr><td><span class="hl">渗碳体</span></td><td>Fe₃C</td><td>铁碳化合物</td><td>6.69%</td><td>硬度很高、脆性极大</td></tr>
+<tr><td><span class="hl">珠光体</span></td><td>P</td><td>铁素体+渗碳体混合物</td><td>0.77%</td><td>力学性能良好</td></tr>
+<tr><td><span class="hl">莱氏体</span></td><td>Ld / Ld'</td><td>奥氏体+渗碳体混合物</td><td>4.3%</td><td>脆性组织</td></tr></table></section>
+
+<!-- 34: 特性点 -->
+<section class="slide cs"><p class="sn">06 / 相图</p><h2>Fe-Fe₃C 相图的特性点</h2>
+<p>相图中字母标出的点称为<span class="hl">特性点</span>，表示特定的成分和温度：</p>
+<table><tr><th>特性点</th><th>温度 (°C)</th><th>C 含量 (%)</th><th>含义</th></tr>
+<tr><td>A</td><td>1538</td><td>0</td><td>纯铁的熔点</td></tr>
+<tr><td>C</td><td>1148</td><td>4.30</td><td>共晶点</td></tr>
+<tr><td>D</td><td>1227</td><td>6.69</td><td>渗碳体的熔点</td></tr>
+<tr><td>E</td><td>1148</td><td>2.11</td><td>碳在 γ-Fe 中的最大溶解度</td></tr>
+<tr><td>S</td><td>727</td><td>0.77</td><td>共析点</td></tr>
+<tr><td>G</td><td>912</td><td>0</td><td>α-Fe ↔ γ-Fe 同素异构转变点</td></tr></table></section>
+
+<!-- 35: 分类 -->
+<section class="slide cs"><p class="sn">06 / 相图</p><h2>铁碳合金按碳含量的分类</h2>
+<table><tr><th>分类</th><th>C 含量 (%)</th><th>室温组织</th></tr>
+<tr><td>工业纯铁</td><td>&lt; 0.0218</td><td>铁素体</td></tr>
+<tr><td><span class="hl">亚共析钢</span></td><td>0.0218 ~ 0.77</td><td>铁素体 + 珠光体</td></tr>
+<tr><td><span class="hl">共析钢</span></td><td>0.77</td><td>珠光体</td></tr>
+<tr><td><span class="hl">过共析钢</span></td><td>0.77 ~ 2.11</td><td>渗碳体 + 珠光体</td></tr>
+<tr><td>亚共晶铸铁</td><td>2.11 ~ 4.3</td><td>莱氏体 + 珠光体 + 渗碳体</td></tr>
+<tr><td><span class="hl">共晶铸铁</span></td><td>4.3</td><td>莱氏体</td></tr>
+<tr><td>过共晶铸铁</td><td>4.3 ~ 6.69</td><td>莱氏体 + 渗碳体</td></tr></table></section>
+
+<!-- 36: 组织图 -->
+<section class="slide cs"><p class="sn">06 / 相图</p><h2>共析钢与亚共析钢的显微组织</h2>
+<div class="g2" style="margin-top:4px"><div class="c"><h3>共析钢 (0.77%C)</h3><p>珠光体组织（铁素体+渗碳体片层）<br>片层间距越小，强度越高</p></div>
+<div class="c"><h3>亚共析钢 (~0.45%C)</h3><p>白色铁素体 + 黑色珠光体<br>铁素体量随C%降低而增加</p></div></div>
+<div class="g2" style="margin-top:4px"><div class="iw"><img src="ch2_images/23_共析钢的显微组织图.jpg" alt="共析钢"><div class="cap">图2-24 共析钢显微组织 (400×)</div></div>
+<div class="iw"><img src="ch2_images/24_亚共析钢的显微组织图.jpg" alt="亚共析钢"><div class="cap">图2-25 亚共析钢显微组织 (400×)</div></div></div>
+</section>
+
+<section class="slide cs"><p class="sn">06 / 相图</p><h2>过共析钢与铸铁的显微组织</h2>
+<div class="g2" style="margin-top:4px"><div class="c"><h3>过共析钢 (~1.2%C)</h3><p>网状渗碳体 + 珠光体<br>渗碳体网使脆性增大</p></div>
+<div class="c"><h3>共晶铸铁 (4.3%C)</h3><p>莱氏体组织<br>渗碳体含量高，呈脆性</p></div></div>
+<div class="g2" style="margin-top:4px"><div class="iw"><img src="ch2_images/25_过共析钢的显微组织图.jpg" alt="过共析钢"><div class="cap">图2-26 过共析钢显微组织 (400×)</div></div>
+<div class="iw"><img src="ch2_images/26_共晶铸铁显微组织图.jpg" alt="共晶铸铁"><div class="cap">图2-27 共晶铸铁显微组织 (400×)</div></div></div>
+</section>
+
+<section class="slide cs"><p class="sn">06 / 相图</p><h2>成分-组织-性能的对应关系</h2>
+<div class="iw"><img src="ch2_images/29_铁碳合金的成分、组织和性能的对应关系.jpg" alt="成分-组织-性能"><div class="cap">图2-29 铁碳合金的成分、组织和性能的对应关系</div></div>
+<p class="sm" style="margin-top:8px">随着碳含量增加：渗碳体量↑ → 硬度↑、强度先升后降、塑性↓。<br>钢适宜压力加工成形，铸铁适宜铸造成形。</p></section>
+
+<!-- 37: 小结 -->
+<section class="slide ss"><div class="sn">07</div><h2>本章小结</h2><p class="sub">Summary</p></section>
+
+<!-- 38: 小结 -->
+<section class="slide cs"><p class="sn">本章小结</p><h2>核心要点回顾</h2>
+<p>① <span class="hl">晶体</span>周期排列、固定熔点、各向异性 ↔ 非晶体无序、无固定熔点、各向同性</p>
+<p>② 三种晶格：<span class="hl">bcc</span>（α-Fe、Cr、W）、<span class="hl">fcc</span>（γ-Fe、Al、Cu）、<span class="hl">hcp</span>（Mg、Zn）</p>
+<p>③ 晶体缺陷：点（空位→晶格畸变）、线（位错→强度）、面（晶界→过渡层）</p>
+<p>④ 合金相：<span class="hl">固溶体</span>（固溶强化）+ <span class="hl">金属化合物</span>（弥散强化）</p>
+<p>⑤ 陶瓷：晶体相+玻璃相+气相；高聚物：线型(热塑性) vs 体型(热固性)；三态：玻璃态/高弹态/黏流态</p>
+<p>⑥ <span class="hl">细晶强化</span>：晶粒越细强度越高（提高冷速、变质处理、振动搅拌）</p>
+<p>⑦ 铁的同素异构：α-Fe(bcc) ↔ γ-Fe(fcc) ↔ δ-Fe(bcc) — 热处理的理论基础</p>
+<p>⑧ <span class="hl">Fe-Fe₃C 相图</span>：特性点(A~G)、钢(&lt;2.11%C) vs 铸铁(&gt;2.11%C)、五种基本组织</p></section>
+
+</div></div>
+
+<nav class="ctrl"><button id="prev">&#8592;</button><span class="pi" id="pi">1/40</span><button id="next">&#8594;</button></nav>
+<div class="ez" id="ez"></div><button class="eb" id="eb">编辑文字</button>
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script>
+(function(){
+var sl=document.querySelectorAll('.slide'),cur=0,pi=document.getElementById('pi'),sg=document.getElementById('stg'),vp=document.querySelector('.vp');
+function go(i){
+  cur=Math.max(0,Math.min(i,sl.length-1));
+  for(var j=0;j<sl.length;j++)sl[j].classList.toggle('a',j===cur);
+  pi.textContent=(cur+1)+'/'+sl.length;
+  try{renderMathInElement(document.body)}catch(e){}
+}
+function sz(){var sc=Math.min(vp.clientWidth/1920,vp.clientHeight/1080);sg.style.transform='translate('+(vp.clientWidth-1920*sc)/2+'px,'+(vp.clientHeight-1080*sc)/2+'px) scale('+sc+')'}
+document.getElementById('next').onclick=function(){go(cur+1)};
+document.getElementById('prev').onclick=function(){go(cur-1)};
+document.addEventListener('keydown',function(e){
+  if(e.key==='ArrowRight'||e.key==='ArrowDown'||e.key===' '){e.preventDefault();go(cur+1)}
+  if(e.key==='ArrowLeft'||e.key==='ArrowUp'){e.preventDefault();go(cur-1)}
+});
+document.addEventListener('wheel',function(e){if(e.deltaY>0)go(cur+1);else go(cur-1)},{passive:true});
+window.addEventListener('resize',sz);sz();go(0);
+(function(){var eb=document.getElementById('eb'),ez=document.getElementById('ez'),ac=false,timer=null;
+function tog(){ac=!ac;eb.classList.toggle('a',ac);eb.textContent=ac?'退出编辑':'编辑文字';document.querySelector('.slide.a').querySelectorAll('h1,h2,h3,h4,p,li,td,th,span.hl,div.c h3,.sn,.tag,.sm,.sub,.cap').forEach(function(el){el.contentEditable=ac?'true':'false'})}
+eb.onclick=tog;ez.onmouseenter=function(){clearTimeout(timer);eb.classList.add('s')};
+ez.onmouseleave=function(){timer=setTimeout(function(){if(!ac)eb.classList.remove('s')},400)};
+eb.onmouseenter=function(){clearTimeout(timer)};eb.onmouseleave=function(){timer=setTimeout(function(){if(!ac)eb.classList.remove('s')},400)};ez.onclick=tog;
+document.addEventListener('keydown',function(e){if((e.key==='e'||e.key==='E')&&!e.target.closest('[contenteditable]')){e.preventDefault();tog()};if(e.ctrlKey&&e.key==='s'){e.preventDefault();alert('已保存')}});
+})();
+})();
+</script></body></html>
